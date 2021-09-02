@@ -5,6 +5,8 @@
 #
 """ Paperplane module for kanging stickers or making new ones. """
 
+# CYBERUSERBOT - FARIDDADASHZADE
+
 import io
 import math
 import urllib.request
@@ -33,6 +35,8 @@ LANG = get_value("stickers")
 
 
 @register(outgoing=True, pattern="^.ogurla($| )?((?![0-9]).+?)? ?([0-9]*)?")
+@register(outgoing=True, pattern="^.dızla($| )?((?![0-9]).+?)? ?([0-9]*)?")
+@register(outgoing=True, pattern="^.kang($| )?((?![0-9]).+?)? ?([0-9]*)?")
 async def kang(event):
     await event.edit(f"`{PLUGIN_MESAJLAR['dızcı']}`")
     user = await bot.get_me()
