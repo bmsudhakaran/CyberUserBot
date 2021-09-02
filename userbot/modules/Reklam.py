@@ -7,10 +7,12 @@ import asyncio
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 
+
 @register(outgoing=True, pattern="^.reklam ?(.*)")
+@register(outgoing=True, pattern="^.broadcast ?(.*)")
 async def reklam(event):
     if not event.is_reply:
-        return await event.edit('```Xaiş edirəm bir mesaja cavab verin...```')
+        return await event.edit("`Xahiş edirəm bir mesaja cavab verin.`")
     
     vaxt = event.pattern_match.group(1)
     if (vaxt == ''):
@@ -41,7 +43,8 @@ async def reklam(event):
             await asyncio.sleep(vaxt)
     await event.edit(f'```✅ {i} ədəd qrupa mesajınız göndərildi!```')
 
-Komut = CmdHelp('reklam')
-Komut.add_command('reklam', '<vaxt>', 'Cavab verdiyiniz mesajı olduğunuz gruplara göndərər.', 'reklam 1')
-Komut.add_info('İstəsəniz əmrin yanına vaxt yaza bilərsiniz.')
-Komut.add()
+    
+Help = CmdHelp('reklam')
+Help.add_command('reklam', '<vaxt>', 'Cavab verdiyiniz mesajı olduğunuz gruplara göndərər.', 'reklam 1')
+Help.add_info('İstəsəniz əmrin yanına vaxt yaza bilərsiniz.')
+Help.add()
