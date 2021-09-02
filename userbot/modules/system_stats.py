@@ -10,6 +10,7 @@ from asyncio import create_subprocess_shell as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
 from platform import uname
 from shutil import which
+import time
 from os import remove
 from userbot import (CMD_HELP, CYBER_VERSION, DEFAULT_NAME, StartTime, ALIVE_NAME)
 from userbot.events import register
