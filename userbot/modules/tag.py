@@ -6,48 +6,102 @@ FARIDXZ
 from telethon.tl.types import ChannelParticipantsAdmins as cp
 from userbot import CMD_HELP, bot
 from userbot.events import register
-from userbot.cmdhelp import CmdHelp 
-from userbot import CYBER_VERSION
+from userbot.cmdhelp import CmdHelp
 from time import sleep
 
-@register(outgoing=True, pattern="^.tag(?: |$)(.*)")
-async def tagger(cyber):
-	if cyber.fwd_from:
-		return
+dayandir = False
+msjcgr = None
+taglimit = 100
 
-	if cyber.pattern_match.group(1):
-		seasons = cyber.pattern_match.group(1)
+@register(outgoing=True, pattern="^.tag(?: |$)(.*)")
+async def _(q):
+	global dayandir
+	global msjcgr
+	if q.fwd_from:
+		return
+	if q.pattern_match.group(1):
+		seasons = q.pattern_match.group(1)
 	else:
 		seasons = ""
 
-	chat = await cyber.get_input_chat()
+	chat = await q.get_input_chat()
 	a_=0
-	await cyber.delete()
+	msjcgr = True
+	await q.delete()
 	async for i in bot.iter_participants(chat):
-		if a_ == 500:
+		if dayandir:
+			dayandir=False
+			msjcgr = None
+			break
+		if a_ == allLimit:
+			dayandir=False
+			msjcgr = None
 			break
 		a_+=1
-		await cyber.client.send_message(cyber.chat_id, "[{}](tg://user?id={}) {}".format(i.first_name, i.id, seasons))
-		sleep(1)
+		await q.client.send_message(q.chat_id, "[{}](tg://user?id={}) {}".format(i.first_name, i.id, seasons))
+		if taglimit <= 100:
+			sleep(1)
+		if taglimit > 100:
+			sleep(2)
 
 
 @register(outgoing=True, pattern="^.alladmin(?: |$)(.*)")
-async def _(cyber):
-	if cyber.fwd_from:
-		return
-	
+async def _(q):
+	global dayandir
+	global msjcgr
 
-	if cyber.pattern_match.group(1):
-		seasons = cyber.pattern_match.group(1)
+	if q.fwd_from:
+		return
+	if q.pattern_match.group(1):
+		seasons = q.pattern_match.group(1)
 	else:
 		seasons = ""
 
-	chat = await cyber.get_input_chat()
+	chat = await q.get_input_chat()
 	a_=0
-	await cyber.delete()
+	msjcgr = True
+	await q.delete()
 	async for i in bot.iter_participants(chat, filter=cp):
-		if a_ == 500:
+		if dayandir:
+			dayandir=False
+			msjcgr = None
+			break
+		if a_ == allLimit:
+			dayandir=False
+			msjcgr = None
 			break
 		a_+=1
-		await cyber.client.send_message(cyber.chat_id, "[{}](tg://user?id={}) {}".format(i.first_name, i.id, seasons))
-		sleep(1)
+		await q.client.send_message(q.chat_id, "[{}](tg://user?id={}) {}".format(i.first_name, i.id, seasons))
+		if taglimit <= 100:
+			sleep(1)
+		if taglimit > 100:
+			sleep(2)
+
+@register(outgoing=True, pattern="^.stop$")
+async def _(q):
+	global dayandir
+	if msjcgr == None:
+		await q.edit("`Siz tag prosesini başlatmamısınız.`")
+		return
+
+	dayandir = True
+	await q.edit("`Tag prosesi dayandırıldı!`")
+	
+
+@register(outgoing=True, pattern=".taglimit(?: |$)(.*)$")
+async def _(q):
+	global taglimit
+	if q.pattern_match.group(1):
+		pass
+
+	else:
+		return await q.edit("`Xahiş edirəm bir dəyər verin.`")
+
+	try:
+		limit=int(q.pattern_match.group(1))
+	except:
+		await q.edit("`Xahiş edirəm bir dəyər verin.`")
+		return
+
+	taglimit=limit
+	await q.edit("`Tag etmə limitiniz {}-ə ayarlandı.`".format(str(limit)))
