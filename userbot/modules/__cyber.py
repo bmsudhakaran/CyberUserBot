@@ -16,7 +16,7 @@ LANG = get_value("__cyber")
 
 # ████████████████████████████████ #
 
-@register(outgoing=True, pattern="^.cyberdi(?: |$)(.*)")
+@register(outgoing=True, pattern="^.cyber(?: |$)(.*)")
 async def cyber(event):
     """ .cyber əmri üçün """
     args = event.pattern_match.group(1).lower()
