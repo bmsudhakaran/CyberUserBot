@@ -238,7 +238,6 @@ async def ungban(un_gban):
 
 @register(outgoing=True, pattern="^.setgpic$")
 async def set_group_photo(gpic):
-    """ .setgpic komutu ile grubunuzun fotoğrafını değiştirebilirsiniz """
     if not gpic.is_group:
         await gpic.edit(LANG['PRIVATE'])
         return
@@ -276,10 +275,7 @@ async def set_group_photo(gpic):
 @register(outgoing=True, pattern="^.promote(?: |$)(.*)")
 @register(incoming=True, from_users=SUDO_ID, pattern="^.cpromote(?: |$)(.*)")
 async def promote(promt):
-    """ .promote komutu ile belirlenen kişiyi yönetici yapar """
-    # Hedef sohbeti almak
     chat = await promt.get_chat()
-    # Yetkiyi sorgula
     admin = chat.admin_rights
     creator = chat.creator
 
@@ -327,8 +323,6 @@ async def promote(promt):
 @register(outgoing=True, pattern="^.demote(?: |$)(.*)")
 @register(incoming=True, from_users=SUDO_ID, pattern="^.cdemote(?: |$)(.*)")
 async def demote(dmod):
-    """ .demote komutu belirlenen kişiyi yöneticilikten çıkarır """
-    # Yetki kontrolü
     chat = await dmod.get_chat()
     admin = chat.admin_rights
     creator = chat.creator
@@ -832,7 +826,6 @@ async def rm_deletedacc(show):
 
 @register(outgoing=True, pattern="^.admins$")
 async def get_admin(show):
-    """ .admins komutu girilen gruba ait yöneticileri listeler """
     info = await show.client.get_entity(show.chat_id)
     title = info.title if info.title else "this chat"
     mentions = f'<b>{title} {LANG["ADMINS"]}:</b> \n'
@@ -1001,7 +994,7 @@ async def get_user_from_event(event):
             user = int(user)
 
         if not user:
-            await event.edit("`Şəxsin istifadəçi adını, ID-si ni təqdim edin və ya cavab verin!!`")
+            await event.edit(LANG['PLEASE_REPLY'])
             return
 
         if event.message.entities is not None:
@@ -1035,7 +1028,6 @@ async def get_user_from_id(user, event):
 
 @register(outgoing=True, pattern="^.unwarn ?(.*)")
 async def unwarn(event):
-    """ .unwarn kullanıcıyı uyarıyı kaldırmaya işe yarar """
     # Yetki kontrolü
     chat = await event.get_chat()
     admin = chat.admin_rights
