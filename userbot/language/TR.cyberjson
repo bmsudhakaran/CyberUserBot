@@ -99,7 +99,8 @@
             "UNWARNED": "`Bu kişi zaten hiç uyarılmamış!`",
             "UNWARN": "uyarın kaldırıldı ama gene de dikkatli ol lütfen! Yeni durum:",
             "WARNING": "`Uyarı atılıyor...`",
-            "WARN": "kere uyarıldı; dikkatli ol lütfen!"
+            "WARN": "kere uyarıldı; dikkatli ol lütfen!",
+	    "PLEASE_REPLY": "`Lütfen kullanıcıya yanıt verin ve ya kullanıcı adı yazın!`"
         },
 
         "afk": {
