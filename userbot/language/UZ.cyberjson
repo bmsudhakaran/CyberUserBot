@@ -96,7 +96,8 @@
             "UNWARNED": "`Bu foydalanuvch hech qachon ogohlantirilmagan!`",
             "UNWARN": "Sizning ogohlantirishingiz olib tashlandi. Ammo baribir ehtiyot bo'ling!  Yangi vaziyat:",
             "WARNING": "`Ogohlantirish...`",
-            "WARN": "vaqt haqida ogohlantirish;  ehtiyot bo'ling iltimos!"
+            "WARN": "vaqt haqida ogohlantirish;  ehtiyot bo'ling iltimos!",
+            "PLEASE_REPLY": "`Shaxsning foydalanuvchi ismi yoki identifikatorini bering yoki javob bering!`"
         },
         "afk": {
             "REASON": "Sabab",
