@@ -99,7 +99,8 @@
             "UNWARNED": "`Bu şəxsə onsuzda heç vaxt xəbərdarlıq edilməyib!`",
             "UNWARN": "Xəbərdarlığınız silindi, amma yenə də diqqətli olun! Yeni vəziyyət:",
             "WARNING": "`Xəbərdarlıq göndərilir...`",
-            "WARN": "dəfə xəbərdar edildi; xaiş edirik diqqətli olun!"
+            "WARN": "dəfə xəbərdar edildi; xaiş edirik diqqətli olun!",
+	    "PLEASE_REPLY": "`Şəxsin istifadəçi adını, ID-si ni təqdim edin və ya cavab verin!`"
         },
 
         "afk": {
