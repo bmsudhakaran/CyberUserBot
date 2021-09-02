@@ -5,7 +5,7 @@ import os
 import time
 import zipfile
 from userbot.cmdhelp import CmdHelp
-from userbot import CYBER_VERSION
+from userbot import CYBER_VERSION, DEFAULT_NAME
 from datetime import date
 
 from userbot import TEMP_DOWNLOAD_DIRECTORY, ZIP_DOWNLOAD_DIRECTORY, bot
