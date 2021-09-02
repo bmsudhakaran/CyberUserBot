@@ -181,20 +181,8 @@
             "SETTED": "Plugin(`{plu}`) üçün mesajınız(`{msj}`) təsdiqləndi."
         },
 
-        "reklam": {
-            "PLEASE_REPLY_MSJ": "`Xahiş edirəm bir mesaja cavab verin.`",
-            "DATA": "Koronavirus Məlumatları",
-            "EARTH":"Dünyada",
-            "CASE": "🌎 Xəstə:",
-            "DEATH": "🌎 Ölüm:",
-            "HEAL": "🌎 Sağalan:",
-            "TR": "Türkiyə",
-            "TR_ALL_CASES": "Xəstə (ümumi):",
-            "TR_CASES": "Xəstə (bugün):",
-            "TR_CASE": "Xəstə (aktiv):",
-            "TR_ALL_DEATHS": "Ölüm (ümumi):",
-            "TR_DEATHS": "Ölüm (bugün):",
-            "TR_HEAL": "Sağalan:"
+        "cyberlangs": {
+            "SALIVE": "`Gif-li alive mesajı.`"
         },
 
         "deepfry":{
