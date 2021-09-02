@@ -81,3 +81,7 @@ Help.add()
 [WhoMiri](https://github.com/whomiri)
 
 #### Thanks to [Asena](https://github.com/yusufusta/AsenaUserBot) ❤️
+
+----
+##### If you want to add your own language to the repo, you can help us by clicking the link: [Click here.](https://crowdin.com/project/cyberuserbot)
+----
