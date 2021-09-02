@@ -181,20 +181,8 @@
             "SETTED": "Plugin(`{plu}`) için mesajınız(`{msj}`) ayarlandı."
         },
 
-        "covid19": {
-            "SOME_ERRORS": "`Bir hata oluştu.`",
-            "DATA": "Koronavirüs Verileri",
-            "EARTH":"Dünya geneli",
-            "CASE": "🌎 Vaka:",
-            "DEATH": "🌎 Ölüm:",
-            "HEAL": "🌎 İyileşen:",
-            "TR": "Türkiye",
-            "TR_ALL_CASES": "Vaka (toplam):",
-            "TR_CASES": "Vaka (bugün):",
-            "TR_CASE": "Vaka (aktif):",
-            "TR_ALL_DEATHS": "Ölüm (toplam):",
-            "TR_DEATHS": "Ölüm (bugün):",
-            "TR_HEAL": "İyileşen:"
+        "cyberlangs": {
+            "SALIVE": "`Gif-li alive mesajı.`"
         },
 
         "deepfry":{
