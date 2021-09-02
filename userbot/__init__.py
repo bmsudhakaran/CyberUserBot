@@ -350,6 +350,7 @@ with bot:
     CYBER_USERNAME = bot.get_me()
     istifadeci = bot.get_me()
     DEFAULT_NAME = f"{istifadeci.first_name}"
+    ALIVE_NAME = f"{istifadeci.first_name}"
     cyber_m = me.id
     SAHIB_ID = me.id
     cyber_mention = f"[{CYBER_USERNAME}](tg://user?id={cyber_m})"
