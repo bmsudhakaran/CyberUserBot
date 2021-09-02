@@ -47,5 +47,7 @@ CmdHelp('tags').add_command(
 ).add_command(
     'alladmin', '<səbəb>', 'Qrupdaki adminləri bir mesajda etiketləyər.'
 ).add_command(
-    'restart', None, 'Tag etməni dayandırar.'
+    'stop', None, 'Tag etməni dayandırar.'
+).add_command(
+    'taglimit', '<rəqəm>', 'Tag limiti ayarlayın'
 ).add()
