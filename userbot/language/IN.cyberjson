@@ -95,7 +95,8 @@
             "UNWARNED": "`This person has never been warned!`",
             "UNWARN": "your warning has been removed, but be careful please! New status:",
             "WARNING": "`Warning...`",
-            "WARN": "times warned; be careful, please!"
+            "WARN": "times warned; be careful, please!",
+            "PLEASE_REPLY": "`Provide or reply to the person's username or ID!`"
         },
         "afk": {
             "REASON": "Reason",
