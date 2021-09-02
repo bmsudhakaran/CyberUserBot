@@ -3,7 +3,6 @@
 # CYBERUSERBOT - FaridDadashzade
 #
 
-""" UserBot yardım komutu """
 
 from userbot.cmdhelp import CmdHelp
 from userbot import cmdhelp
@@ -17,7 +16,7 @@ LANG = get_value("__cyber")
 
 # ████████████████████████████████ #
 
-@register(outgoing=True, pattern="^.cyber(?: |$)(.*)")
+@register(outgoing=True, pattern="^.cyberdi(?: |$)(.*)")
 async def cyber(event):
     """ .cyber əmri üçün """
     args = event.pattern_match.group(1).lower()
@@ -28,7 +27,7 @@ async def cyber(event):
             await event.edit(LANG["NEED_PLUGIN"])
     else:
         string = ""
-        sayfa = [sorted(list(CMD_HELP))[i:i + 5] for i in range(0, len(sorted(list(CMD_HELP))), 5)]
+        sayfa = [sorted(list(CMD_HELP))[i:i + 3] for i in range(0, len(sorted(list(CMD_HELP))), 3)]
         
         for i in sayfa:
             string += f'{CYBER_EMOJI} '
