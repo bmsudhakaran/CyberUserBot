@@ -1,35 +1,37 @@
 ----
 
-<p align="center"><a href="https://t.me/TheCyberUserBot"><img src="https://telegra.ph/file/2b7c70f6a262e6bbd41ad.jpg" width="600"></a></p> 
-<h1 align="center"><b>C Y B Ξ R USΣRBOT 🇦🇿</b></h1>
+<p align="center"><a href="https://t.me/TheCyberUserBot"><img src="https://telegra.ph/file/2b7c70f6a262e6bbd41ad.jpg" width="500"></a></p> 
+<h1 align="center"><b>C Y B Ξ R USΞRBOT 🇦🇿</b></h1>
 </div>
 <p align="center">
-    C Y B Ξ R UserBot, Telegram istifadəsini asanlaşdıran bir proyektdir. Müəllif hüquqları MIT Licence ilə qorunur.
-    
+    C Y B Ξ R UserBot is a project that simplifies the use of Telegram. All rights reserved.
+
 </p>
 
 ----
 
-## Qurulum
 
-### Avtomatik Qurulum
+### Automatic Setup
 
-**Android:** Termuxu açın və bu kodu yapışdırın: `bash <(curl -L https://bit.ly/2SuGkcA)`
+**Android:** open Termux paste this code: `bash <(curl -L https://bit.ly/2SuGkcA)`
 
-**iOS:** iSH açın ve bu kodu yapışdırın: `apk update && apk add bash && apk add curl && curl -L -o cyber_installer.sh https://git.io/JYKsg && chmod +x cyber_installer.sh && bash cyber_installer.sh`
+**iOS:** open iSH paste this code: `apk update && apk add bash && apk add curl && curl -L -o cyber_installer.sh https://git.io/JYKsg && chmod +x cyber_installer.sh && bash cyber_installer.sh`
 
-**Windows** `Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://git.io/JOHQ2')`
+**Online deploy** 
+                  [![Run on Repl.it](https://repl.it/badge/github/FaridDadashzade/CyberInstaller-)](https://repl.it/@FaridDadashzade/installer-1)
 
-## Heroku
+
+## Manual Deploy - Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FaridDadashzade/CyberUserBot)
 
-### Çətin Yol
+
+### Hard way
+
 ```python
 git clone https://github.com/FaridDadashzade/CyberUserBot.git
 cd CyberUserBot
 pip install -r requirements.txt
-# Config.env yaradın və düzəldin. #
 python3 main.py
 ```
 
@@ -37,32 +39,45 @@ python3 main.py
 
 [![Run on Repl.it](https://repl.it/badge/github/FaridDadashzade/Cyber)](https://repl.it/@FaridDadashzade/Cyber)
 
-## Nümunə Plugin
+
+## Example plugin
+
 ```python
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp 
-# <-- Bunlar mütləq olmalıdır
+# <-- Let's note the imports
 
 @register(outgoing=True, pattern="^.test")
 async def test(event):
     await event.edit('C Y B Ξ R UserBot')
 
-Help = CmdHelp('test') # Məlumat yazacıq.
-Help.add_command('test', # Əmri bu şəkildə yazırıq.
+Help = CmdHelp('test') # Now let's note the information
+Help.add_command('test', # We write the order in this way.
     None,
-    'Test edir', # Bura isə əmrin açıqlamasını yazırıq.
+    'Test edir', # Here we write the explanation of the order.
     'test'
     )
-Help.add_info('@faridxz tərəfindən hazırlanmışdır.') # Bu şəkildə məlumat yaza bilərsiniz.
-Help.add_warning('Xəbərdarlıq mesajı') # Burayada xəbərdarlıq mesajı yazırıq.
+Help.add_info('@faridxz tərəfindən hazırlanmışdır.')
+Help.add_warning('Xəbərdarlıq mesajı') # We are writing a warning message here.
 Help.add()
 ```
 
 
 
-## Qeyd
+## Note
+
 ```
-    UserBot ilə əlaqəli; Telegram hesabınız bağlana bilər.
-    Bu bir açıq qaynaqlı proyektdir, CYBΞR Sahibləri və Adminləri olaraq heç bir cavabdehlik daşımırıq.
-    CYBΞR quraraq bu cavabdehlikləri qəbul etmiş sayılırsınız.
+     Associated with UserBot; Your Telegram account may be closed.
+     This is an open source project and we have no responsibility as CYBΞR Owners and Administrators.
+     By setting up CYBΞR, you are considered to have accepted these responsibilities.
+     
+     If you use repo, don't forget to put a star on the repo as a sign of respect.
 ```
+
+
+### Credits:
+
+[FaridDadashzade](https://github.com/FaridDadashzade)
+[WhoMiri](https://github.com/whomiri)
+
+#### Thanks to [Asena](https://github.com/yusufusta/AsenaUserBot) ❤️
