@@ -33,7 +33,7 @@ async def _(q):
 			dayandir=False
 			msjcgr = None
 			break
-		if a_ == allLimit:
+		if a_ == taglimit:
 			dayandir=False
 			msjcgr = None
 			break
@@ -66,7 +66,7 @@ async def _(q):
 			dayandir=False
 			msjcgr = None
 			break
-		if a_ == allLimit:
+		if a_ == taglimit:
 			dayandir=False
 			msjcgr = None
 			break
