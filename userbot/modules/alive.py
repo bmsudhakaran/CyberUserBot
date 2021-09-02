@@ -1,6 +1,7 @@
 # Copyright 2021 (C) CYBERUSERBOT
 #
 # Farid Dadashzade - CyberUserBot
+#
 
 import time
 from asyncio import create_subprocess_exec as asyncrunapp
@@ -20,6 +21,13 @@ from userbot import (
 
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
+
+
+# ---------------------------------- #
+from userbot.language import get_value
+LANG = get_value("cyberlangs")
+# ---------------------------------- #
+
 
 async def get_readable_time(seconds: int) -> str:
     count = 0
@@ -50,9 +58,6 @@ async def get_readable_time(seconds: int) -> str:
 async def salive(alive):
     user = await bot.get_me()
     islememuddeti = await get_readable_time((time.time() - StartTime))
-    #uid = user.id
-    #cyber_m = uid.id
-    #cyber_mention = f"{user.first_name}](tg://user?id={cyber_m})"
     kecid = (
         f"**{ALIVE_TEXT}** \n"
         f"┏━━━━━━━━━━━━━━━━━━━━━━\n"
@@ -106,7 +111,8 @@ async def jarvisalive(jarvis):
             return
     else:
         return 
-               
+
+    
 Help = CmdHelp('salive')
-Help.add_command('salive', None, 'Gif-li alive mesajı')
+Help.add_command('salive', None, (LANG['SALIVE'])
 Help.add()
