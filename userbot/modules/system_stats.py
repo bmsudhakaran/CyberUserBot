@@ -4,14 +4,14 @@
 # you may not use this file except in compliance with the License.
 #
 
-# C Y B Σ R
+# C Y B Ξ R
 
 from asyncio import create_subprocess_shell as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
 from platform import uname
 from shutil import which
 from os import remove
-from userbot import (CMD_HELP, CYBER_VERSION, DEFAULT_NAME)
+from userbot import (CMD_HELP, CYBER_VERSION, DEFAULT_NAME, StartTime, ALIVE_NAME)
 from userbot.events import register
 from userbot.main import PLUGIN_MESAJLAR
 from telethon import version
@@ -27,6 +27,32 @@ LANG = get_value("system_stats")
 
 # ████████████████████████████████ #
 # ============================================
+
+
+async def get_readable_time(seconds: int) -> str:
+    count = 0
+    up_time = ""
+    time_list = []
+    time_suffix_list = ["saniyə", "dəqiqə", "saat", "gün"]
+
+    while count < 4:
+        count += 1
+        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
+        if seconds == 0 and remainder == 0:
+            break
+        time_list.append(int(result))
+        seconds = int(remainder)
+
+    for x in range(len(time_list)):
+        time_list[x] = str(time_list[x]) + time_suffix_list[x]
+    if len(time_list) == 4:
+        up_time += time_list.pop() + ", "
+
+    time_list.reverse()
+    up_time += ", ".join(time_list)
+
+    return up_time
+
 
 @register(outgoing=True, pattern="^.sysd$")
 async def sysdetails(sysd):
@@ -50,7 +76,6 @@ async def sysdetails(sysd):
 
 @register(outgoing=True, pattern="^.botver$")
 async def bot_ver(event):
-    """ .botver komutu bot versiyonunu gösterir. """
     if which("git") is not None:
         invokever = "git describe --all --long"
         ver = await asyncrunapp(
@@ -80,7 +105,7 @@ async def bot_ver(event):
                          "`")
     else:
         await event.edit(
-            "C Y B Σ R 🐺"
+            "C Y B Ξ R"
         )
 
 
@@ -129,6 +154,7 @@ async def pipcheck(pip):
 @register(outgoing=True, pattern="^.alive$")
 async def amialive(e):
         sahibb = f"{DEFAULT_NAME}"
+        islememuddeti = await get_readable_time((time.time() - StartTime))
         me = await e.client.get_me()
         if type(PLUGIN_MESAJLAR['alive']) == str:
             await e.edit(PLUGIN_MESAJLAR['alive'].format(
@@ -150,6 +176,7 @@ async def amialive(e):
                     telethon=version.__version__,
                     python=python_version(),
                     cyber=CYBER_VERSION,
+                    ad=ALIVE_NAME,
                     plugin=len(CMD_HELP),
                     id=me.id,
                     username='@' + me.username if me.username else f'[{me.first_name}](tg://user?id={me.id})',
@@ -171,5 +198,5 @@ CmdHelp('system_stats').add_command(
 ).add_command(
     'pip', '<modül(ler)>', 'Pip modullarında axtarış edər.'
 ).add_command(
-    'alive', None, 'C Y B Σ R botunun işləyib işləmədiyini kontrol etmək üçün.'
+    'alive', None, 'C Y B Ξ R botunun işləyib işləmədiyini kontrol etmək üçün.'
 ).add()
