@@ -170,20 +170,8 @@
             "CANNOT_EMPTY": "Plugin xabari bo'sh bo'lishi mumkin emas.",
             "SETTED": "Plugin(`{}`) uchun xabaringiz(`{}`) sozlandı."
         },
-        "covid19": {
-            "SOME_ERRORS": "`Biroz xatolik uchradi.`",
-            "DATA": "Koronavirus ma'lumotlari ",
-            "EARTH": "Butun dunyo",
-            "CASE": "🌎 Kasalllar:",
-            "DEATH": "🌎 O'lim:",
-            "HEAL": "🌎 Davolangan:",
-            "TR": "Turkiya",
-            "TR_ALL_CASES": "Kasallanish (to'plam):",
-            "TR_CASES": "Kasaolanish (bugun):",
-            "TR_CASE": "Kasallanish (aktiv)",
-            "TR_ALL_DEATHS": "O'lim (to'plam):",
-            "TR_DEATHS": "O'lim (bugun):",
-            "TR_HEAL": "Davolangan:"
+        "cyberlangs": {
+            "SALIVE": "`Gif bilan jonli xabar.`",
         },
         "deepfry": {
             "CANT_DEEPFRY": "`Bunni deepfry qilaolmaydi`",
