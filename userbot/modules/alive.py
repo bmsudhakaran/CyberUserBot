@@ -112,7 +112,7 @@ async def jarvisalive(jarvis):
     else:
         return 
 
-    
-Help = CmdHelp('salive')
-Help.add_command('salive', None, (LANG['SALIVE'])
-Help.add()
+        
+CmdHelp('salive').add_command(
+    'salive', None, (LANG['SALIVE'])
+).add()
