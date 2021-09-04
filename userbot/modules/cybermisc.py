@@ -162,19 +162,29 @@ async def pm(event):
         await event.edit("@TheCyberUserBot mesajınızı göndərə bilmədi :(")
         
 
-@register(outgoing=True, pattern="^.undelete(?: |$)(.*)")
-async def undelete(event):
+@register(outgoing=True, groups_only=True, pattern="^.undelete(?: |$)(.*)")
+async def _(event):
+    if event.fwd_from:
+        return
     if event.fwd_from:
         return
     c = await event.get_chat()
     if c.admin_rights or c.creator:
-        a = await bot.get_admin_log(event.chat_id, limit=5, search="", edit=False, delete=True)
+        a = await event.client.get_admin_log(
+            event.chat_id, limit=10, edit=False, delete=True
+        )
+        silinen_msjlar = "Bu qrupdaki silinmiş 10 mesaj:\n\n"
         for i in a:
-            await event.reply(i.original.action.message)
+            silinen_msjlar += "\n💥{}".format(i.old.message)
+        await event.edit(silinen_msjlar)
     else:
-        await event.edit("Bu əmri yerinə yetirmək üçün admin olmalısınız!")
-        await asyncio.sleep(3)
-        await event.delete()
+        await event.edit("Bunu etmək üçün admin olmalısınız."
+        )
+        await sleep(3)
+        try:
+            await event.delete()
+        except:
+            pass
 	
 
 @register(outgoing=True, groups_only=True, disable_errors=True, pattern=r"^\.unbanall(?: |$)(.*)")
