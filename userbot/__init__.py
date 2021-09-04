@@ -250,6 +250,12 @@ WHITELIST = get('https://raw.githubusercontent.com/FaridDadashzade/deploy/main/w
 SUPPORT = [1527722982, 1888724877, 979515849]
 GETBRAIN = get('https://gitlab.com/whomiri/cybersec/-/raw/master/checker.json').json()
 
+
+BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
+
+if not BLACKLIST_CHAT:
+    BLACKLIST_CHAT = [-1001357863496]
+
 # CloudMail.ru və MEGA.nz ayarlama
 if not os.path.exists('bin'):
     os.mkdir('bin')
