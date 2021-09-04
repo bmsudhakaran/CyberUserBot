@@ -7,7 +7,6 @@ from userbot.cmdhelp import CmdHelp
 usernexp = re.compile(r"@(\w{3,32})\[(.+?)\]")
 nameexp = re.compile(r"\[([\w\S]+)\]\(tg://user\?id=(\d+)\)\[(.+?)\]")
 
-
 @register(outgoing=True, ignore_unsafe=True, disable_errors=True)
 async def mention(event):
     newstr = event.text
@@ -41,4 +40,4 @@ async def mention(event):
 
 
 Help = CmdHelp('mention')
-Help.add_command('@istifadeçiadı[istədiyiniz ad/söz]',  None, 'İstifadəçilərə istədiyiniz kimi ad verin.\n⚠️Nümunə: @Luciferxz[Lucifer]').add()
+Help.add_command('@istifadeçiadı[istədiyiniz ad/söz]',  None, 'İstifadəçilərə istədiyiniz kimi ad verin.\n⚠️Nümunə: @TheCyberUserBot[CYBER]').add()
