@@ -79,7 +79,7 @@ async def echosiyah(event):
             )
     else:
         output_str = "Bu istifadəçi Echo deyil "
-    if len(output_str) str MAX_MESSAGE_SIZE_LIMIT:
+    if len(output_str) in MAX_MESSAGE_SIZE_LIMIT:
         key = (
             requests.post(
                 "https://nekobin.com/api/documents", json={"content": output_str}
