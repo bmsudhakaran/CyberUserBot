@@ -17,7 +17,7 @@ from userbot.modules.sql_helper.echo_sql import (
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 
-MAX_MESSAGE_SIZE_LIMIT = "4096"
+MAX_MESSAGE_SIZE_LIMIT = 4095
 
 @register(cyber=True, pattern=r"^\.echo(?: |$)(.*)")
 async def echo(event):
@@ -79,7 +79,7 @@ async def echosiyah(event):
             )
     else:
         output_str = "Bu istifadəçi Echo deyil "
-    if len(output_str) in MAX_MESSAGE_SIZE_LIMIT:
+    if len(output_str) > MAX_MESSAGE_SIZE_LIMIT:
         key = (
             requests.post(
                 "https://nekobin.com/api/documents", json={"content": output_str}
