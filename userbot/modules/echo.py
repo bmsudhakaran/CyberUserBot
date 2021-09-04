@@ -91,7 +91,7 @@ async def echosiyah(event):
         reply_text = f"Echo aktiv edilən istifadəçilər [buradadır.]({url})"
         await event.edit(reply_text)
     else:
-        await event.edit(outputstr)      
+        await event.edit(output_str)      
     
         
 
