@@ -25,7 +25,7 @@ def c_echo(user_id, chat_id):
         SESSION.close()
 
 
-def ehcosiyahisi():
+def echosiyahisi():
     try:
         return SESSION.query(ECHOSQL).all()
     except BaseException:
