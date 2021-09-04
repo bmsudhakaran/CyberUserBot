@@ -65,7 +65,6 @@ async def echosil(event):
         await event.edit("`Echo siyahısından silə bilməyim üçün bir istifadəçinin mesajına cavab verin.`")
 
 
-        
 @register(cyber=True, pattern="^.echosiyahi ?(.*)")
 async def echosiyah(event):
     if event.fwd_from:
@@ -75,7 +74,7 @@ async def echosiyah(event):
         output_str = "Echo aktiv edilən istifadəçilər:\n\n"
         for echos in lsts:
             output_str += (
-                f"[Kullanıcı](tg://user?id={echos.user_id}) in chat `{echos.chat_id}`\n"
+                f"Adı: [İstifadəçi](tg://user?id={echos.user_id}) ID: `{echos.chat_id}`\n"
             )
     else:
         output_str = "Bu istifadəçi Echo deyil "
@@ -92,7 +91,7 @@ async def echosiyah(event):
         reply_text = f"Echo aktiv edilən istifadəçilər [buradadır.]({url})"
         await event.edit(reply_text)
     else:
-        await event.edit(output_str)      
+        await event.edit(outputstr)      
     
         
 
@@ -113,9 +112,9 @@ async def echocavab(event):
 
 
 CmdHelp("echo").add_command(
-  '.echo', 'Bir istifadəçiyə cavab verin', 'Cavab verdiyiniz istifadəçini echoya əlavə edər.'
+  'echo', 'Bir istifadəçiyə cavab verin', 'Cavab verdiyiniz istifadəçini echoya əlavə edər.'
 ).add_command(
-  '.echosil', 'Bir istifadəçiyə cavab verin', 'Cavab verdiyiniz istifadəçini siyahıdan silər.'
+  'echosil', 'Bir istifadəçiyə cavab verin', 'Cavab verdiyiniz istifadəçini siyahıdan silər.'
 ).add_command(
-  '.echosiyahi', 'Bir istifadəçiyə cavab verin', 'Cavab verdiyiniz istifadəçini siyahıdan silər.'
+  'echosiyahi', None, 'Echo aktiv edilən istifadəçilərin siyahısını gətirər.'
 ).add()
