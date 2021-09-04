@@ -14,7 +14,7 @@ googletrans==4.0.0-rc1
 google-trans-new
 langdetect
 google_images_download>=2.8.0
-gTTS>=2.1.1
+gTTS>=2.2.3
 gTTS-token>=1.1.3
 hachoir
 httplib2
@@ -43,7 +43,7 @@ spotdl
 selenium>=3.141.0
 telethon==1.23.0
 telethon-session-sqlalchemy>=0.2.6
-urbandict>=0.5
+urbandict>=0.6.1
 wikipedia>=1.4.0
 spotify_token
 twitter_scraper
