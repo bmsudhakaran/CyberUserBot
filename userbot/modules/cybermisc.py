@@ -175,7 +175,7 @@ async def _(event):
         )
         silinen_msjlar = "Bu qrupdaki silinmiş 10 mesaj:\n\n"
         for i in a:
-            silinen_msjlar += "\n💥{}".format(i.old.message)
+            silinen_msjlar += "\n💥{}".format(i.old.message) #thx https://github.com/H1M4N5HU0P/MAFIA-USERBOT/blob/97a6874172ee3e2e1a6fe647ea925abd14cba3fb/userbot/plugins/admin.py#L380
         await event.edit(silinen_msjlar)
     else:
         await event.edit("Bunu etmək üçün admin olmalısınız."
@@ -274,7 +274,7 @@ async def sendbot(cyber):
 		
 	
 Help = CmdHelp('cybermisc')
-Help.add_command('undelete', None, 'Bir qrupda silinmiş 5 mesajı göndərər.')
+Help.add_command('undelete', None, 'Bir qrupda silinmiş 10 mesajı göndərər.')
 Help.add_command('unbanall', None, 'Qrupda qadağan edilmiş bütün istifadəçilərin qadağasını silər.')
 Help.add_command('sendbot', '<@botun-istifadeci-adi> <mesaj>', 'Yazdığınız əmri qeyd etdiyiniz bota göndərər və botun cavabını atar')
 Help.add()
