@@ -83,7 +83,7 @@ async def ekle(event):
         return
     to_add_users = event.pattern_match.group(1)
     if event.is_private:
-        await event.edit(LANG['EKLE_PRIVATE'])
+        await event.edit(LANG['PRIVATE'])
     else:
         if not event.is_channel and event.is_group:
             for user_id in to_add_users.split(" "):
