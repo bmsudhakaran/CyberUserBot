@@ -396,9 +396,9 @@ async def unblockpm(unblock):
         )
 
 CmdHelp('pmpermit').add_command(
-    'approve, a', None, 'Cavab verilən istifadəçiyə PM icazəsi verər.', 
+    'approve', None, '.a kimidə istifadə oluna bilər. Cavab verilən istifadəçiyə PM icazəsi verər.', 
 ).add_command(
-    'disapprove, da', None, 'Cavab verilən istifadəçiyə PM icazəsini silər.'
+    'disapprove', None, '.da kimidə istifadə oluna bilər. Cavab verilən istifadəçiyə PM icazəsini silər.'
 ).add_command(
     'block', '<istifadəçi adı/cavablama>', 'İstifadəçini bloklayar.'
 ).add_command(
