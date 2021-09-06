@@ -77,7 +77,7 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 # ================================================
 @register(outgoing=True, pattern="^.elave ?(.*)")
 @register(outgoing=True, pattern="^.ekle ?(.*)")
-@register(outgoing=True, pattern="^.invite ?(.*)")
+@register(outgoing=True, pattern=r"^\.invite(?: |$)(.*)")
 async def ekle(event):
     if event.fwd_from:
         return
