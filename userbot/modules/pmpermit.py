@@ -224,6 +224,7 @@ async def notifon(non_event):
 
 
 @register(outgoing=True, pattern="^.approve$")
+@register(outgoing=True, pattern="^.a$")
 async def approvepm(apprvpm):
     """ .approve  """
     try:
@@ -280,6 +281,7 @@ async def approvepm(apprvpm):
 
 
 @register(outgoing=True, pattern="^.disapprove$")
+@register(outgoing=True, pattern="^.da$")
 async def disapprovepm(disapprvpm):
     try:
         from userbot.modules.sql_helper.pm_permit_sql import dissprove
@@ -394,9 +396,9 @@ async def unblockpm(unblock):
         )
 
 CmdHelp('pmpermit').add_command(
-    'approve', None, 'Cavab verilən istifadəçiyə PM icazəsi verər.', 
+    'approve, a', None, 'Cavab verilən istifadəçiyə PM icazəsi verər.', 
 ).add_command(
-    'disapprove', None, 'Cavab verilən istifadəçiyə PM icazəsini silər.'
+    'disapprove, da', None, 'Cavab verilən istifadəçiyə PM icazəsini silər.'
 ).add_command(
     'block', '<istifadəçi adı/cavablama>', 'İstifadəçini bloklayar.'
 ).add_command(
