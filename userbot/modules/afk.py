@@ -36,7 +36,7 @@ def time_formatter(seconds, short=True):
         ((str(seconds) + (" saniyə, " if not short else "s, ")) if seconds else "")
     return tmp[:-2] + " əvvəl"
 
-@register(incoming=True, disable_edited=True)
+@register(incoming=True, disable_errors=True, disable_edited=True)
 async def mention_afk(mention):
     """ Bu fonksiyon biri sizi etiketlediğinde sizin AFK olduğunuzu bildirmeye yarar."""
     global COUNT_MSG
