@@ -16,6 +16,7 @@ from .modules import ALL_MODULES
 import userbot.modules.sql_helper.mesaj_sql as MSJ_SQL
 import userbot.modules.sql_helper.galeri_sql as GALERI_SQL
 from pySmartDL import SmartDL
+from random import randint
 from telethon.tl import functions
 
 from random import choice
