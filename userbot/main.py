@@ -23,16 +23,30 @@ import chromedriver_autoinstaller
 from json import loads, JSONDecodeError
 import re
 import userbot.cmdhelp
-from userbot import DEFAULT_NAME, SAHIB_ID
 
+from userbot import DEFAULT_NAME, SAHIB_ID, NOT_AFK
+from time import time
 
+CYBER_NAME = f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID})"
 QRUP = BOTLOG_CHATID
 
+def cyber_time(seconds, short=True):
+    minutes, seconds = divmod(int(seconds), 60)
+    hours, minutes = divmod(minutes, 60)
+    days, hours = divmod(hours, 24)
+    tmp = ((str(days) + (" gün, " if not short else "g, ")) if days else "") + \
+        ((str(hours) + (" saat, " if not short else "s, ")) if hours else "") + \
+        ((str(minutes) + (" dəqiqə, " if not short else "d, ")) if minutes else "") + \
+        ((str(seconds) + (" saniyə, " if not short else "s, ")) if seconds else "")
+    return tmp[:-2] + " əvvəl"
+
+notafk = round(time() - NOT_AFK)
+noe = cyber_time(notafk)
+NO_AFK_TIME = cyber_time(notafk, False)
 
 ALIVE_STR = [
     "`C Y B Ξ R` {mention}-un `əmirlərinə hazırdır...`",
     "`Hey` {mention} `narahat olma C Y B Ξ R əla işləyir...`",
-    "🧞‍♂ `C Y B Ξ R is working...`",
     "✨ `C Y B Ξ R` **{mention}**-in `əmirlərinə hazırdır...`",
     "⛈️ {mention} `əlimdən gələnin ən yaxşısını etməyə hazıram...`",
 ]
@@ -46,8 +60,11 @@ KICKME_STR = [
 
 NON_AFK = [
     f"`Artıq AFK deyiləm.`",
-    f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID}) `artıq AFK deyil.`",
-    f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID}) `buradadır!`",
+    f"**{CYBER_NAME}** `artıq AFK deyil.`",
+    f"**{CYBER_NAME}** `buradadır!`",
+    f"**{CYBER_NAME}** `gəldi!✨`",
+    f"`Sahibim **{CYBER_NAME}** artıq aktivdir 🧞‍♂`",
+    f"{CYBER_NAME} `artıq sizinlədir!`" + {NO_AFK_TIME},
 ]
 
 DIZCILIK_STR = [
