@@ -59,12 +59,12 @@ KICKME_STR = [
 ]
 
 NON_AFK = [
-    f"`Artıq AFK deyiləm.`",
-    f"**{CYBER_NAME}** `artıq AFK deyil.`",
-    f"**{CYBER_NAME}** `buradadır!`",
-    f"**{CYBER_NAME}** `gəldi!✨`",
-    f"`Sahibim **{CYBER_NAME}** artıq aktivdir 🧞‍♂`",
-    f"{CYBER_NAME} `artıq sizinlədir!`" + {NO_AFK_TIME}",
+    f"`Artıq AFK deyiləm.`\n**Afk olduğum müddət:** `{NO_AFK_TIME}`",
+    f"**{CYBER_NAME}** `artıq AFK deyil.`\n**Afk olduğum müddət:** `{NO_AFK_TIME}`",
+    f"**{CYBER_NAME}** `buradadır!`\n**Afk olduğum müddət:** `{NO_AFK_TIME}`",
+    f"**{CYBER_NAME}** `gəldi!✨`\n**Afk olduğum müddət:** `{NO_AFK_TIME}`",
+    f"`Sahibim **{CYBER_NAME}** artıq aktivdir 🧞‍♂`\n**Afk olduğum müddət:** `{NO_AFK_TIME}`",
+    f"{CYBER_NAME} `artıq sizinlədir!`\n**Afk olduğum müddət:** `{NO_AFK_TIME}`",
 ]
 
 DIZCILIK_STR = [
