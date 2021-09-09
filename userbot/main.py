@@ -54,14 +54,8 @@ async def get_readable_time(seconds: int) -> str:
 
     return up_time
 
-
-async def notafk():
     try:
         NO_AFK_TIME = await get_readable_time((time.time() - StartTime))
-        await bot.send_message(QRUP, f"C Y B Ξ R")
-    except BaseException:
-        print("Bir xəta baş verdi.")
-  
 
 ALIVE_STR = [
     "`C Y B Ξ R` {mention}-un `əmirlərinə hazırdır...`",
