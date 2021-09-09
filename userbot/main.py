@@ -41,8 +41,8 @@ def cyber_time(seconds, short=True):
     return tmp[:-2] + " əvvəl"
 
 notafk = round(time() - NOT_AFK)
-noe = cyber_time(notafk)
-NO_AFK_TIME = cyber_time(notafk, False)
+NO_AFK_TIME = cyber_time(notafk)
+noe = cyber_time(notafk, False)
 
 ALIVE_STR = [
     "`C Y B Ξ R` {mention}-un `əmirlərinə hazırdır...`",
