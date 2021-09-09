@@ -29,7 +29,7 @@ async def degistir(event):
         mesaj = []
 
     plugin = plugin.strip()
-    TURLER = ["afk", "alive", "pm", "kickme", "dızcı", "ban", "mute", "approve", "disapprove", "block"]
+    TURLER = ["afk", "alive", "pm", "kickme", "dızcı", "ban", "mute", "approve", "disapprove", "block", "nonafk"]
     if type(mesaj) == list:
         if plugin in TURLER:
             if event.is_reply:
@@ -50,7 +50,7 @@ async def degistir(event):
             else:
                 await event.edit(f"{LANG['ERROR_DELETED']}: `{silme}`")
         else:
-            await event.edit(LANG['NOT_FOUND'] + ":`afk/alive/pm/kickme/dızcı/ban/mute/approve/disapprove/block`")
+            await event.edit(LANG['NOT_FOUND'] + ":`afk/alive/pm/kickme/dızcı/ban/mute/approve/disapprove/block/nonafk`")
     elif len(plugin) < 1:
         await event.edit(LANG['USAGE'])
     elif type(mesaj) == str:
@@ -63,12 +63,12 @@ async def degistir(event):
                 sql.ekle_mesaj(plugin, mesaj)
                 await event.edit(LANG['SETTED'].format(plu=plugin, msj=mesaj))
         else:
-            await event.edit(LANG['NOT_FOUND'] + ":`afk/alive/pm/kickme/dızcı/ban/mute/approve/disapprove/block`")
+            await event.edit(LANG['NOT_FOUND'] + ":`afk/alive/pm/kickme/dızcı/ban/mute/approve/disapprove/block/nonafk`")
 
 CmdHelp('deyisdir').add_command(
     'deyisdir', '<modul> <mesaj/cavab>', 'Dəyişdir, botdakı plugin-mesajlarını dəyişdirmənizə yarayır. Əgər mesaj yazmazsanız Plugin mesajını orijinal halına döndərər.', '.deyisdir afk \"İndi burada deiləm... Bəlkə heç vaxt gəlmədim\"'
 ).add_info(
-    '**Dəstəklənən Pluginlər:** `afk/alive/pm/kickme/dızcı/ban/mute/approve/disapprove/block`\n**Alive Dəyişkənləri:** `{plugin}, {telethon}, {cyber}, {python}, {ad}, {vaxt}`\n\
+    '**Dəstəklənən Pluginlər:** `afk/alive/pm/kickme/dızcı/ban/mute/approve/disapprove/block/nonafk`\n**Alive Dəyişkənləri:** `{plugin}, {telethon}, {cyber}, {python}, {ad}, {vaxt}`\n\
 **Ban/Mute Dəyişkənləri:** `{id}, {username}, {first_name}, {last_name}, {mention}, {date}, {count}`\n\
 **AFK Dəyişkənləri:** `{username}, {mention}, {first_name}, {last_name}, {last_seen_seconds}, {last_seen}, {last_seen_long}`\n\
 **PMpermit Dəyişkənlər(pm, block, approve, disapprove):** `{id}, {username}, {mention}, {first_name}, {last_name}`\
