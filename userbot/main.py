@@ -45,8 +45,9 @@ KICKME_STR = [
 ]
 
 NON_AFK = [
-    f"Artıq AFK deyiləm.",
-    f"Sahibim [{DEFAULT_NAME}](tg://user?id={SAHIB_ID}) artıq AFK deyil.",
+    f"`Artıq AFK deyiləm.`",
+    f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID}) `artıq AFK deyil.`",
+    f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID}) `buradadır!`",
 ]
 
 DIZCILIK_STR = [
