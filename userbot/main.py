@@ -54,7 +54,7 @@ async def get_readable_time(seconds: int) -> str:
 
     return up_time
 
-    try:
+
         NO_AFK_TIME = await get_readable_time((time.time() - StartTime))
 
 ALIVE_STR = [
