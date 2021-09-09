@@ -24,35 +24,25 @@ from json import loads, JSONDecodeError
 import re
 import userbot.cmdhelp
 
-from userbot import DEFAULT_NAME, SAHIB_ID
+from userbot import DEFAULT_NAME, SAHIB_ID, NOT_AFK
 from time import time
 
 CYBER_NAME = f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID})"
 QRUP = BOTLOG_CHATID
 
-async def get_readable_time(seconds: int) -> str:
-    count = 0
-    up_time = ""
-    time_list = []
-    time_suffix_list = ["saniyə", "dəqiqə", "saat", "gün"]
+def cyber_time(seconds, short=True):
+    minutes, seconds = divmod(int(seconds), 60)
+    hours, minutes = divmod(minutes, 60)
+    days, hours = divmod(hours, 24)
+    tmp = ((str(days) + (" gün, " if not short else "g, ")) if days else "") + \
+        ((str(hours) + (" saat, " if not short else "s, ")) if hours else "") + \
+        ((str(minutes) + (" dəqiqə, " if not short else "d, ")) if minutes else "") + \
+        ((str(seconds) + (" saniyə, " if not short else "s, ")) if seconds else "")
+    return tmp[:-2] + " əvvəl"
 
-    while count < 4:
-        count += 1
-        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
-        if seconds == 0 and remainder == 0:
-            break
-        time_list.append(int(result))
-        seconds = int(remainder)
-
-    for x in range(len(time_list)):
-        time_list[x] = str(time_list[x]) + time_suffix_list[x]
-    if len(time_list) == 4:
-        up_time += time_list.pop() + ", "
-
-    time_list.reverse()
-    up_time += ", ".join(time_list)
-
-    return up_time
+notafk = round(time() - NOT_AFK)
+NO_AFK_TIME = cyber_time(notafk)
+noe = cyber_time(notafk, False)
 
 ALIVE_STR = [
     "`C Y B Ξ R` {mention}-un `əmirlərinə hazırdır...`",
@@ -203,8 +193,7 @@ try:
 
     
     PLUGIN_MESAJLAR = {}
-    NO_AFK_TIME = await get_readable_time((time.time() - StartTime))
-    ORJ_PLUGIN_MESAJLAR = {"alive": f"{str(choice(ALIVE_STR))}", "afk": f"`{str(choice(AFKSTR))}`", "kickme": f"{str(choice(KICKME_STR))}", "pm": UNAPPROVED_MSG, "dızcı": str(choice(DIZCILIK_STR)), "ban": "{mention}`, Banlandı!`", "mute": "{mention}`, səssizə alındı!`", "approve": "{mention}`, artıq mənə mesaj göndərə bilərsən!`", "disapprove": "{mention}`, artıq mənə mesaj göndərə bilməzsən!`", "block": "{mention}`, səni əngəllədim!`", "nonafk": f"Artıq AFK deyiləm.\n{NO_AFK_TIME}"}
+    ORJ_PLUGIN_MESAJLAR = {"alive": f"{str(choice(ALIVE_STR))}", "afk": f"`{str(choice(AFKSTR))}`", "kickme": f"{str(choice(KICKME_STR))}", "pm": UNAPPROVED_MSG, "dızcı": str(choice(DIZCILIK_STR)), "ban": "{mention}`, Banlandı!`", "mute": "{mention}`, səssizə alındı!`", "approve": "{mention}`, artıq mənə mesaj göndərə bilərsən!`", "disapprove": "{mention}`, artıq mənə mesaj göndərə bilməzsən!`", "block": "{mention}`, səni əngəllədim!`", "nonafk": f"{str(choice(NON_AFK))}"}
 
     PLUGIN_MESAJLAR_TURLER = ["alive", "afk", "kickme", "pm", "dızcı", "ban", "mute", "approve", "disapprove", "block", "nonafk"]
     for mesaj in PLUGIN_MESAJLAR_TURLER:
@@ -262,6 +251,31 @@ except PhoneNumberInvalidError:
     print(INVALID_PH)
     exit(1)
     
+async def get_readable_time(seconds: int) -> str:
+    count = 0
+    up_time = ""
+    time_list = []
+    time_suffix_list = ["saniyə", "dəqiqə", "saat", "gün"]
+
+    while count < 4:
+        count += 1
+        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
+        if seconds == 0 and remainder == 0:
+            break
+        time_list.append(int(result))
+        seconds = int(remainder)
+
+    for x in range(len(time_list)):
+        time_list[x] = str(time_list[x]) + time_suffix_list[x]
+    if len(time_list) == 4:
+        up_time += time_list.pop() + ", "
+
+    time_list.reverse()
+    up_time += ", ".join(time_list)
+
+    return up_time
+
+
 async def startupcyber():
     try:
         islememuddeti = await get_readable_time((time.time() - StartTime))
