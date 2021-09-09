@@ -62,10 +62,10 @@ KICKME_STR = [
 
 NON_AFK = [
     f"`Artıq AFK deyiləm.`",
-    f"**{CYBER_NAME}** `artıq AFK deyil.`",
-    f"**{CYBER_NAME}** `buradadır!`",
-    f"**{CYBER_NAME}** `gəldi!✨`",
-    f"`Sahibim **{CYBER_NAME}** artıq aktivdir 🧞‍♂`",
+    f"{CYBER_NAME} `artıq AFK deyil.`",
+    f"{CYBER_NAME} `buradadır!`",
+    f"{CYBER_NAME} `gəldi!✨`",
+    f"`Sahibim {CYBER_NAME} artıq aktivdir 🧞‍♂`",
     f"{CYBER_NAME} `artıq sizinlədir!`",
 ]
 
@@ -307,10 +307,4 @@ LOGS.info("Botunuz işləyir! Hər-hansısa bir söhbətə .alive yazaraq test e
           " Köməyə ehtiyacınız olarsa, dəstək qrupumuza gəlin t.me/TheCyberSupport")
 LOGS.info(f"Version: C Y B Ξ R {CYBER_VERSION}")
 bot.loop.run_until_complete(startupcyber())
-
-"""
-if len(argv) not in (1, 3, 4):
-    bot.disconnect()
-else:
-"""
 bot.run_until_disconnected()
