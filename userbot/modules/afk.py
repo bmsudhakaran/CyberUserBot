@@ -35,10 +35,10 @@ def time_formatter(seconds, short=True):
         ((str(minutes) + (" dəqiqə, " if not short else "d, ")) if minutes else "") + \
         ((str(seconds) + (" saniyə, " if not short else "s, ")) if seconds else "")
     return tmp[:-2] + " əvvəl"
+  
 
 @register(incoming=True, disable_errors=True, disable_edited=True)
 async def mention_afk(mention):
-    """ Bu fonksiyon biri sizi etiketlediğinde sizin AFK olduğunuzu bildirmeye yarar."""
     global COUNT_MSG
     global USERS
     global ISAFK
@@ -151,7 +151,6 @@ async def mention_afk(mention):
 
 @register(incoming=True, disable_errors=True)
 async def afk_on_pm(sender):
-    """ Siz afk iken PM atanları afk olduğunuza dair bildirmeye yarayan fonksiyondur. """
     global ISAFK
     global USERS
     global COUNT_MSG
@@ -272,7 +271,6 @@ async def afk_on_pm(sender):
 
 @register(outgoing=True, pattern="^.afk(?: |$)(.*)", disable_errors=True)
 async def set_afk(afk_e):
-    """ .afk komutu siz afk iken insanları afk olduğunuza dair bilgilendirmeye yarar. """
     message = afk_e.text
     string = afk_e.pattern_match.group(1)
     global ISAFK
@@ -330,7 +328,7 @@ async def type_afk_is_not_true(notafk):
     global AFKREASON
     if ISAFK:
         ISAFK = False
-        await notafk.respond(LANG['IM_NOT_AFK'])
+        await notafk.respond(PLUGIN_MESAJLAR['nonafk'])
         await sleep(2)
         if BOTLOG:
             await notafk.client.send_message(
