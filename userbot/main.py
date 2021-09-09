@@ -23,6 +23,7 @@ import chromedriver_autoinstaller
 from json import loads, JSONDecodeError
 import re
 import userbot.cmdhelp
+from userbot import DEFAULT_NAME, SAHIB_ID
 
 
 QRUP = BOTLOG_CHATID
@@ -44,7 +45,8 @@ KICKME_STR = [
 ]
 
 NON_AFK = [
-    "Artıq AFK deyiləm.",
+    f"Artıq AFK deyiləm.",
+    f"Sahibim [{DEFAULT_NAME}](tg://user?id={SAHIB_ID}) artıq AFK deyil.",
 ]
 
 DIZCILIK_STR = [
