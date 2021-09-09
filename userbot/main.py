@@ -64,7 +64,7 @@ NON_AFK = [
     f"**{CYBER_NAME}** `buradadır!`",
     f"**{CYBER_NAME}** `gəldi!✨`",
     f"`Sahibim **{CYBER_NAME}** artıq aktivdir 🧞‍♂`",
-    f"{CYBER_NAME} `artıq sizinlədir!`" + {NO_AFK_TIME},
+    f"{CYBER_NAME} `artıq sizinlədir!`" + {NO_AFK_TIME}",
 ]
 
 DIZCILIK_STR = [
