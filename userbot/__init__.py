@@ -505,6 +505,7 @@ Hesabınızı bot'a çevirə bilərsiniz və bunları istifadə edə bilərsiniz
 
 # Dəyişgənlər
 SON_GORULME = 0
+NOT_AFK = 0
 COUNT_MSG = 0
 USERS = {}
 MYID = uid
