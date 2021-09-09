@@ -249,8 +249,6 @@ OTOMATIK_KATILMA = sb(os.environ.get("OTOMATIK_KATILMA", "True"))
 PATTERNS = os.environ.get("PATTERNS", ".;!,")
 WHITELIST = get('https://raw.githubusercontent.com/FaridDadashzade/deploy/main/whitelist.json').json()
 SUPPORT = [1527722982, 1888724877, 979515849]
-GETBRAIN = get('https://gitlab.com/whomiri/cybersec/-/raw/master/checker.json').json()
-
 
 BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
 
@@ -423,7 +421,7 @@ Hesabınızı bot'a çevirə bilərsiniz və bunları istifadə edə bilərsiniz
             sayfa = int(event.data_match.group(1).decode("UTF-8"))
             veriler = butonlastir(sayfa, CMD_HELP)
             await event.edit(
-                f"**C Y B Σ R USERBOT** [C Y B Σ R](https://t.me/TheCyberUserBot) __işləyir...__\n\n**Yüklü olan modul sayı:** `{len(CMD_HELP)}`\n**Sayfa:** {sayfa + 1}/{veriler[0]}",
+                f"**C Y B Ξ R USERBOT**\n\n**Yüklü olan modul sayı:** `{len(CMD_HELP)}`\n**Səhifə:** {sayfa + 1}/{veriler[0]}",
                 buttons=veriler[1],
                 link_preview=False
             )
