@@ -24,7 +24,7 @@ from json import loads, JSONDecodeError
 import re
 import userbot.cmdhelp
 
-from userbot import DEFAULT_NAME, SAHIB_ID, NOT_AFK
+from userbot import DEFAULT_NAME, SAHIB_ID, SON_GORULME
 from time import time
 
 CYBER_NAME = f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID})"
@@ -40,7 +40,7 @@ def cyber_time(seconds, short=True):
         ((str(seconds) + (" saniyə, " if not short else "s, ")) if seconds else "")
     return tmp[:-2] + " əvvəl"
 
-notafk = round(time() - NOT_AFK)
+notafk = round(time() - SON_GORULME)
 NO_AFK_TIME = cyber_time(notafk)
 noe = cyber_time(notafk, False)
 
