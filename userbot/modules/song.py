@@ -125,7 +125,7 @@ async def download_video(event):
             "logtostderr": False,
         }
     try:
-        await event.edit(LANG['DOWNLOADED']
+        await event.edit(LANG['DOWNLOADED'])
         with YoutubeDL(opts) as rip:
             rip_data = rip.extract_info(url)
     except DownloadError as DE:
