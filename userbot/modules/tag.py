@@ -11,7 +11,7 @@ from time import sleep
 
 dayandir = False
 msjcgr = None
-taglimit = 100
+taglimit = 500
 
 @register(outgoing=True, pattern="^.tag(?: |$)(.*)")
 async def _(q):
@@ -39,9 +39,9 @@ async def _(q):
 			break
 		a_+=1
 		await q.client.send_message(q.chat_id, "[{}](tg://user?id={}) {}".format(i.first_name, i.id, seasons))
-		if taglimit <= 100:
+		if taglimit <= 500:
 			sleep(1)
-		if taglimit > 100:
+		if taglimit > 500:
 			sleep(2)
 
 
@@ -72,9 +72,9 @@ async def _(q):
 			break
 		a_+=1
 		await q.client.send_message(q.chat_id, "[{}](tg://user?id={}) {}".format(i.first_name, i.id, seasons))
-		if taglimit <= 100:
+		if taglimit <= 500:
 			sleep(1)
-		if taglimit > 100:
+		if taglimit > 500:
 			sleep(2)
 
 @register(outgoing=True, pattern="^.stop$")
