@@ -41,7 +41,7 @@ async def echo(event):
     else:
         await event.edit("**Echo aktiv olunacaq istifadəçinin mesajına cavab verin.**")
 
-
+@register(cyber=True, pattern=r"^\.rmecho(?: |$)(.*)")
 @register(cyber=True, pattern=r"^\.echosil(?: |$)(.*)")
 async def echosil(event):
     if event.fwd_from:
@@ -64,7 +64,7 @@ async def echosil(event):
     else:
         await event.edit("`Echo siyahısından silə bilməyim üçün bir istifadəçinin mesajına cavab verin.`")
 
-
+@register(cyber=True, pattern=r"^\.echolist(?: |$)(.*)")
 @register(cyber=True, pattern="^.echosiyahi ?(.*)")
 async def echosiyah(event):
     if event.fwd_from:
@@ -114,7 +114,7 @@ async def echocavab(event):
 CmdHelp("echo").add_command(
   'echo', 'Bir istifadəçiyə cavab verin', 'Cavab verdiyiniz istifadəçini echoya əlavə edər.'
 ).add_command(
-  'echosil', 'Bir istifadəçiyə cavab verin', 'Cavab verdiyiniz istifadəçini siyahıdan silər.'
+  'echosil, rmecho', 'Bir istifadəçiyə cavab verin', 'Cavab verdiyiniz istifadəçini siyahıdan silər.'
 ).add_command(
-  'echosiyahi', None, 'Echo aktiv edilən istifadəçilərin siyahısını gətirər.'
+  'echosiyahi, echolist', None, 'Echo aktiv edilən istifadəçilərin siyahısını gətirər.'
 ).add()
