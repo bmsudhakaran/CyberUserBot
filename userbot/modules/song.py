@@ -90,10 +90,10 @@ async def deezl(event):
 
 @register(outgoing=True, pattern=r"^\.song (.*)")
 async def download_video(event):
-    await event.edit("`Musiqi axtarılır...`")
+    await event.edit(LANG['SEARCHING'])
     url = event.pattern_match.group(1)
     if not url:
-        return await event.edit("**Xəta!**\nİstifadəsi `.song <musiqi adı>`")
+        return await event.edit(LANG['USAGE'])
     search = SearchVideos(url, offset=1, mode="json", max_results=1)
     test = search.result()
     p = json.loads(test)
@@ -101,9 +101,9 @@ async def download_video(event):
     try:
         url = q[0]["link"]
     except BaseException:
-        return await event.edit("`Bağışlayın heçnə tapa bilmədim...`")
+        return await event.edit(LANG['NOT_FOUND'])
     type = "audio"
-    await event.edit(f"`Yükləməyə hazırlanır {url}...`")
+    await event.edit(LANG['SEARCHING'] + f"{url}")
     if type == "audio":
         opts = {
             "format": "bestaudio",
@@ -125,7 +125,7 @@ async def download_video(event):
             "logtostderr": False,
         }
     try:
-        await event.edit("`Məlumatlar alınır...`")
+        await event.edit(LANG['DOWNLOADED']
         with YoutubeDL(opts) as rip:
             rip_data = rip.extract_info(url)
     except DownloadError as DE:
@@ -164,8 +164,7 @@ async def download_video(event):
         pass
     upteload = """
 Musiqi yüklənməyə hazırlanır...
-Başlıq - {}
-Sahibi - {}
+Mahnı adı - {}
 """.format(
         rip_data["title"], rip_data["uploader"]
     )
@@ -174,7 +173,7 @@ Sahibi - {}
         event.chat_id,
         f"{rip_data['id']}.mp3",
         supports_streaming=True,
-        caption=f"**✍ Başlıq:** {rip_data['title']}\n**👤 Sahibi:** {rip_data['uploader']}\n",
+        caption=f"**🎶 Mahnı adı:** `{rip_data['title']}`\n**Downloaded by** [C Y B Ξ R](https://t.me/thecyberuserbot)\n",
         attributes=[
             DocumentAttributeAudio(
                 duration=int(rip_data["duration"]),
