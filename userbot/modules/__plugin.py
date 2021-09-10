@@ -210,8 +210,7 @@ async def _(event):
                 await reply_message.forward_to(PLUGIN_CHANNEL_ID)
                 return await event.edit(f'**Plugin uğurla yükləndi!**\n__Pluginin istifadəsini öyrənmək üçün__ `.cyber {dosyaAdi}` __yazın.__')
             
-
-@register(pattern="^.premove ?(.*)")
+@register(cyber=True, pattern="^.premove ?(.*)")
 async def premove(event):
     modul = event.pattern_match.group(1).lower()
     if len(modul) < 1:
