@@ -141,7 +141,9 @@ async def get_full_user(event):
             except Exception as e:
                 return None, e
 
-CmdHelp('klon').add_command('clone','<bir istifadəçiyə cavab olaraq>','Mesajına cavab verdiyiniz üçün.','clone'
-).add_command('revert',None,'Hesabınızı əvvəlki halına qaytarması üçün.','revert'
-).add_warning('Herokuda DEFAULT_NAME dəyişgəninin olması lazımdır. Əlavə məlumat üçün `.revert` yazın.'
-).add_info('@TheCyberUserBot').add()
+            
+Help = CmdHelp('klon')
+Help.add_command('clone', '<bir istifadəçiyə cavab olaraq>', 'Qeyd etdiyiniz istifadəçinin klonu olarsınız.')
+Help.add_command('revert', None, 'Hesabınızı əvvəlki halına qaytarar.')
+Help.add_info('@TheCyberUserBot')
+Help.add()
