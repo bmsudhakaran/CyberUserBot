@@ -23,6 +23,7 @@ import userbot.cmdhelp
 
 from userbot.language import get_value
 LANG = get_value("__plugin")
+LANG2 =  get_value("misc")
 
 # ████████████████████████████████ #
 
@@ -189,7 +190,7 @@ async def _(event):
     else:
         Pattern = re.findall(r"@register\(.*pattern=(r|)\"(.*)\".*\)", dosy)
 
-        if (not type(Pattern) == list) or (len(Pattern) < 1 or len(Pattern[0]) < 1):
+        if (not type(Pattern) is list) or (len(Pattern) < 1 or len(Pattern[0]) < 1):
             if re.search(r'CmdHelp\(.*\)', dosy):
                 cmdhelp = re.findall(r"CmdHelp\([\"'](.*)[\"']\)", dosy)[0]
                 await reply_message.forward_to(PLUGIN_CHANNEL_ID)
@@ -210,7 +211,7 @@ async def _(event):
                 return await event.edit(f'**Plugin uğurla yükləndi!**\n__Pluginin istifadəsini öyrənmək üçün__ `.cyber {dosyaAdi}` __yazın.__')
             
 
-@register(outgoing=True, pattern="^.premove ?(.*)")
+@register(pattern="^.premove ?(.*)")
 async def premove(event):
     modul = event.pattern_match.group(1).lower()
     if len(modul) < 1:
@@ -218,23 +219,37 @@ async def premove(event):
         return
 
     await event.edit(LANG['PREMOVE_DELETING'])
-    i = 0
     a = 0
+    r = 0
     async for message in event.client.iter_messages(PLUGIN_CHANNEL_ID, filter=InputMessagesFilterDocument, search=modul):
         await message.delete()
         try:
             os.remove(f"./userbot/modules/{message.file.name}")
+            r +=1
         except FileNotFoundError:
-            await event.reply(LANG['ALREADY_DELETED'])
+            if r>1:
+                pass
+            else:
+                await event.reply(LANG['ALREADY_DELETED'])
 
-        i += 1
-        if i > 1:
-            break
 
-    if i == 0:
+    if r == 0:
         await event.edit(LANG['NOT_FOUND_PLUGIN'])
     else:
         await event.edit(LANG['PLUG_DELETED'])
+        time.sleep(2) 
+        await event.edit(LANG2['RESTARTING'])
+        try: 
+            if BOTLOG:
+                try:
+                    await event.client.send_message(BOTLOG_CHATID, "#RESTART \n"
+                                            "Plugin silindikdən sonra avtomatik restart prosesi tamamlandı.")
+                except:
+                    pass
+            await bot.disconnect()
+        except:
+            pass
+        os.execl(sys.executable, sys.executable, *sys.argv)
 
 @register(outgoing=True, pattern="^.psend ?(.*)")
 async def psend(event):
@@ -274,4 +289,3 @@ async def ptest(event):
 
     return await event.edit(f'**Modul uğurla yükləndi!**\
     \n__Modulu yoxlaya bilərsiniz.\nBotu yenidən başlatdığınızda plugin işləməyəcəkdir.__')
-
