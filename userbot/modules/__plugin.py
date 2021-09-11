@@ -145,10 +145,10 @@ async def _(event):
     else:
         await event.edit(LANG["REPLY_TO_FILE"])
         return
-    lock = 'YFBsdWdpbmTJmWAgKip7Q1lCRVJ9KiogYGTJmXnJmXJpIGHFn2thciBlZGlsZGkhYFxuYFBsdWdpbiB0yZlobMO8a8mZbGkgb2xkdcSfdW5kYW4gb251IHNpbGRpbS5g'
-    loc = lock.encode('ascii')
-    mesaj = base64.b64decode(loc)
-    enc = mesaj.decode('ascii')
+    #lock = 'YFBsdWdpbmTJmWAgKip7Q1lCRVJ9KiogYGTJmXnJmXJpIGHFn2thciBlZGlsZGkhYFxuYFBsdWdpbiB0yZlobMO8a8mZbGkgb2xkdcSfdW5kYW4gb251IHNpbGRpbS5g'
+    #loc = lock.encode('ascii')
+    #mesaj = base64.b64decode(loc)
+    #enc = mesaj.decode('ascii')
     b = await event.client.download_media(await event.get_reply_message()) 
     a = open(b, "r") 
     c = a.read() 
