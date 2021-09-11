@@ -1,4 +1,4 @@
-# C Y B Σ R UserBot - Luciferxz #
+# CYBERUSERBOT - FARIDDADASHZADE #
 # Forked from https://github.com/ErdemBey1/SiriUserBot/blob/master/userbot/modules/fontlar.py
 
 from userbot.cmdhelp import CmdHelp
