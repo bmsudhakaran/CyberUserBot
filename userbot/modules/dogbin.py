@@ -1,4 +1,4 @@
-# CYBERUSERBOT - Luciferxz #
+# CYBERUSERBOT - FARIDDADASHZADE #
 
 
 """ Dogbin """
@@ -18,7 +18,7 @@ LANG = get_value("dogbin")
 
 # ████████████████████████████████ #
 
-@register(outgoing=True, pattern=r"^.paste(?: |$)([\s\S]*)")
+@register(cyber=True, pattern=r"^.paste(?: |$)([\s\S]*)")
 async def paste(pstl):
     """ .paste  """
     dogbin_final_url = ""
@@ -76,7 +76,7 @@ async def paste(pstl):
         )
 
 
-@register(outgoing=True, pattern="^.getpaste(?: |$)(.*)")
+@register(cyber=True, pattern="^.getpaste(?: |$)(.*)")
 async def get_dogbin_content(dog_url):
     """ .getpaste."""
     textx = await dog_url.get_reply_message()
