@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# TheCyberUserBot - Luciferxz
+# CYBERUSERBOT - FARIDDADASHZADE
 #
 
 import aria2p
@@ -15,7 +15,6 @@ from userbot.events import register
 from requests import get
 from userbot.cmdhelp import CmdHelp
 
-# Gelişmiş indirme hızları için en iyi trackerları çağırır, bunun için K-E-N-W-A-Y'e teşekkürler.
 trackers_list = get(
     'https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt'
 ).text.replace('\n\n', ',')
