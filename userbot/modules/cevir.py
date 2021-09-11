@@ -1,4 +1,4 @@
-# CYBERUSERBOT
+# CYBERUSERBOT - FARIDDADASHZADE
 
 from userbot import CMD_HELP
 from userbot.events import register
