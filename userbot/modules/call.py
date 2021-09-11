@@ -1,7 +1,6 @@
-# CYBERUSERBOT - FARID DADASHADE
+# CYBERUSERBOT - FARIDDADASHZADE
 #
 # THANKS: https://github.com/TamilBots/TamilUserBot/blob/master/userbot/plugins/GroupCall.py
-
 
 from telethon.tl.functions.channels import GetFullChannelRequest as getchat
 from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
@@ -12,11 +11,11 @@ from userbot.events import register
 from userbot import bot, get_call
 from userbot.cmdhelp import CmdHelp
 
-
 def user_list(l, n):
     for i in range(0, len(l), n):
         yield l[i : i + n]
 
+        
 @register(outgoing=True, groups_only=True, pattern="^.vcbaslat$")
 async def start_voice(c):
     chat = await c.get_chat()
