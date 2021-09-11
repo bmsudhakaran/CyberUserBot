@@ -4,10 +4,8 @@
 # you may not use this file except in compliance with the License.
 #
 
-# TheCyberUserBot - Luciferxz
+# CYBERUSERBOT - FARIDDADASHZADE
 #
-
-''' Gruba katılan spamcıları banlamada yardımcı olan modüldür. '''
 
 from asyncio import sleep
 from requests import get
@@ -21,8 +19,6 @@ from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, ANTI_SPAMBOT, ANTI_SPAMBOT_
 @bot.on(ChatAction)
 async def anti_spambot(welcm):
     try:
-        ''' Eğer bir kullanıcı spam algoritmasıyla eşleşiyorsa
-           onu gruptan yasaklar. '''
         if not ANTI_SPAMBOT:
             return
         if welcm.user_joined or welcm.user_added:
