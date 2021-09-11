@@ -1,4 +1,4 @@
-# CYBERUSERBOT - FaridDadashzade
+# CYBERUSERBOT - FARIDDADASHZADE
 
 import re
 import userbot.modules.sql_helper.mesaj_sql as sql
@@ -65,6 +65,7 @@ async def degistir(event):
         else:
             await event.edit(LANG['NOT_FOUND'] + ":`afk/alive/pm/kickme/dızcı/ban/mute/approve/disapprove/block/nonafk`")
 
+            
 CmdHelp('deyisdir').add_command(
     'deyisdir', '<modul> <mesaj/cavab>', 'Dəyişdir, botdakı plugin-mesajlarını dəyişdirmənizə yarayır. Əgər mesaj yazmazsanız Plugin mesajını orijinal halına döndərər.', '.deyisdir afk \"İndi burada deiləm... Bəlkə heç vaxt gəlmədim\"'
 ).add_info(
