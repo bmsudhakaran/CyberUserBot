@@ -4,10 +4,9 @@
 # you may not use this file except in compliance with the License.
 #
 
-# TheCyberUserBot - Luciferxz
+# CYBERUSERBOT - FARIDDADASHZADE
 #
 
-""" Tüm modülleri yükleyen init dosyası """
 from userbot import LOGS
 
 
