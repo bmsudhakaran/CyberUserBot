@@ -1,6 +1,6 @@
 # Copyright (C) 2021 Farid Dadashzade
 #
-# TheCyberUserBot - Faridxz
+# CYBERUSERBOT - Faridxz
 #
 
 """
