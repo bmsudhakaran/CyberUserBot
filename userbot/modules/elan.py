@@ -7,6 +7,7 @@ from userbot.cmdhelp import CmdHelp
 import asyncio
 from userbot.events import register
 
+
 @register(outgoing=True, pattern="^.elan ?(.*)")
 @register(outgoing=True, pattern="^.duyuru ?(.*)")
 async def elan(event):
