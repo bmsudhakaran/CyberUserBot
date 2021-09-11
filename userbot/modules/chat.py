@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# TheCyberUserBot - Luciferxz
+# CYBERUSERBOT - FARIDDADASHZADE
 
 # ██████ LANGUAGE CONSTANTS ██████ #
 
@@ -13,7 +13,6 @@ LANG = get_value("chat")
 
 # ████████████████████████████████ #
 
-""" Userid, chatid ve log komutlarını içeren UserBot modülü """
 
 from asyncio import sleep
 from userbot import CMD_HELP, BOTLOG, BOTLOG_CHATID, bot
@@ -23,7 +22,6 @@ from userbot.main import PLUGIN_MESAJLAR
 
 @register(outgoing=True, pattern="^.userid$")
 async def useridgetter(target):
-    """ .userid komutu belirlenen kullanıcının ID numarasını verir """
     message = await target.get_reply_message()
     if message:
         if not message.forward:
@@ -44,7 +42,6 @@ async def useridgetter(target):
 
 @register(outgoing=True, pattern="^.link(?: |$)(.*)")
 async def permalink(mention):
-    """ .link komutu belirlenen kullanıcının profil bağlantısını metin ile ulaşılabilir hale getirir """
     user, custom = await get_user_from_event(mention)
     if not user:
         return
@@ -64,7 +61,6 @@ async def chatidgetter(chat):
 
 @register(outgoing=True, pattern=r"^.log(?: |$)([\s\S]*)")
 async def log(log_text):
-    """ .log komutu seçilen mesajı günlük grubuna gönderir """
     if BOTLOG:
         if log_text.reply_to_msg_id:
             reply_msg = await log_text.get_reply_message()
@@ -74,9 +70,9 @@ async def log(log_text):
             textx = user + log_text.pattern_match.group(1)
             await bot.send_message(BOTLOG_CHATID, textx)
         else:
-            await log_text.edit("`Bununla ne yapmam gerekiyor ?`")
+            await log_text.edit("`Bununla nə etməliyəm?`")
             return
-        await log_text.edit("`Günlüğe Kaydedildi`")
+        await log_text.edit("`BOTLOG qrupunuza göndərildi.`")
     else:
         await log_text.edit(LANG['NEED_LOG'])
     await sleep(2)
@@ -85,7 +81,6 @@ async def log(log_text):
 
 @register(outgoing=True, pattern="^.kickme$")
 async def kickme(leave):
-    """ .kickme komutu gruptan çıkmaya yarar """
     chat = await leave.get_chat()
     await leave.edit(f"{PLUGIN_MESAJLAR['kickme']}".format(
         id=chat.id,
@@ -97,7 +92,6 @@ async def kickme(leave):
 
 @register(outgoing=True, pattern="^.unmutechat$")
 async def unmute_chat(unm_e):
-    """ .unmutechat komutu susturulmuş grubun sesini açar """
     try:
         from userbot.modules.sql_helper.keep_read_sql import unkread
     except AttributeError:
@@ -111,7 +105,6 @@ async def unmute_chat(unm_e):
 
 @register(outgoing=True, pattern="^.mutechat$")
 async def mute_chat(mute_e):
-    """ .mutechat komutu grubu susturur """
     try:
         from userbot.modules.sql_helper.keep_read_sql import kread
     except AttributeError:
@@ -125,12 +118,11 @@ async def mute_chat(mute_e):
     if BOTLOG:
         await mute_e.client.send_message(
             BOTLOG_CHATID,
-            str(mute_e.chat_id) + " susturuldu.")
+            str(mute_e.chat_id) + " susduruldu.")
 
 
 @register(incoming=True, disable_errors=True)
 async def keep_read(message):
-    """ Mute mantığı. """
     try:
         from userbot.modules.sql_helper.keep_read_sql import is_kread
     except AttributeError:
