@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# TheCyberUserBot - Luciferxz
+# CYBERUSERBOT - FARIDDADASHZADE
 
 
 # Deepfry modülü kaynak kodu: https://github.com/Ovyerus/deeppyer
@@ -117,5 +117,5 @@ async def check_media(reply_message):
         return data
 
 CmdHelp('deepfry').add_command(
-    'deepfry', '<numara 1-5>', 'Belirlenen görüntüye deepfry efekti uygular.', 'deepfry 5'
+    'deepfry', '<reqem 1-5>', 'Qeyd etdiyiniz fotoya deepfry effekti verer.', 'deepfry 5'
 ).add()
