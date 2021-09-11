@@ -181,7 +181,7 @@ async def _(event):
 
         spec.loader.exec_module(mod)
     except Exception as e:
-        await event.edit(f"{LANG['PLUGIN_BUGGED']} {e}`")
+        await event.edit(f"{LANG['PLUGIN_BUGGED']} {e}")
         return os.remove("./userbot/modules/" + dosya)
 
     dosy = open(dosya, "r").read()
@@ -292,7 +292,7 @@ async def ptest(event):
 
         spec.loader.exec_module(mod)
     except Exception as e:
-        await event.edit(f"{LANG['PLUGIN_BUGGED']} {e}`")
+        await event.edit(f"{LANG['PLUGIN_BUGGED']} {e}")
         return os.remove("./userbot/temp_plugins/" + dosya)
 
     return await event.edit(f'**Modul uğurla yükləndi!**\
