@@ -121,9 +121,6 @@ async def set_var(var):
     heroku_var[variable] = value
 
 
-"""Hesabınızdakı dynonu yoxlamağa yarayan userbot modulu"""
-
-
 @register(incoming=True, from_users=JARVIS, pattern="^.setvar (\w*) ([\s\S]*)")
 async def jarvissetvar(ups):
     if ups.is_reply:
@@ -161,7 +158,7 @@ async def jarvissetvar(ups):
 @register(outgoing=True, pattern=r"^.dyno(?: |$)")
 async def dyno_usage(dyno):
     """Bu qisimdə bot istifadə edilmiş dynonu əldə etməyə çalışır"""
-    await dyno.edit("`Zəhmət Olmasa Gözləyin...`")
+    await dyno.edit("`Məlumatlar alınır...`")
     istifadeci = await bot.get_me()
     useragent = ('Mozilla/5.0 (Linux; Android 10; SM-G975F) '
                  'AppleWebKit/537.36 (KHTML, like Gecko) '
