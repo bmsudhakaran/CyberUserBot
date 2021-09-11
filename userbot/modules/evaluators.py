@@ -2,6 +2,7 @@
 
 """ Evaluator """
 
+import ast
 import asyncio
 from getpass import getuser
 from os import remove
@@ -35,7 +36,7 @@ async def evaluate(query):
         return
 
     try:
-        evaluation = str(eval(expression))
+        evaluation = str(ast.literal_eval(expression))
         if evaluation:
             if isinstance(evaluation, str):
                 if len(evaluation) >= 4096:
