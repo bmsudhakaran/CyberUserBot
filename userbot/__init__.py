@@ -1,6 +1,6 @@
 # Copyright (C) 2021 Farid Dadashzade
 # 
-# CyberUserBot - faridxz
+# CyberUserBot - FaridDadashzade
 
 import os
 import time
@@ -311,7 +311,7 @@ async def check_botlog_chatid():
             "Qrup ID'sini doğru yazıb yazmadığınızı kontrol edin.")
         quit(1)
         
-if not BOT_TOKEN == None:
+if not BOT_TOKEN is None:
     tgbot = TelegramClient(
         "TG_BOT_TOKEN",
         api_id=API_KEY,
