@@ -156,7 +156,7 @@ async def _(event):
     a = await event.edit("`Plugin skan edilir...`\n`Biraz gözləyin...`") 
     for CYBER in DANGERCONFIGS: # thanks to https://github.com/TeamExtremePro/Andencento/blob/9d6dc6719b45984237c7d39b6cc2ae5579a71111/plugins/installer.py#L52 for this line
       if re.search(CYBER, c):
-        await event.edit(f"{enc}")
+        await event.edit(f"`Plugində` **{CYBER}** `dəyəri aşkar edildi!`\n`Plugin təhlükəli olduğundan onu sildim.`")
         return os.remove(b)
     else:
      await event.edit(LANG["DOWNLOADING"])
