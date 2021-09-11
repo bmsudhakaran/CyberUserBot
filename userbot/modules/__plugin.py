@@ -158,9 +158,9 @@ async def _(event):
      await event.edit(LANG["DOWNLOADING"])
     already2 = f"./userbot/modules/{reply_message.file.name}"
     
-     if os.path.exists(already2):
-        await event.edit("`Bu plugini artıq bir dəfə yükləmisiniz!\nOnu təkrar yükləməyəcəyəm!`")
-        return
+      if os.path.exists(already2):
+         await event.edit("`Bu plugini artıq bir dəfə yükləmisiniz!\nOnu təkrar yükləməyəcəyəm!`")
+         return
         
     dosyaAdi = reply_message.file.name
   #  plugins = await event.client.get_messages('@TheCyberPlugin', limit=None, search=dosyaAdi, filter=InputMessagesFilterDocument)
