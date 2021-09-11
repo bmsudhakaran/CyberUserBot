@@ -4,9 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# CyberUserBot
-
-
+# CYBERUSERBOT - FARIDDADASHZADE
 
 import asyncio
 import time
