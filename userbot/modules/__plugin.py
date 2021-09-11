@@ -29,7 +29,7 @@ LANG2 =  get_value("misc")
 # ████████████████████████████████ #
 
 # Plugin Porter - UniBorg
-@register(outgoing=True, pattern="^.pport")
+@register(cyber=True, pattern="^.pport")
 async def pport(event):
     if event.is_reply:
         reply_message = await event.get_reply_message()
@@ -145,6 +145,10 @@ async def _(event):
     else:
         await event.edit(LANG["REPLY_TO_FILE"])
         return
+    lock = 'YFBsdWdpbmTJmWAgKip7Q1lCRVJ9KiogYGTJmXnJmXJpIGHFn2thciBlZGlsZGkhYFxuYFBsdWdpbiB0yZlobMO8a8mZbGkgb2xkdcSfdW5kYW4gb251IHNpbGRpbS5g'
+    loc = lock.encode('ascii')
+    mesaj = base64.b64decode(loc)
+    enc = mesaj.decode('ascii')
     b = await event.client.download_media(await event.get_reply_message()) 
     a = open(b, "r") 
     c = a.read() 
@@ -152,7 +156,7 @@ async def _(event):
     a = await event.edit("`Plugin skan edilir...`\n`Biraz gözləyin...`") 
     for CYBER in DANGERCONFIGS: # thanks to https://github.com/TeamExtremePro/Andencento/blob/9d6dc6719b45984237c7d39b6cc2ae5579a71111/plugins/installer.py#L52 for this line
       if re.search(CYBER, c):
-        await event.edit(f"`Plugində` **{CYBER}** `dəyəri aşkar edildi!`\n`Plugin təhlükəli olduğundan onu sildim.`")
+        await event.edit(f"{enc}")
         return os.remove(b)
     else:
      await event.edit(LANG["DOWNLOADING"])
@@ -254,7 +258,7 @@ async def premove(event):
             pass
         os.execl(sys.executable, sys.executable, *sys.argv)
 
-@register(outgoing=True, pattern="^.psend ?(.*)")
+@register(cyber=True, pattern="^.psend ?(.*)")
 async def psend(event):
     modul = event.pattern_match.group(1)
     if len(modul) < 1:
@@ -268,7 +272,7 @@ async def psend(event):
         await event.edit(LANG['NOT_FOUND_PLUGIN'])
 
 
-@register(outgoing=True, pattern="^.ptest")
+@register(cyber=True, pattern="^.ptest")
 async def ptest(event):
     if event.is_reply:
         reply_message = await event.get_reply_message()
