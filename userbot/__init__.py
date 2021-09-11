@@ -71,7 +71,7 @@ API_KEY = os.environ.get("API_KEY", None)
 API_HASH = os.environ.get("API_HASH", None)
 
 try:
-    SUDO_ID = set(int(x) for x in os.environ.get("SUDO_ID", "").split())
+    SUDO_ID = {int(x) for x in os.environ.get("SUDO_ID", "").split()}
 except ValueError:
     raise Exception("SUDO_ID qeyd etməmisiniz!")
     
