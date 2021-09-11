@@ -17,7 +17,7 @@ from userbot import CMD_HELP
 from userbot.events import register
 
 
-@register(outgoing=True, pattern=r"^\.direct(?: |$)([\s\S]*)")
+@register(cyber=True, pattern=r"^\.direct(?: |$)([\s\S]*)")
 async def directlinks(request):
     """ CyberUserBot """
     await request.edit("`Hazırlanır biraz gözləyin...`")
