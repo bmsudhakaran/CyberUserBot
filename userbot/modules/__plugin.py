@@ -18,6 +18,7 @@ from userbot import CMD_HELP, bot, tgbot, PLUGIN_CHANNEL_ID, PATTERNS, BOTLOG, B
 from userbot.events import register
 from userbot.main import extractCommands
 import userbot.cmdhelp
+import base64
 
 # ██████ LANGUAGE CONSTANTS ██████ #
 
@@ -32,6 +33,7 @@ LANG2 =  get_value("misc")
 async def pport(event):
     if event.is_reply:
         reply_message = await event.get_reply_message()
+        skanet = await yoxla(reply_message)
     else:
         await event.edit(LANG["REPLY_FOR_PORT"])
         return
@@ -135,10 +137,11 @@ async def plist(event):
 # oğurlama atanın balası
 # modülü çalma peyser NSJDKFNDKDNKFKD
 
-@register(outgoing=True, pattern="^.pinstall")
+@register(cyber=True, pattern="^.pinstall")
 async def _(event):
     if event.is_reply:
         reply_message = await event.get_reply_message()
+        skanet = await yoxla(reply_message)
     else:
         await event.edit(LANG["REPLY_TO_FILE"])
         return
@@ -146,17 +149,18 @@ async def _(event):
     a = open(b, "r") 
     c = a.read() 
     a.close() 
-    a = await event.edit("Plugində zərərli yazılım olub olmadığı araşdırılır..\nBiraz gözləyin..") 
-    if "HEROKU_APIKEY" in c.split():
-        await event.edit("Plugində zərərli yazılım aşkar edildi!\nMən bunu yükləyə bilmərəm..")
+    a = await event.edit("`Plugin skan edilir...`\n`Biraz gözləyin...`") 
+    for CYBER in DANGERCONFIGS: # thanks to https://github.com/TeamExtremePro/Andencento/blob/9d6dc6719b45984237c7d39b6cc2ae5579a71111/plugins/installer.py#L52 for this line
+      if re.search(CYBER, c):
+        await event.edit(f"`Plugində` **{CYBER}** `dəyəri aşkar edildi!`\n`Plugin təhlükəli olduğundan onu sildim.`")
         return os.remove(b)
     else:
      await event.edit(LANG["DOWNLOADING"])
     already2 = f"./userbot/modules/{reply_message.file.name}"
     
-    # if os.path.exists(already2):
-        # await event.edit("`Bu plugini artıq yükləmisiniz!\nOnu təkrar yükləməyəcəyəm!`")
-        # return
+     if os.path.exists(already2):
+        await event.edit("`Bu plugini artıq bir dəfə yükləmisiniz!\nOnu təkrar yükləməyəcəyəm!`")
+        return
         
     dosyaAdi = reply_message.file.name
   #  plugins = await event.client.get_messages('@TheCyberPlugin', limit=None, search=dosyaAdi, filter=InputMessagesFilterDocument)
@@ -268,6 +272,7 @@ async def psend(event):
 async def ptest(event):
     if event.is_reply:
         reply_message = await event.get_reply_message()
+        skanet = await yoxla(reply_message)
     else:
         await event.edit(LANG["REPLY_TO_FILE"])
         return
@@ -288,3 +293,24 @@ async def ptest(event):
 
     return await event.edit(f'**Modul uğurla yükləndi!**\
     \n__Modulu yoxlaya bilərsiniz.\nBotu yenidən başlatdığınızda plugin işləməyəcəkdir.__')
+
+
+async def yoxla(reply_message):
+    if reply_message and reply_message.media:
+        if reply_message.photo:
+            data = reply_message.photo
+        elif reply_message.document:
+            if DocumentAttributeFilename(file_name='AnimatedSticker.tgs') in reply_message.media.document.attributes:
+                return False
+            if reply_message.gif or reply_message.video or reply_message.audio or reply_message.voice:
+                return False
+            data = reply_message.media.document
+        else:
+            return False
+    else:
+        return False
+
+    if not data or data is None:
+        return False
+    else:
+        return data
