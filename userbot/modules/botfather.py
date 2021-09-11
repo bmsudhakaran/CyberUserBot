@@ -1,17 +1,16 @@
-# CYBERUSERBOT - Luciferxz #
+# CYBERUSERBOT - FARIDDADASHZADE #
 
 import os
 from telethon.tl.functions.contacts import UnblockRequest
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
+from telethon import events
 
 chat = "@BotFather"
 
-@register(outgoing=True, pattern="^.yenibot ?(.*)")
+@register(outgoing=True, pattern="^.botfather ?(.*)")
 async def _(event):
-    if event.fwd_from:
-        return
     if event.pattern_match.group(1):
         text, username= event.pattern_match.group(1).split()
         
@@ -19,7 +18,7 @@ async def _(event):
         await event.edit("`Botu yaratmaq üçün <bot_adı><bot_istifadəçi_adı> qeyd edin.`")
         return
 
-    async with event.client.conversation(chat) as conv:
+    async with event.client.conversation("@BotFather") as conv:
         try:
             await conv.send_message("/newbot")
             audio = await conv.get_response()
@@ -27,8 +26,8 @@ async def _(event):
             audio = await conv.get_response()
             await conv.send_message(username)
             audio = await conv.get_response()
-            await event.client.forward_messages(event.chat_id, audio)
-            await event.delete()
+            await event.client.forward_messages("me", audio)
+            await event.edit('Məlumatlar kayıtlı mesajlara qeyd edildi.')
         except YouBlockedUserError:
             await event.client(UnblockRequest("93372553"))
             await conv.send_message("/newbot")
@@ -37,10 +36,10 @@ async def _(event):
             audio = await conv.get_response()
             await conv.send_message(username)
             audio = await conv.get_response()
-            await event.client.forward_messages(event.chat_id, audio)
+            await event.client.forward_messages("me", audio)
+            await event.edit('Məlumatlar kayıtlı mesajlara qeyd edildi.')
             await event.delete()
 
 
-
-add_ = CmdHelp('botfather')
-add_.add_command("yenibot", "<bot_adı><bot_istifadəçi_adı>", "Bot yaratmağınıza kömək edəcək.").add()
+Help = CmdHelp('botfather')
+Help.add_command("yenibot", "<bot_adı><bot_istifadəçi_adı>", "Bot yaratmağınıza kömək edər.").add()
