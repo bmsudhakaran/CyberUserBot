@@ -55,14 +55,14 @@ async def autovideo(event):
 
     await event.edit(LANG['STARTED_VIDEO'])
     while "autovideo" in ASYNC_POOL:
-        saat = time.strftime("%H\.%M")
-        tarih = time.strftime("%d\/%m\/%Y")
+        saat = time.strftime(r"%H\.%M")
+        tarix = time.strftime(r"%d\/%m\/%Y")
 
         if yazi:
-            yazi = yazi.replace("$saat", saat).replace("$tarix", tarih)
+            yazi = yazi.replace("$saat", saat).replace("$tarix", tarix)
             KOMUT = f"text=\'{yazi}\' :expansion=normal: y=h-line_h-10:x=(mod(5*n\,w+tw)-tw): fontcolor=white: fontsize=30: box=1: boxcolor=black@0.5: boxborderw=5: shadowx=2: shadowy=2"
         else:
-            KOMUT = f"text=\'Saat\: {saat} Tarix\: {tarih} {yazi}\' :expansion=normal: y=h-line_h-10:x=(mod(5*n\,w+tw)-tw): fontcolor=white: fontsize=30: box=1: boxcolor=black@0.5: boxborderw=5: shadowx=2: shadowy=2"
+            KOMUT = f"text=\'Saat\: {saat} Tarix\: {tarix} {yazi}\' :expansion=normal: y=h-line_h-10:x=(mod(5*n\,w+tw)-tw): fontcolor=white: fontsize=30: box=1: boxcolor=black@0.5: boxborderw=5: shadowx=2: shadowy=2"
 
         ses = await asyncio.create_subprocess_shell(f"ffmpeg -y -i '{video}' -vf drawtext=\"{KOMUT}\" pp.mp4")
         await ses.communicate()
