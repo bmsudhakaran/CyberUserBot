@@ -7,7 +7,6 @@ import asyncio
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 
-
 @register(outgoing=True, pattern="^.reklam ?(.*)")
 @register(outgoing=True, pattern="^.broadcast ?(.*)")
 async def reklam(event):
