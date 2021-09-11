@@ -95,7 +95,8 @@ class CmdHelp:
         CMD_HELP[self.FILE] = self.get_result()
         return True
     
-    def getText(self, text : str):
+    @staticmethod
+    def getText(text : str):
         if text == 'REPLY_OR_USERNAME':
             return '<istifadeçi adı> <istifadeçi adı/reply>'
         elif text == 'OR':
