@@ -1,6 +1,5 @@
 # CYBERUSERBOT - Luciferxz #
 
-
 """ Filter """
 
 from asyncio import sleep
