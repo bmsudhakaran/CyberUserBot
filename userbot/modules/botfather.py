@@ -42,4 +42,4 @@ async def _(event):
 
 
 Help = CmdHelp('botfather')
-Help.add_command("yenibot", "<bot_adı><bot_istifadəçi_adı>", "Bot yaratmağınıza kömək edər.").add()
+Help.add_command("botfather", "<bot_adı><bot_istifadəçi_adı>", "Bot yaratmağınıza kömək edər.").add()
