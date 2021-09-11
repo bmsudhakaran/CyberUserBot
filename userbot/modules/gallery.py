@@ -92,9 +92,9 @@ async def galeri(event):
         await event.edit(LANG['INVALID'])
 
 CmdHelp('qalareya').add_command(
-    'qalareya elave', '<url>', 'Qaleri sırasına foto əlavə edər', 'galeri elave https://i.hizliresim.com/cyber.jpg'
+    'qalareya elave', '<url>', 'Qaleri sırasına foto əlavə edər', 'qalareya elave https://i.hizliresim.com/cyber.jpg'
 ).add_command(
     'qalareya list', None, 'Qaleri sırasını göstərir.'
 ).add_command(
-    'qalareya sil', '<sayı>', 'Qaleri sırasından bir fotonu silər.', 'galeri sil 4'
+    'qalareya sil', '<sayı>', 'Qaleri sırasından bir fotonu silər.', 'qalareya sil 4'
 ).add()
