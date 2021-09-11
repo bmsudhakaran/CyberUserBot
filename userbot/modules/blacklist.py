@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 #
 
-# TheCyberUserBot - Luciferxz
+# CYBERUSERBOT - FARIDDADASHZADE
 
 import io
 import re
@@ -23,6 +23,7 @@ LANG = get_value("blacklist")
 # ████████████████████████████████ #
 
 KUFURLER = get('https://raw.githubusercontent.com/FaridDadashzade/deploy/main/forbidden.json').json()
+
 @register(incoming=True, disable_edited=True, disable_errors=True)
 async def on_new_message(event):
     name = event.raw_text
@@ -125,4 +126,4 @@ CmdHelp('blacklist').add_command(
     'rmblacklist', '<söz>', 'Belirtilen kara listeyi durdurur.', '.rmblacklist amk'
 ).add_command(
     'söyüş', '<aç/bağla>', 'Oto Blacklisti açar grupda söyüş söyən olsa silər', '.söyüş aç'
-).add_warning('Bu işlemleri gerçekleştirmek için yönetici olmalı ve **Mesaj Silme** yetkiniz olmalı.').add()
+).add_warning('Bunları edə bilmək üçün admin olmalısınız.').add()
