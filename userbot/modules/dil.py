@@ -1,6 +1,6 @@
 # Copyright (C) 2021
 #
-# CYBERUSERBOT - FARIDXZ
+# CYBERUSERBOT - FARIDDADASHZADE
 
 from userbot.cmdhelp import CmdHelp
 from userbot import PLUGIN_CHANNEL_ID, CMD_HELP
@@ -16,7 +16,7 @@ async def dil(event):
     global LANGUAGE_JSON
 
     komut = event.pattern_match.group(1)
-    if search(r"y[uü]kle|install", komut):
+    if search(r"y[uü]kl[eə]|install", komut):
         await event.edit("`Dil faylı yüklenir...`")
         if event.is_reply:
             reply = await event.get_reply_message()
@@ -41,7 +41,7 @@ async def dil(event):
             await event.edit(f"✅ `{dosya['LANGUAGE']}` `dili başarıyla yüklendi!`\n\n**İşlemlerin geçerli olması için botu yeniden başlatın!**")
         else:
             await event.edit("**Lütfen bir dil dosyasına yanıt verin!**")
-    elif search(r"bilgi|info", komut):
+    elif search(r"melumat|info", komut):
         await event.edit("`Dil dosyası bilgileri getiriliyor... Lütfen bekleyiniz.`")
         if event.is_reply:
             reply = await event.get_reply_message()
@@ -57,26 +57,26 @@ async def dil(event):
 
             await event.edit(
                 f"**Dil: **`{dosya['LANGUAGE']}`\n"
-                f"**Dil Kodu: **`{dosya['LANGCODE']}`\n"
+                f"**Dil kodu: **`{dosya['LANGCODE']}`\n"
                 f"**Tərcümə edən: **`{dosya['AUTHOR']}`\n"
 
-                f"\n\n`Dil faylını yükləmək üçün` `.lang yükle` `yazın`"
+                f"\n\n`Dil faylını yükləmək üçün` `.lang install` `yazın`"
             )
         else:
             await event.edit("**Lütfen bir dil dosyasına yanıt verin!**")
     else:
         await event.edit(
             f"**Dil: **`{LANGUAGE_JSON['LANGUAGE']}`\n"
-            f"**Dil Kodu: **`{LANGUAGE_JSON['LANGCODE']}`\n"
+            f"**Dil kodu: **`{LANGUAGE_JSON['LANGCODE']}`\n"
             f"**Tərcümə edən: **`{LANGUAGE_JSON ['AUTHOR']}`\n"
 
-            f"\n\nDiger diller üçün @CyberDil kanalına baxın"
+            f"\n\n**C Y B Ξ R USERBOT**"
         )
 
 CmdHelp('dil').add_command(
-    'dil', None, 'Yüklediğiniz dil hakkında bilgi verir.'
+    'lang', None, 'Yüklədiyiniz dil haqqında məlumat verər.'
 ).add_command(
-    'dil bilgi', None, 'Yanıt verdiğiniz dil dosyası hakkında bilgi verir.'
+    'lang bilgi', None, 'Cavab verdiyiniz dil faylı haqqında məlumat verər.'
 ).add_command(
-    'dil yükle', None, 'Yanıt verdiğiniz dil dosyasını yükler.'
+    'lang install', None, 'Cavab verdiyiniz dil faylını yükləyər.'
 ).add()
