@@ -1,3 +1,7 @@
+# CYBERUSERBOT - FARIDDADASHZADE
+#
+# ALL RIGHTS RESERVED.
+
 from telethon.errors import (ChannelInvalidError, ChannelPrivateError, ChannelPublicGroupNaError)
 from emoji import emojize
 from telethon.tl.types import MessageActionChannelMigrateFrom, ChannelParticipantsAdmins
@@ -71,10 +75,8 @@ async def fetch_info(chat, event):
     except Exception as e:
         msg_info = None
         print("Exception:", e)
-    # No chance for IndexError as it checks for msg_info.messages first
-    first_msg_valid = True if msg_info and msg_info.messages and msg_info.messages[0].id == 1 else False
-    # Same for msg_info.users
-    creator_valid = True if first_msg_valid and msg_info.users else False
+    first_msg_valid = bool(msg_info and msg_info.messages and msg_info.messages[0].id == 1)
+    creator_valid = bool(first_msg_valid and msg_info.users)
     creator_id = msg_info.users[0].id if creator_valid else None
     creator_firstname = msg_info.users[0].first_name if creator_valid and msg_info.users[0].first_name is not None else "Deleted Account"
     creator_username = msg_info.users[0].username if creator_valid and msg_info.users[0].username is not None else None
@@ -86,7 +88,6 @@ async def fetch_info(chat, event):
         dc_id = "Unknown"
         location = str(e)
     
-    #this is some spaghetti I need to change
     description = chat.full_chat.about
     members = chat.full_chat.participants_count if hasattr(chat.full_chat, "participants_count") else chat_obj_info.participants_count
     admins = chat.full_chat.admins_count if hasattr(chat.full_chat, "admins_count") else None
