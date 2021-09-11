@@ -111,12 +111,13 @@ async def on_view_blacklist(listbl):
 @register(outgoing=True, pattern="^.rmblacklist(?: |$)(.*)")
 async def on_delete_blacklist(rmbl):
     text = rmbl.pattern_match.group(1)
-    to_unblacklist = list(set(trigger.strip() for trigger in text.split("\n") if trigger.strip()))
+    to_unblacklist = list({trigger.strip() for trigger in text.split("\n") if trigger.strip()})
     successful = 0
     for trigger in to_unblacklist:
         if sql.rm_from_blacklist(rmbl.chat_id, trigger.lower()):
             successful += 1
     await rmbl.edit(LANG['REMOVED'])
+    
     
 CmdHelp('blacklist').add_command(
     'listblacklist', None, 'Bir söhbətdəki aktiv blacklist-i göstərər.'
