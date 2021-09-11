@@ -8,7 +8,6 @@ from telethon.tl.types import DocumentAttributeFilename, InputMessagesFilterDocu
 import importlib
 import asyncio
 import re
-import asyncio
 import time
 from pathlib import Path
 from os.path import exists
