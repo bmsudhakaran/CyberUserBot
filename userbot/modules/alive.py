@@ -106,7 +106,7 @@ async def jarvisalive(jarvis):
             xitab = "Sahibim"
         if ren == MYID:
             Version = str(CYBER_VERSION.replace("v","")) 
-            await jarvis.reply(f"`{xitab}` **C Y B Ξ R aktivdir...**\n**C Y B Ξ R Version:** `{CYBER_VERSION}`")
+            await jarvis.reply(f"**C Y B Ξ R aktivdir...**\n**C Y B Ξ R:** `{CYBER_VERSION}`")
         else:
             return
     else:
