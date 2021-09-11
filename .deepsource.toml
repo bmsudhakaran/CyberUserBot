@@ -1,7 +1,5 @@
 version = 1
 
-test_patterns = ["*/userbot/*"]
-
 [[analyzers]]
 name = "python"
 enabled = true
