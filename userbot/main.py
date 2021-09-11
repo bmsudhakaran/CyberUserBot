@@ -28,8 +28,10 @@ import userbot.cmdhelp
 from userbot import DEFAULT_NAME, SAHIB_ID, SON_GORULME
 from time import time
 
+
 CYBER_NAME = f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID})"
 QRUP = BOTLOG_CHATID
+
 
 def cyber_time(seconds, short=True):
     minutes, seconds = divmod(int(seconds), 60)
@@ -65,7 +67,6 @@ NON_AFK = [
     f"{CYBER_NAME} `artıq AFK deyil.`",
     f"{CYBER_NAME} `buradadır!`",
     f"{CYBER_NAME} `gəldi!✨`",
-    f"`Sahibim {CYBER_NAME} artıq aktivdir 🧞‍♂`",
     f"{CYBER_NAME} `artıq sizinlədir!`",
 ]
 
