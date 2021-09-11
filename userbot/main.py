@@ -1,6 +1,6 @@
 # Copyright (C) 2021 Farid Dadashzade
 #
-# Telegram: @faridxz
+# CYBERUSERBOT - FaridDadashzade
 
 import importlib
 from importlib import import_module
@@ -28,10 +28,8 @@ import userbot.cmdhelp
 from userbot import DEFAULT_NAME, SAHIB_ID, SON_GORULME
 from time import time
 
-
 CYBER_NAME = f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID})"
 QRUP = BOTLOG_CHATID
-
 
 def cyber_time(seconds, short=True):
     minutes, seconds = divmod(int(seconds), 60)
@@ -156,7 +154,7 @@ def extractCommands(file):
 
            
             Cyberpy = re.search('\"\"\"CYBERPY(.*)\"\"\"', FileRead, re.DOTALL)
-            if not Cyberpy == None:
+            if not Cyberpy is None:
                 Cyberpy = Cyberpy.group(0)
                 for Satir in Cyberpy.splitlines():
                     if (not '"""' in Satir) and (':' in Satir):
@@ -201,7 +199,7 @@ try:
     PLUGIN_MESAJLAR_TURLER = ["alive", "afk", "kickme", "pm", "dızcı", "ban", "mute", "approve", "disapprove", "block", "nonafk"]
     for mesaj in PLUGIN_MESAJLAR_TURLER:
         dmsj = MSJ_SQL.getir_mesaj(mesaj)
-        if dmsj == False:
+        if dmsj is False:
             PLUGIN_MESAJLAR[mesaj] = ORJ_PLUGIN_MESAJLAR[mesaj]
         else:
             if dmsj.startswith("MEDYA_"):
@@ -211,7 +209,7 @@ try:
                 PLUGIN_MESAJLAR[mesaj] = medya
             else:
                 PLUGIN_MESAJLAR[mesaj] = dmsj
-    if not PLUGIN_CHANNEL_ID == None:
+    if not PLUGIN_CHANNEL_ID is None:
         LOGS.info("Pluginlər yüklənir...")
         try:
             KanalId = bot.get_entity(PLUGIN_CHANNEL_ID)
