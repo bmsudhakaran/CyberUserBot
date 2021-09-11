@@ -76,7 +76,7 @@ async def dil(event):
 CmdHelp('dil').add_command(
     'lang', None, 'Yüklədiyiniz dil haqqında məlumat verər.'
 ).add_command(
-    'lang bilgi', None, 'Cavab verdiyiniz dil faylı haqqında məlumat verər.'
+    'lang info', None, 'Cavab verdiyiniz dil faylı haqqında məlumat verər.'
 ).add_command(
     'lang install', None, 'Cavab verdiyiniz dil faylını yükləyər.'
 ).add()
