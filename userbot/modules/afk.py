@@ -24,6 +24,7 @@ LANG = get_value("afk")
 
 # ████████████████████████████████ #
 
+
 def time_formatter(seconds, short=True):
     # Thanks UsergeTeam #
     # https://github.com/UsergeTeam/Userge/blob/053786a1ed54530b305c1bfb96e70147ca99463f/userge/utils/tools.py#L70 #
