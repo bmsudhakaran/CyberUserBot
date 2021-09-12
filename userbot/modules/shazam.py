@@ -3,7 +3,7 @@
 # Telegram @Fusuf
 # Coded by @Fusuf
 
-# CYBERUSERBOT
+# CYBERUSERBOT - FARIDDADASHZADE
 
 from pydub import AudioSegment
 from json import dumps
@@ -50,9 +50,9 @@ async def shazam(event):
                 sarki = results
                 break
             else:
-                await event.edit(f'`İlk {(signature_generator.samples_processed / 16000)} saniyede hiçbir şey bulunamadı... Biraz daha deniyorum.`')
+                await event.edit(f'`İlk {(signature_generator.samples_processed / 16000)} saniyədə heç nə tapılmadı...\nBiraz daha yoxlayıram.`')
         
-        if not 'track' in sarki:
+        if 'track' not in sarki:
             return await event.edit('`Ehh Shazam verdiyiniz səsi anlamadı 😔. Biraz daha açıq səs göndərə bilərsən?`')
         await event.edit('`✅ Musiqini tapdım... Məlumatlar toplanır...`')
         Caption = f'**Musiqi:** [{sarki["track"]["title"]}]({sarki["track"]["url"]})\n'
@@ -146,4 +146,4 @@ Help = CmdHelp('shazam')
 Help.add_command('shazam', '<cavab>', 'Cavab verdiyiniz səs faylını Shazamda axtarar.')
 Help.add_command('shazam2', '<cavab>', 'Cavab verdiyiniz səs faylını @auddbot-da axtarar.')
 Help.add_info('@TheCyberUserBot')
-Help.add()    
+Help.add()
