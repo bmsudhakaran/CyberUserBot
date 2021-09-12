@@ -157,7 +157,7 @@ async def amialive(e):
         sahibb = f"{DEFAULT_NAME}"
         islememuddeti = await get_readable_time((time.time() - StartTime))
         me = await e.client.get_me()
-        if type(PLUGIN_MESAJLAR['alive']) == str:
+        if type(PLUGIN_MESAJLAR['alive']) is str:
             await e.edit(PLUGIN_MESAJLAR['alive'].format(
                 telethon=version.__version__,
                 python=python_version(),
