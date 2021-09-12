@@ -1,4 +1,4 @@
-# CYBERUSERBOT - Luciferxz # 
+# CYBERUSERBOT - FARIDDADASHZADE # 
 
 import re
 import asyncio
@@ -58,20 +58,20 @@ async def galeri(event):
             else:
                 await event.edit(f"{LANG['REMOVED_ERROR']}: {silme}")
         else:
-            await event.edit(f"**{LANG['NEED_NUMBER']}** `.galeri sil 2`")
+            await event.edit(f"**{LANG['NEED_NUMBER']}** `.qalareya sil 2`")
     elif secen[0] == "başla":
-        if "galeri" in ASYNC_POOL:
+        if "qalareya" in ASYNC_POOL:
             await event.edit(LANG['WORKING'])
             return
-        ASYNC_POOL.append("galeri")
+        ASYNC_POOL.append("qalareya")
         sql.getir_foto()
         await event.edit(LANG['STARTED'])
         if len(sql.TUM_GALERI) >= 1:
-            while "galeri" in ASYNC_POOL:
+            while "qalareya" in ASYNC_POOL:
                 fotolar = sql.TUM_GALERI
                 i = 0
                 while i < len(fotolar):
-                    if not "galeri" in ASYNC_POOL:
+                    if "qalareya" not in ASYNC_POOL:
                         break
                     if i == len(fotolar):
                         i = 0
@@ -82,14 +82,15 @@ async def galeri(event):
             await event.edit(LANG['NEED_PHOTO'])
             return
     elif secen[0] == "bagla":
-        if "galeri" in ASYNC_POOL:
-            ASYNC_POOL.remove("galeri")
+        if "qalareya" in ASYNC_POOL:
+            ASYNC_POOL.remove("qalareya")
             await event.edit(LANG['STOPPED'])
         else:
             event.edit(LANG['ALREADY_STOP'])
         return
     else:
         await event.edit(LANG['INVALID'])
+        
 
 CmdHelp('qalareya').add_command(
     'qalareya elave', '<url>', 'Qaleri sırasına foto əlavə edər', 'qalareya elave https://i.hizliresim.com/cyber.jpg'
