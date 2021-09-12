@@ -4,14 +4,11 @@
 # you may not use this file except in compliance with the License.
 #
 
-# CyberUserBot - Luciferxz
+# CYBERUSERBOT - FARIDDADASHZADE
+
 from userbot import PATTERNS, CMD_HELP, CMD_HELP_BOT
 
 class CmdHelp:
-    """
-    Komut yardımlarını daha iyi üretmek için yazdığım sınıf.
-    """
-
     FILE = ""
     ORIGINAL_FILE = ""
     FILE_AUTHOR = ""
@@ -66,10 +63,10 @@ class CmdHelp:
             result += f"**⬇️ Rəsmi:** {'✅' if self.IS_OFFICIAL else '❌'}\n"
             
             if self.INFO == '':
-                if not self.WARNING == '':
+                if self.WARNING != '':
                     result += f"**⚠️ Xəbərdarlıq:** {self.WARNING}\n\n"
             else:
-                if not self.WARNING == '':
+                if self.WARNING != '':
                     result += f"**⚠️ Xəbərdarlıq:** {self.WARNING}\n"
                 result += f"**📘 Məlumat:** {self.INFO}\n\n"
                      
@@ -88,9 +85,6 @@ class CmdHelp:
         return result
 
     def add(self):
-        """
-        Direkt olarak CMD_HELP ekler.
-        """
         CMD_HELP_BOT[self.FILE] = {'info': {'official': self.IS_OFFICIAL, 'warning': self.WARNING, 'info': self.INFO}, 'commands': self.COMMANDS}
         CMD_HELP[self.FILE] = self.get_result()
         return True
@@ -102,4 +96,3 @@ class CmdHelp:
             return 'veya'
         elif text == 'USERNAMES':
             return '<istifadeçi ad(lar)ı>'
-        
