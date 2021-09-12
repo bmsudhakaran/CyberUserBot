@@ -164,7 +164,6 @@ async def gbanspider(gspdr):
 
 @register(incoming=True)
 async def gbanmsg(moot):
-    """ Küresel banlanan kullanıcı mesaj gelirse """
     try:
         from userbot.modules.sql_helper.gban_sql import is_gbanned
     except:
@@ -177,7 +176,7 @@ async def gbanmsg(moot):
         except:
             return
             
-        if (type(chat) == User):
+        if (type(chat) is User):
             return 
 
         admin = chat.admin_rights
