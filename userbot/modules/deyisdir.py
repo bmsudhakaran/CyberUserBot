@@ -30,7 +30,7 @@ async def degistir(event):
 
     plugin = plugin.strip()
     TURLER = ["afk", "alive", "pm", "kickme", "dızcı", "ban", "mute", "approve", "disapprove", "block", "nonafk"]
-    if type(mesaj) == list:
+    if type(mesaj) is list:
         if plugin in TURLER:
             if event.is_reply:
                 reply = await event.get_reply_message()
@@ -53,7 +53,7 @@ async def degistir(event):
             await event.edit(LANG['NOT_FOUND'] + ":`afk/alive/pm/kickme/dızcı/ban/mute/approve/disapprove/block/nonafk`")
     elif len(plugin) < 1:
         await event.edit(LANG['USAGE'])
-    elif type(mesaj) == str:
+    elif type(mesaj) is str:
         if plugin in TURLER:
             if mesaj.isspace():
                 await event.edit(LANG['CANNOT_EMPTY'])
