@@ -7,7 +7,9 @@ from importlib import import_module
 from sqlite3 import connect
 import time
 import os
+import sys
 import requests
+
 from telethon.tl.types import InputMessagesFilterDocument
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from telethon.tl.functions.channels import GetMessagesRequest
@@ -250,7 +252,7 @@ try:
         bot.send_message("me", f"`Xahiş edirəm pluginlerin qalıcı olması üçün PLUGIN_CHANNEL_ID'i ayarlayın.`")
 except PhoneNumberInvalidError:
     print(INVALID_PH)
-    exit(1)
+    sys.exit(1)
     
 async def get_readable_time(seconds: int) -> str:
     count = 0
