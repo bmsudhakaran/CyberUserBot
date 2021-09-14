@@ -4,6 +4,7 @@
 
 import os
 import time
+import sys
 from re import compile
 from sys import version_info
 from logging import basicConfig, getLogger, INFO, DEBUG
@@ -41,7 +42,7 @@ LOGS = getLogger(__name__)
 if version_info[0] < 3 or version_info[1] < 6:
     LOGS.info("Ən az Python 3.6 versiyasına sahib olmanız lazımdır."
               "Birdən çox özəllik buna bağlıdır. Bot bağlanır.")
-    quit(1)
+    exit(1)
 
 
 CONFIG_CHECK = os.environ.get(
@@ -51,7 +52,7 @@ if CONFIG_CHECK:
     LOGS.info(
         "Xahiş edirik ilk hashtag'de qeyd edilən sətiri config.env faylından silin"
     )
-    quit(1)
+    exit(1)
 
 # Bot'un dili
 LANGUAGE = os.environ.get("LANGUAGE", "DEFAULT").upper()
@@ -294,12 +295,12 @@ async def check_botlog_chatid():
     if not BOTLOG_CHATID and LOGSPAMMER:
         LOGS.info(
             "Özəl xəta günlüyünün çalışması üçün BOTLOG_CHATID ayarlayın.")
-        quit(1)
+        exit(1)
 
     elif not BOTLOG_CHATID and BOTLOG:
         LOGS.info(
             "Özəl xəta günlüyünün çalışması üçün BOTLOG_CHATID ayarlayın.")
-        quit(1)
+        exit(1)
 
     elif not BOTLOG or not LOGSPAMMER:
         return
@@ -309,7 +310,7 @@ async def check_botlog_chatid():
         LOGS.info(
             "Hesabınızın BOTLOG_CHATID qrupuna mesaj göndərmə yetkisi yoxdur. "
             "Qrup ID'sini doğru yazıb yazmadığınızı kontrol edin.")
-        quit(1)
+        exit(1)
         
 if not BOT_TOKEN is None:
     tgbot = TelegramClient(
