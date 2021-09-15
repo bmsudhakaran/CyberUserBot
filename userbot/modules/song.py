@@ -45,6 +45,7 @@ LANG = get_value("song")
 # ████████████████████████████████ #
 
 
+
 @register(outgoing=True, pattern="^.deez(\d*|)(?: |$)(.*)")
 async def deezl(event):
     if event.fwd_from:
