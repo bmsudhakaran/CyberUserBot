@@ -64,7 +64,7 @@ async def salive(alive):
         f"**{ALIVE_TEXT}** \n"
         f"┏━━━━━━━━━━━━━━━━━━━━━━\n"
         f"┣[ 🧭 **Botun işləmə müddəti:** `{islememuddeti}`\n"
-        f"┣[ 👤 **Mənim sahibim:** `{user.first_name}`\n"
+        f"┣[ 👤 **Mənim sahibim:** `{CYBER_NAME}`\n"
         f"┣[ 🐍 **Python:** `3.8.6`\n"
         f"┣[ ⚙️ **Telethon:** `1.23.0`\n"
         f"┣[ 👁‍🗨 **İstifadəçi adı:** @{user.username}\n"
@@ -108,7 +108,7 @@ async def jarvisalive(jarvis):
             xitab = CYBER_NAME
         if ren == MYID:
             Version = str(CYBER_VERSION.replace("v","")) 
-            await jarvis.reply(f"**{CYBER_NAME} C Y B Ξ R aktivdir...**\n**C Y B Ξ R:** `{CYBER_VERSION}`")
+            await jarvis.reply(f"**{CYBER_NAME} C Y B Ξ R işlədir...**\n**C Y B Ξ R:** `{CYBER_VERSION}`")
         else:
             return
     else:
