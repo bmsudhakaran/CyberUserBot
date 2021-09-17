@@ -172,6 +172,7 @@
         },
         "cyberlangs": {
             "SALIVE": "`Gif bilan jonli xabar.`",
+            "PROHIBITED_COMMAND": "```Siz buni C Y B E R qo'llab quvvatlash guruhida qila olmaysiz.```"
         },
         "deepfry": {
             "CANT_DEEPFRY": "`Bunni deepfry qilaolmaydi`",
