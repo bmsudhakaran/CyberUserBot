@@ -17,6 +17,14 @@ from userbot.cmdhelp import CmdHelp
 from userbot.events import register as cyber
 from userbot import bot, BLACKLIST_CHAT
 
+# ---------------------------------- #
+
+from userbot.language import get_value
+LANG = get_value("cyberlangs")
+
+# ---------------------------------- #
+
+
 async def get_chatinfo(event):
     chat = event.pattern_match.group(1)
     chat_info = None
@@ -64,7 +72,7 @@ def user_full_name(user):
 @cyber(outgoing=True, disable_errors=True, groups_only=True, pattern=r"^\.inviteall (.*)")
 async def get_users(event):
     if event.chat_id in BLACKLIST_CHAT:
-        return await event.edit("```Bunu C Y B Ξ R Support 🇦🇿 qrupunda edə bilməzsiniz.```")
+        return await event.edit(LANG["PROHIBITED_COMMAND"])
     sender = await event.get_sender()
     me = await event.client.get_me()
     if not sender.id == me.id:
