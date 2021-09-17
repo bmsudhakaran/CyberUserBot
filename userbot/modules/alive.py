@@ -64,7 +64,7 @@ async def salive(alive):
         f"**{ALIVE_TEXT}** \n"
         f"┏━━━━━━━━━━━━━━━━━━━━━━\n"
         f"┣[ 🧭 **Botun işləmə müddəti:** `{islememuddeti}`\n"
-        f"┣[ 👤 **Mənim sahibim:** `{CYBER_NAME}`\n"
+        f"┣[ 👤 **Mənim sahibim:** `{user.first_name}`\n"
         f"┣[ 🐍 **Python:** `3.8.6`\n"
         f"┣[ ⚙️ **Telethon:** `1.23.0`\n"
         f"┣[ 👁‍🗨 **İstifadəçi adı:** @{user.username}\n"
