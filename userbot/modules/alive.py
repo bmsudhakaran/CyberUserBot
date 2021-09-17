@@ -21,6 +21,7 @@ from userbot import (
 
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
+from userbot import SAHIB_ID, DEFAULT_NAME
 
 
 # ---------------------------------- #
@@ -28,6 +29,7 @@ from userbot.language import get_value
 LANG = get_value("cyberlangs")
 # ---------------------------------- #
 
+CYBER_NAME = f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID})"
 
 async def get_readable_time(seconds: int) -> str:
     count = 0
@@ -101,9 +103,9 @@ async def jarvisalive(jarvis):
         reply_user = await jarvis.client.get_entity(reply.from_id)
         ren = reply_user.id
         if jarvis.sender_id == 1527722982:
-            xitab = "Sahibim"
+            xitab = CYBER_NAME
         else:
-            xitab = "Sahibim"
+            xitab = CYBER_NAME
         if ren == MYID:
             Version = str(CYBER_VERSION.replace("v","")) 
             await jarvis.reply(f"**C Y B Ξ R aktivdir...**\n**C Y B Ξ R:** `{CYBER_VERSION}`")
