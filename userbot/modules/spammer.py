@@ -1,15 +1,23 @@
-# CYBERUSERBOT - Luciferxz #
-
+# CYBERUSERBOT - FaridDadashzade #
 
 import asyncio
 import threading
 
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, BLACKLIST_CHAT
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 
+# ---------------------------------- #
+
+from userbot.language import get_value
+LANG = get_value("cyberlangs")
+
+# ---------------------------------- #
+
 @register(outgoing=True, pattern="^.tspam")
 async def tmeme(e):
+    if event.chat_id in BLACKLIST_CHAT:
+        return await event.edit(LANG["PROHIBITED_COMMAND"])
     message = e.text
     messageSplit = message.split(" ", 1)
     tspam = str(messageSplit[1])
@@ -26,6 +34,8 @@ async def tmeme(e):
 
 @register(outgoing=True, pattern="^.spam")
 async def spammer(e):
+    if event.chat_id in BLACKLIST_CHAT:
+        return await event.edit(LANG["PROHIBITED_COMMAND"])
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         message = e.text
         messageSplit = message.split(" ", 2)
@@ -42,6 +52,8 @@ async def spammer(e):
                                
 @register(outgoing=True, pattern="^.bigspam")
 async def bigspam(e):
+    if event.chat_id in BLACKLIST_CHAT:
+        return await event.edit(LANG["PROHIBITED_COMMAND"])
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         message = e.text
         messageSplit = message.split(" ", 2)
@@ -60,6 +72,8 @@ async def bigspam(e):
         
 @register(outgoing=True, pattern="^.picspam")
 async def tiny_pic_spam(e):
+    if event.chat_id in BLACKLIST_CHAT:
+        return await event.edit(LANG["PROHIBITED_COMMAND"])
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         message = e.text
         text = message.split()
@@ -79,6 +93,8 @@ async def tiny_pic_spam(e):
 @register(outgoing=True, pattern="^.delayspam")
 async def delayspammer(e):
     # CYBERUSERBOT
+    if event.chat_id in BLACKLIST_CHAT:
+        return await event.edit(LANG["PROHIBITED_COMMAND"])
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         message = e.text
         messageSplit= message.split(" ", 3)
@@ -108,5 +124,5 @@ CmdHelp('spammer').add_command(
 ).add_command(
     'delayspam', '<gecikmə> <miqdar> <mətin>', 'Verilən miqdar və verilən gecikmə ilə gecikməli spam edər.'
 ).add_warning(
-    'Məsuliyyət sizə aitdir!!'
+    'Məsuliyyət sizə aiddir!'
 ).add()
