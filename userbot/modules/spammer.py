@@ -16,8 +16,8 @@ LANG = get_value("cyberlangs")
 
 @register(outgoing=True, pattern="^.tspam")
 async def tmeme(e):
-    if event.chat_id in BLACKLIST_CHAT:
-        return await event.edit(LANG["PROHIBITED_COMMAND"])
+    if e.chat_id in BLACKLIST_CHAT:
+        return await e.edit(LANG["PROHIBITED_COMMAND"])
     message = e.text
     messageSplit = message.split(" ", 1)
     tspam = str(messageSplit[1])
@@ -34,8 +34,8 @@ async def tmeme(e):
 
 @register(outgoing=True, pattern="^.spam")
 async def spammer(e):
-    if event.chat_id in BLACKLIST_CHAT:
-        return await event.edit(LANG["PROHIBITED_COMMAND"])
+    if e.chat_id in BLACKLIST_CHAT:
+        return await e.edit(LANG["PROHIBITED_COMMAND"])
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         message = e.text
         messageSplit = message.split(" ", 2)
@@ -52,8 +52,8 @@ async def spammer(e):
                                
 @register(outgoing=True, pattern="^.bigspam")
 async def bigspam(e):
-    if event.chat_id in BLACKLIST_CHAT:
-        return await event.edit(LANG["PROHIBITED_COMMAND"])
+    if e.chat_id in BLACKLIST_CHAT:
+        return await e.edit(LANG["PROHIBITED_COMMAND"])
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         message = e.text
         messageSplit = message.split(" ", 2)
@@ -72,8 +72,8 @@ async def bigspam(e):
         
 @register(outgoing=True, pattern="^.picspam")
 async def tiny_pic_spam(e):
-    if event.chat_id in BLACKLIST_CHAT:
-        return await event.edit(LANG["PROHIBITED_COMMAND"])
+    if e.chat_id in BLACKLIST_CHAT:
+        return await e.edit(LANG["PROHIBITED_COMMAND"])
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         message = e.text
         text = message.split()
@@ -93,8 +93,8 @@ async def tiny_pic_spam(e):
 @register(outgoing=True, pattern="^.delayspam")
 async def delayspammer(e):
     # CYBERUSERBOT
-    if event.chat_id in BLACKLIST_CHAT:
-        return await event.edit(LANG["PROHIBITED_COMMAND"])
+    if e.chat_id in BLACKLIST_CHAT:
+        return await e.edit(LANG["PROHIBITED_COMMAND"])
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         message = e.text
         messageSplit= message.split(" ", 3)
