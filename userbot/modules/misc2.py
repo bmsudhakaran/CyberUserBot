@@ -15,7 +15,7 @@ from telethon.tl.functions.messages import GetFullChatRequest
 from userbot import CMD_HELP
 from userbot.cmdhelp import CmdHelp
 from userbot.events import register as cyber
-from userbot import bot
+from userbot import bot, BLACKLIST_CHAT
 
 async def get_chatinfo(event):
     chat = event.pattern_match.group(1)
@@ -63,6 +63,8 @@ def user_full_name(user):
 
 @cyber(outgoing=True, disable_errors=True, groups_only=True, pattern=r"^\.inviteall (.*)")
 async def get_users(event):
+    if event.chat_id in BLACKLIST_CHAT:
+        return await event.edit("```Bunu C Y B Ξ R Support 🇦🇿 qrupunda edə bilməzsiniz.```")
     sender = await event.get_sender()
     me = await event.client.get_me()
     if not sender.id == me.id:
@@ -77,25 +79,25 @@ async def get_users(event):
     f = 0
     error = "None"
 
-    await cyber.edit("**C Y B Σ R SCRAPER**\n\n`İstifadəçilər əlavə edilir...`")
+    await cyber.edit("**C Y B Ξ R SCRAPER**\n\n`İstifadəçilər əlavə edilir...`")
     async for user in event.client.iter_participants(farid.full_chat.id):
         try:
             if error.startswith("Too"):
                 return await cyber.edit(
-                    f"**C Y B Σ R**\n `Telethonda limit xətası ola bilər, xahiş edirəm yenidən cəhd edin.` \nXəta: \n`{error}` \n\n `{s}` istifadəçi əlavə edildi.\n `{f}` istifadəçini əlavə etmək olmadı."
+                    f"**C Y B Ξ R**\n `Böyük ehtimalla spam olmusunuz @spambot-a /start yazın.` \nXəta: \n`{error}` \n\n `{s}` istifadəçi əlavə edildi.\n `{f}` istifadəçini əlavə etmək olmadı."
                 )
             await event.client(
                 functions.channels.InviteToChannelRequest(channel=chat, users=[user.id])
             )
             s = s + 1
             await cyber.edit(
-                f"**C Y B Σ R**\n\n`{s}` istifadəçi əlavə edildi.\n`{f}` istifadəçini əlavə etmək olmadı\n\n**Xəta:** `{error}`"
+                f"**C Y B Ξ R**\n\n`{s}` istifadəçi əlavə edildi.\n`{f}` istifadəçini əlavə etmək olmadı\n\n**Xəta:** `{error}`"
             )
         except Exception as e:
             error = str(e)
             f = f + 1
     return await cyber.edit(
-        f"**C Y B Σ R** \n\nUğurla `{s}` istifadəçi əlavə edildi.\nUğursuz olan istifadəçilərin sayı: `{f}`"
+        f"**C Y B Ξ R** \n\nUğurla `{s}` istifadəçi əlavə edildi.\nUğursuz olan istifadəçilərin sayı: `{f}`"
     )
 
 
