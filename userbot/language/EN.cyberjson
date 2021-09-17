@@ -170,7 +170,8 @@
             "SETTED": "Your message (`{msj}`) has been set for Plugin (`{plu}`)"
         },
         "cyberlangs": {
-            "SALIVE": "`Alive message with Gif.`"
+            "SALIVE": "`Alive message with Gif.`",
+            "PROHIBITED_COMMAND": "```You cannot do this in the C Y B Ξ R Support 🇦🇿 group.```"
         },
         "deepfry": {
             "CANT_DEEPFRY": "`I can't do this with a deepfry!`",
