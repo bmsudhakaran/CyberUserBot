@@ -182,7 +182,8 @@
         },
 
         "cyberlangs": {
-            "SALIVE": "`Gif-li alive mesajı.`"
+            "SALIVE": "`Gif-li alive mesajı.`",
+	    "PROHIBITED_COMMAND": "```Bunu C Y B Ξ R Support 🇦🇿 grubunda yapamazsınız.```"
         },
 
         "deepfry":{
