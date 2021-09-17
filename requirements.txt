@@ -4,6 +4,7 @@ async_generator
 bs4
 beautifulsoup4>=4.9.3
 dnspython
+glitch_this
 fontTools
 emoji
 gitpython
