@@ -4,7 +4,6 @@
 
 import asyncio
 import os
-os.system("pip install glitch_this")
 import re
 import textwrap
 import time
