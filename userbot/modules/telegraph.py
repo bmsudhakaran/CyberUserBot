@@ -72,7 +72,7 @@ async def telegraphs(graph):
                     title_of_page, html_content=page_content
                 )
                 await graph.edit(
-                    "Uğurla yükləndi"
+                    "Uğurla yükləndi "
                     f"[telegra.ph](https://telegra.ph/{response['path']}).",
                     link_preview=True,
                 )
