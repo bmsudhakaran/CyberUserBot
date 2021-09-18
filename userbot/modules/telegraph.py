@@ -20,10 +20,10 @@ telegraph = Telegraph()
 r = telegraph.create_account(short_name="telegraph")
 auth_url = r["auth_url"]
 
-
-@register(outgoing=True, pattern=r"^\.tg (med|text)$")
-async def telegraph(graph):
-    await graph.edit("`Hazırlanır...`")
+@register(outgoing=True, pattern=r"^\.tg (media|text)$")
+async def telegraphs(graph):
+    """.telegraph"""
+    await graph.edit("Hazırlanır...")
     if not graph.text[0].isalpha() and graph.text[0] not in ("/", "#", "@", "!"):
         if graph.fwd_from:
             return
@@ -32,27 +32,28 @@ async def telegraph(graph):
         if graph.reply_to_msg_id:
             r_message = await graph.get_reply_message()
             input_str = graph.pattern_match.group(1)
-            if input_str == "med":
+            if input_str == "media":
                 downloaded_file_name = await bot.download_media(
                     r_message, TEMP_DOWNLOAD_DIRECTORY
                 )
-                await graph.edit(f"Yükləndi `{downloaded_file_name}`.")
+                await graph.edit(f"Yükləndi {downloaded_file_name}.")
                 if downloaded_file_name.endswith(".webp"):
                     resize_image(downloaded_file_name)
                 try:
                     media_urls = upload_file(downloaded_file_name)
                 except exceptions.TelegraphException as exc:
-                    await graph.edit("Xəta: " + str(exc))
+                    await graph.edit("ERROR: " + str(exc))
                     os.remove(downloaded_file_name)
                 else:
                     os.remove(downloaded_file_name)
                     await graph.edit(
-                        f"Uğurla yükləndi!\n[telegra.ph](https://telegra.ph{media_urls[0]}).",
+                        f"Uğurla yükləndi [telegra.ph](https://telegra.ph{media_urls[0]}).",
                         link_preview=True,
                     )
             elif input_str == "text":
                 user_object = await bot.get_entity(r_message.sender_id)
-                title_of_page = user_object.first_name
+                title_of_page = user_object.first_name  # + " " + user_object.last_name
+                # apparently, all Users do not have last_name field
                 page_content = r_message.message
                 if r_message.media:
                     if page_content != "":
@@ -71,12 +72,12 @@ async def telegraph(graph):
                     title_of_page, html_content=page_content
                 )
                 await graph.edit(
-                    "Uğurla yükləndi!\n"
+                    "Uğurla yükləndi"
                     f"[telegra.ph](https://telegra.ph/{response['path']}).",
                     link_preview=True,
                 )
         else:
-            await graph.edit("`Daimi bir telegra.ph bağlantısı əldə etmək üçün bir mesaja cavab verin.`")
+            await graph.edit("```Daimi bir telegra.ph bağlantısı əldə etmək üçün bir mesaja cavab verin.```")
 
 
 def resize_image(image):
@@ -85,5 +86,5 @@ def resize_image(image):
 
 
 CmdHelp('telegraph').add_command(
-    'tg', '<med/text>', 'Mesaja yanıt verərək .tg text (yazı) və ya .tg med (mediya) yazaraq Telegrapha yükləyin.'
+    'tg', '<media/text>', 'Mesaja yanıt verərək .tg text (yazı) və ya .tg media (mediya) yazaraq Telegrapha yükləyin.'
 ).add()    
