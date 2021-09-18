@@ -261,7 +261,7 @@ async def _(event):
                 pdf = await conv.get_response()
                 await bot.send_read_acknowledge(conv.chat_id)
             except YouBlockedUserError:
-                await event.client(UnblockRequest("999430077"))
+                await event.edit("**Xahiş edirəm @office2pdf_bot blokdan çıxarın və sonra yoxlayın.**")
                 return
             await event.client.send_message(event.chat_id, pdf)
             await event.client.delete_messages(
@@ -285,7 +285,6 @@ async def _(event):
             "**Xəta: @office2pdf_bot cavab vermir biraz sonra yoxlayın.**"
         )	
 	
-
 @register(outgoing=True, pattern="^.sendbot (.*)")
 async def sendbot(cyber):
     if cyber.fwd_from:
