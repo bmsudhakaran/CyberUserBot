@@ -237,7 +237,55 @@ async def _(event):
     await a.delete()
     os.remove(input_str)
 	
- 
+	
+
+@register(outgoing=True, pattern=r"^\.pdf(?: |$)(.*)")
+async def _(event):
+    if not event.reply_to_msg_id:
+        return await event.edit("**Xahiş edirəm bir mesaja cavab verin!**")
+    reply_message = await event.get_reply_message()
+    chat = "@office2pdf_bot"
+    await event.edit("`Hazırlanır..`")
+    try:
+        async with bot.conversation(chat) as conv:
+            try:
+                msg_start = await conv.send_message("/start")
+                response = await conv.get_response()
+                wait = await conv.send_message(reply_message)
+                convert = await conv.send_message("/ready2conv")
+                confirm = await conv.get_response()
+                editfilename = await conv.send_message("Yes")
+                enterfilename = await conv.get_response()
+                filename = await conv.send_message("@thecyberuserbot")
+                started = await conv.get_response()
+                pdf = await conv.get_response()
+                await bot.send_read_acknowledge(conv.chat_id)
+            except YouBlockedUserError:
+                await event.client(UnblockRequest("999430077"))
+                return
+            await event.client.send_message(event.chat_id, pdf)
+            await event.client.delete_messages(
+                conv.chat_id,
+                [
+                    msg_start.id,
+                    response.id,
+                    wait.id,
+                    started.id,
+                    filename.id,
+                    editfilename.id,
+                    enterfilename.id,
+                    confirm.id,
+                    pdf.id,
+                    convert.id,
+                ],
+            )
+            await event.delete()
+    except TimeoutError:
+        return await event.edit(
+            "**Xəta: @office2pdf_bot cavab vermir biraz sonra yoxlayın.**"
+        )	
+	
+
 @register(outgoing=True, pattern="^.sendbot (.*)")
 async def sendbot(cyber):
     if cyber.fwd_from:
@@ -288,4 +336,5 @@ Help.add()
 Help = CmdHelp('files')
 Help.add_command('oxu', '<bir fayla cavab>', 'Faylın məzmununu oxuyun və Telegram mesajı olaraq göndərin.')
 Help.add_command('repack', '<bir mətnə cavab> <fayl_adı.py>', 'Cavab verdiyiniz mətni plugin edib atar.')
+Help.add_command('pdf', '<bir mediaya və ya mətnə cavab>', 'Cavab verdiyiniz mətni və ya şəkili pdf-yə çevirər.')
 Help.add()
