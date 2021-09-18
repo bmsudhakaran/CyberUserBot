@@ -11,8 +11,9 @@ import os
 from PIL import Image
 from telegraph import Telegraph, exceptions, upload_file
 
-from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
+from userbot import TEMP_DOWNLOAD_DIRECTORY, bot
 from userbot.events import register
+from userbot.cmdhelp import CmdHelp
 
 
 telegraph = Telegraph()
