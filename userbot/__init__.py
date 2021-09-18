@@ -248,7 +248,7 @@ OTOMATIK_KATILMA = sb(os.environ.get("OTOMATIK_KATILMA", "True"))
 # Whitelist and Patterns /
 PATTERNS = os.environ.get("PATTERNS", ".;!,")
 WHITELIST = get('https://raw.githubusercontent.com/FaridDadashzade/deploy/main/whitelist.json').json()
-SUPPORT = get('https://cyberuserbot.ml/cyber.json').json()
+SUPPORT = get('https://raw.githubusercontent.com/FaridDadashzade/deploy/main/support.json').json()
 
 BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
 
