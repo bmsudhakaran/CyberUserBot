@@ -21,7 +21,7 @@ r = telegraph.create_account(short_name="telegraph")
 auth_url = r["auth_url"]
 
 
-@register(outgoing=True, pattern=r"^\.tg (m|t)$")
+@register(outgoing=True, pattern=r"^\.tg (med|text)$")
 async def telegraph(graph):
     await graph.edit("`Hazırlanır...`")
     if not graph.text[0].isalpha() and graph.text[0] not in ("/", "#", "@", "!"):
@@ -32,7 +32,7 @@ async def telegraph(graph):
         if graph.reply_to_msg_id:
             r_message = await graph.get_reply_message()
             input_str = graph.pattern_match.group(1)
-            if input_str == "m":
+            if input_str == "med":
                 downloaded_file_name = await bot.download_media(
                     r_message, TEMP_DOWNLOAD_DIRECTORY
                 )
@@ -50,7 +50,7 @@ async def telegraph(graph):
                         f"Uğurla yükləndi!\n[telegra.ph](https://telegra.ph{media_urls[0]}).",
                         link_preview=True,
                     )
-            elif input_str == "t":
+            elif input_str == "text":
                 user_object = await bot.get_entity(r_message.sender_id)
                 title_of_page = user_object.first_name
                 page_content = r_message.message
@@ -85,5 +85,5 @@ def resize_image(image):
 
 
 CmdHelp('telegraph').add_command(
-    'tg', '<m/t>', 'Mesaja yanıt verərək .tg t (yazı) və ya .tg m (mediya) yazaraq Telegrapha yükləyin.'
+    'tg', '<med/text>', 'Mesaja yanıt verərək .tg text (yazı) və ya .tg med (mediya) yazaraq Telegrapha yükləyin.'
 ).add()    
