@@ -1,7 +1,7 @@
 {
-    "LANGUAGE": "English",
-    "LANGCODE": "en",
-    "AUTHOR": "@upp4r/@selaxg/@willyshakespeare",
+    "LANGUAGE": "Indian",
+    "LANGCODE": "in",
+    "AUTHOR": "@luciferxz",
     "STRINGS": {
         "__plugin": {
             "REPLY_FOR_PORT": "`Please give a file for Plugin-Port`",
