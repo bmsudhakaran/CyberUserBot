@@ -277,7 +277,7 @@
             "ERROR_MSG": "``` last.fm module was stopped due to an unexpected error. ```"
         },
         "liste": {
-            "WRONG_INPUT": "** Unknown command! ** ` Usage: .liste gmute/gban `",
+            "WRONG_INPUT": "** Unknown command! ** ` Usage: .siyahi gmute/gban `",
             "NEED_SQL_MODE": "`This feature will not work in sql non-sql mode! `",
             "GBANNED_USERS": "`Globally, banned users are being brought in...`",
             "TOO_MANY_GBANNED": "`Wow! You've banned a lot of people. I'm sending it as a file...`",
