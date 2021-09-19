@@ -5,6 +5,8 @@
 
 # All rights reserved.
 
+# Bu modulu götürən liçni peysərdi varyoxunu sikim #
+
 import requests
 from googletrans import Translator
 from telethon import events
@@ -19,9 +21,9 @@ translator = Translator()
 LANGUAGE = DIL
 
 aktivet = []
+LANGUAGES = ["AZ", "TR", "EN", "UZ", "RU", "IN", "ML"]
 
 url = "https://api-tede.herokuapp.com/api/chatbot?message={message}"
-
 
 # ---------------------------------- #
 
@@ -78,6 +80,22 @@ async def chatbot(event):
         tr = translator.translate(rep, LANGUAGE)
         if tr:
             await event.reply(tr.text)
+            
+"""
+@register(pattern=".deyis (chatbot|sesgonder) (.*)", outgoing=True)
+async def lang(value):
+    util = value.pattern_match.group(1).lower()
+    if util == "chatbot":
+        global LANGUAGE
+        arg = value.pattern_match.group(2).lower()
+        if arg in LANGUAGES:
+            LANGUAGE = arg
+            LANG = LANGUAGES[arg]
+            await value.edit(f"`ChatBot modulu üçün default dil {LANGUAGE} olaraq ayarkandı.`")
+    elif util == "sesgonder":
+    util = value.pattern_match.group(1).lower()
+        """
+             # tezlikle #   
             
 CmdHelp('chatbot').add_command(
 'chatbot on', None, 'ChatBot modulunu aktiv edər.'
