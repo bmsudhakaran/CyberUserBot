@@ -1,6 +1,9 @@
-# Copyright (C) 2021
+# Copyright (C) 2021 FaridDadashzade.
 #
-# CYBERUSERBOT - FARIDDADASHZADE
+# Licensed under MIT license;
+# you may not use this file except in compliance with the License.
+
+# All rights reserved.
 
 from userbot.cmdhelp import CmdHelp
 from userbot import PLUGIN_CHANNEL_ID, CMD_HELP
@@ -11,7 +14,6 @@ from userbot.language import LANGUAGE_JSON
 from os import remove
 
 @register(outgoing=True, pattern="^.dil ?(.*)")
-@register(outgoing=True, pattern="^.lang ?(.*)")
 async def dil(event):
     global LANGUAGE_JSON
 
@@ -74,9 +76,9 @@ async def dil(event):
         )
 
 CmdHelp('dil').add_command(
-    'lang', None, 'Yüklədiyiniz dil haqqında məlumat verər.'
+    'dil', None, 'Yüklədiyiniz dil haqqında məlumat verər.'
 ).add_command(
-    'lang info', None, 'Cavab verdiyiniz dil faylı haqqında məlumat verər.'
+    'dil info', None, 'Cavab verdiyiniz dil faylı haqqında məlumat verər.'
 ).add_command(
-    'lang install', None, 'Cavab verdiyiniz dil faylını yükləyər.'
+    'dil install', None, 'Cavab verdiyiniz dil faylını yükləyər.'
 ).add()
