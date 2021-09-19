@@ -56,7 +56,7 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@register(outgoing=True, disable_errors=True, pattern=r"^\.əlövsət(?: |$)(.*)")
+@register(outgoing=True, disable_errors=True, pattern=r"^\.salive(?: |$)(.*)")
 async def salive(alive):
     user = await bot.get_me()
     islememuddeti = await get_readable_time((time.time() - StartTime))
@@ -114,7 +114,6 @@ async def jarvisalive(jarvis):
             return
     else:
         return 
-
         
 CmdHelp('salive').add_command(
     'salive', None, (LANG['SALIVE'])
