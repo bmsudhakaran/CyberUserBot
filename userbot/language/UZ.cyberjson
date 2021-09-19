@@ -172,7 +172,10 @@
         },
         "cyberlangs": {
             "SALIVE": "`Gif bilan jonli xabar.`",
-            "PROHIBITED_COMMAND": "```Siz buni C Y B E R qo'llab quvvatlash guruhida qila olmaysiz.```"
+            "PROHIBITED_COMMAND": "```Siz buni C Y B E R qo'llab quvvatlash guruhida qila olmaysiz.```",
+            "CHATBOT_DEACTIVE": "```Chatbot muvaffaqiyatli yopildi.```",
+            "CHATBOT_ACTIVE": "```Chatbot faol.```",
+            "CHATBOT_MANUAL": "```**Foydalanish:**\n.chatbot <on/off>```"
         },
         "deepfry": {
             "CANT_DEEPFRY": "`Bunni deepfry qilaolmaydi`",
