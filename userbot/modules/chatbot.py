@@ -11,12 +11,12 @@ from telethon import events
 from telethon.tl.types import User
 
 from userbot import BLACKLIST_CHAT
-from userbot import LOGS, bot
+from userbot import LOGS, bot, LANGUAGE as DIL
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 
 translator = Translator()
-LANGUAGE = "az"
+LANGUAGE = DIL
 
 aktivet = []
 
@@ -50,15 +50,15 @@ async def aktivetme(db, event):
     if status == "on":
         if chat_id not in db:
             db.append(chat_id)
-            return await event.edit("Chatbot aktivdir!")
-        await event.edit("Chatbot deaktivdir.")
+            return await event.edit(LANG["CHATBOT_ACTIVE"])
+        await event.edit(LANG["CHATBOT_DEACTIVE"])
     elif status == "off":
         if chat_id in db:
             db.remove(chat_id)
-            return await event.edit("Chatbot deaktivdir!")
-        await event.edit("Chatbot deaktivdir..")
+            return await event.edit(LANG["CHATBOT_DEACTIVE"])
+        await event.edit(LANG["CHATBOT_DEACTIVE"])
     else:
-        await event.edit("**Istifadəsi:**\n.chatbot <on/off>")
+        await event.edit(LANG["CHATBOT_MANUAL"])
 
 
 @register(outgoing=True, pattern=r"^\.chatbot(?: |$)(.*)")
