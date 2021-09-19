@@ -2,7 +2,7 @@
     "__CYBERJSON__": true,
     "LANGUAGE": "Azərbaycanca",
     "LANGCODE": "az",
-    "AUTHOR": "t.me/faridxz",
+    "AUTHOR": "t.me/luciferxz",
     "STRINGS": {
         "__plugin": {
             "REPLY_FOR_PORT": "`Zəhmət olmasa Plugin-Port üçün bir fayla cavab yazın`",
@@ -183,7 +183,10 @@
 
         "cyberlangs": {
             "SALIVE": "Gif-li alive mesajı",
-	    "PROHIBITED_COMMAND": "```Bunu C Y B Ξ R Support 🇦🇿 qrupunda edə bilməzsiniz.```"
+	    "PROHIBITED_COMMAND": "```Bunu C Y B Ξ R Support 🇦🇿 qrupunda edə bilməzsiniz.```",
+	    "CHATBOT_DEACTIVE": "```Chatbot deaktivdir.```",
+            "CHATBOT_ACTIVE": "```Chatbot aktiv edildi.```",
+            "CHATBOT_MANUAL": "```**İstifadəsi:**\n.chatbot <on/off>```"
         },
 
         "deepfry":{
@@ -296,7 +299,7 @@
         },
 
         "liste": {
-            "WRONG_INPUT": "**Bilinməyən komanda!** `İstifadəsi: .liste gmute/gban`",
+            "WRONG_INPUT": "**Bilinməyən komanda!** `İstifadəsi: .siyahi gmute/gban`",
             "NEED_SQL_MODE": "`Bu xüsusiyyət qeyri-sql rejimində işləmir!`",
             "GBANNED_USERS": "`Qlobal olaraq qadağan olunmuş istifadəçilər gətirilir...`",
             "TOO_MANY_GBANNED": "`Vay! Vay! Bir çox insana qadağa qoymusuz. Fayl kimi göndərirəm...`",
