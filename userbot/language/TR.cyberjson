@@ -183,7 +183,10 @@
 
         "cyberlangs": {
             "SALIVE": "`Gif-li alive mesajı.`",
-	    "PROHIBITED_COMMAND": "```Bunu C Y B Ξ R Support 🇦🇿 grubunda yapamazsınız.```"
+	    "PROHIBITED_COMMAND": "```Bunu C Y B Ξ R Support 🇦🇿 grubunda yapamazsınız.```",
+            "CHATBOT_DEACTIVE": "```Chatbot başarıyla kapatıldı.```",
+            "CHATBOT_ACTIVE": "```Chatbot aktif.```",
+            "CHATBOT_MANUAL": "```**Kullanımı:**\n.chatbot <on/off>```"
         },
 
         "deepfry":{
@@ -261,18 +264,18 @@
 
         "galeri": {
             "ADDED_LIST": "`Fotoğraf sıraya alındı.`",
-            "INVALID_URL": "`Geçersiz bir resim URL'si girdiniz. Kullanım hakkında bir fikriniz yoksa, ` `.cyber galeri` `yazınız.`",
-            "EXAMPLE": "`Lütfen bir resim adresi giriniz. Örnek olarak: ` `.galeri ekle https://i.resimyukle.xyz/7Qbbc9.jpeg`",
+            "INVALID_URL": "`Geçersiz bir resim URL'si girdiniz. Kullanım hakkında bir fikriniz yoksa, ` `.cyber qalareya` `yazınız.`",
+            "EXAMPLE": "`Lütfen bir resim adresi giriniz. Örnek olarak: ` `.qalareya elave https://i.resimyukle.xyz/7Qbbc9.jpeg`",
             "LIST": "Sıraya Aldığınız Fotoğraflar",
             "REMOVED": "**Sıradaki fotoğraf başarıyla kaldırıldı**",
             "REMOVE_ERROR": "**Sıradaki fotoğraf kaldırılamadı** Hata",
             "NEED_NUMBER": "Lütfen resmin sırasını belirtiniz. Örnek:",
             "WORKING": "`Hali hazırda galeri çalışıyor.`",
             "STARTED": "`Galeri çalışmaya başladı.`",
-            "NEED_PHOTO": "Galeri çalışması için fotoğraf eklemeniz gerekmektedir. Eklemeyi bilmiyorsanız .cyber galeri ile kullanım hakkında bilgi sahibi olabilirsiniz.",
+            "NEED_PHOTO": "Galeri çalışması için fotoğraf eklemeniz gerekmektedir. Eklemeyi bilmiyorsanız .cyber qalareya ile kullanım hakkında bilgi sahibi olabilirsiniz.",
             "STOPPED": "`Galeri durduruldu!`",
             "ALREADY_STOP": "`Galeri zaten çalışmıyor.`",
-            "INVALID": "**Bilinmeyen komut** Kullanım:\n\nGaleri'ye fotoğraf ekleme: `.galeri ekle https://i.resimyukle.xyz/7Qbbc9.jpeg`\nGaleri listesini görme: `.galeri liste`\nSıradan bir fotoğrafı silme: `.galeri sil <sıra sayısı>`"
+            "INVALID": "**Bilinmeyen komut** Kullanım:\n\nGaleri'ye fotoğraf ekleme: `.qalareya elave https://i.resimyukle.xyz/7Qbbc9.jpeg`\nGaleri listesini görme: `.galeri liste`\nSıradan bir fotoğrafı silme: `.galeri sil <sıra sayısı>`"
         },
 
         "github": {
@@ -296,7 +299,7 @@
         },
 
         "liste": {
-            "WRONG_INPUT": "**Bilinmeyen komut!** `Kullanım: .liste gmute/gban`",
+            "WRONG_INPUT": "**Bilinmeyen komut!** `Kullanım: .siyahi gmute/gban`",
             "NEED_SQL_MODE": "`Sql dışı mod'ta bu özellik çalışmaz!`",
             "GBANNED_USERS": "`Küresel olarak yasaklanan kullanıcılar getiriliyor...`",
             "TOO_MANY_GBANNED": "`Wow! Baya bir kişi yasaklamışsınız. Dosya olarak gönderiyorum...`",
