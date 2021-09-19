@@ -1,7 +1,9 @@
-# Copyright (C) 2021 FaridDadashzade
+# Copyright (C) 2021 FaridDadashzade.
 #
-# Faridxz
+# Licensed under MIT license;
+# you may not use this file except in compliance with the License.
 
+# All rights reserved.
 
 """ C Y B E R """
 
@@ -56,10 +58,11 @@ from userbot.utils.cyberimage import googleimagesdownload
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.types import DocumentAttributeAudio
 from telethon import events
+from userbot import LANGUAGE as DIL
 
 CARBONLANG = "auto"
 TTS_LANG = "tr"
-TRT_LANG = "az"
+TRT_LANG = DIL
 
 from telethon import events
 import subprocess
@@ -67,32 +70,6 @@ from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotMo
 import io
 import glob
 
-@register(pattern="^.tts2 (.*)", outgoing=True)
-async def tts2(query):
-    textx = await query.get_reply_message()
-    mesj = query.pattern_match.group(1)
-    parca = mesj.split(" ")[0]
-    if parca == "qadın":
-        cins = "female"
-    else:
-        cins = "male"
-
-    message = mesj.replace(parca, "")
-    if message:
-        pass
-    elif textx:
-        message = textx.text
-    else:
-        await query.edit(
-            "Yazıdan səsə çevirmək üçün bir mətn yaz. İstifadəsi: .tts2 kişi/qadın merhaba`")
-        return
-
-    mp3 = get(f"https://texttospeech.responsivevoice.org/v1/text:synthesize?text={message}&lang={TTS_LANG}&engine=g3&name=&pitch=0.5&rate=0.5&volume=1&key=AsenaUserbot&gender={cins}").content
-    with open("h.mp3", "wb") as audio:
-        audio.write(mp3)
-    await query.client.send_file(query.chat_id, "h.mp3", voice_note=True)
-    os.remove("h.mp3")
-    await query.delete()
 
 @register(pattern="^.reddit ?(.*)", outgoing=True)
 async def reddit(event):
@@ -131,6 +108,7 @@ async def reddit(event):
             print(e)
             await event.edit(mesaj + "\n\n`" + veri["selftext"] + "`")
 
+            
 @register(pattern="^.twit ?(.*)", outgoing=True)
 async def twit(event):
     hesap = event.pattern_match.group(1)
@@ -894,43 +872,40 @@ async def download_video(v_url):
 
 
 def deEmojify(inputString):
-    """ Emojileri ve diğer güvenli olmayan karakterleri metinden kaldırır. """
     return get_emoji_regexp().sub(u'', inputString)
 
 CmdHelp('scrapers').add_command(
-    'img', '<dəyər> <söz>', 'Google üstünde hızlı bir fotoğraf arar eğer değer belirtmez iseniz 5 tane atar', 'img10 şirin kediler'
+    'img', '<dəyər> <söz>', 'Google-da şəkil axtarar', 'img CyberUserBot'
 ).add_command(
-    'currency', '<miqdar> <birim> <dönüşecek birim>', 'Yusufun Türk Lirası Botu gibi, ama boş kaldığında kızlara yazmıyor.'
+    'currency', '<miqdar> <vahid> <çevriləcək vahid>', 'Valyuta.'
 ).add_command(
-    'carbon', '<metn>', 'carbon.now.sh sitesini kullanarak mesajınıza carbon editi uygular.'
+    'carbon', '<metn>', 'carbon.now.sh saytından istifadə edərək mesajınıza carbon effekti verər.'
 ).add_command(
-    'crblang', '<dil>', 'Carbon için dil ayarlar.'
+    'crblang', '<dil>', 'Carbon üçün dil ayarlayar.'
 ).add_command(
-    'karbon', '<mətin>', 'Carbon ile aynı ama daha hızlı.'
+    'karbon', '<mətin>', 'Carbon.'
 ).add_command(
-    'google', '<söz>', 'Googledan arama yapmanıza yarayan userbot modülü.'
+    'google', '<söz>', 'Googleda axtarış etmənizə yardım edəcək modul.'
 ).add_command(
     'wiki', '<term>', 'Wikipedia-da axtarış edər.'
 ).add_command(
-    'ud', '<terim>', 'Urban Dictionary araması yapmanın kolay yolu?'
+    'ud', '<terim>', 'Urban Dictionary axtarışı etmək üçün.'
 ).add_command(
-    'tts', '<mətn>', 'Metni sese dönüştürür.'
+    'tts', '<mətn>', 'Mətni səsə çevirər.'
 ).add_command(
-    'lang', '<dil>', 'tts ve trt için dil ayarlayın.'
+    'lang', '<dil>', 'tts vƏ trt üçün dil ayarlayın.'
 ).add_command(
-    'tts2', '<cinsiyyet> <mətn>', 'Metni sese dönüştürür.', 'tts2 erkek selam'
+    'trt', '<mətn>', 'Tərcümə edin!'
 ).add_command(
-    'trt', '<mətn>', 'Basit bir çeviri modülü.'
+    'yt', '<mətn>', 'YouTube-da axtarış edər'
 ).add_command(
-    'yt', '<mətn>', 'YouTube üzerinde bir arayış yapar.'
+    'xəbər', '<guncel/magazin/spor/ekonomi/politika/dunya>', 'Son dəqiqə xəbərlər.'
 ).add_command(
-    'xəbər', '<guncel/magazin/spor/ekonomi/politika/dunya>', 'Son dakika haberler.'
+    'imdb', '<film>', 'Film haqqında məlumat verər verir.'
 ).add_command(
-    'imdb', '<film>', 'Film hakkında bilgi verir.'
+    'ripa', '<link>', 'YouTube-dan (və ya başqa saytlardan) səs yükləyər.'
 ).add_command(
-    'ripa', '<bağlantı>', 'YouTube üzerinden (veya diğer siteler) ses indirir.'
-).add_command(
-    'ripv', '<bağlantı>', 'YouTube üzerinden (veya diğer siteler) video indirir.'
+    'ripv', '<link>', 'YouTube-dan (və ya başqa saytlardan) video yükləyər.'
 ).add_info(
     '[Rip əmrinin dəstəkləndiyi saytlar.](https://ytdl-org.github.io/youtube-dl/supportedsites.html)'
 ).add()
