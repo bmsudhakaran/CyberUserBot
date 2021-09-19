@@ -18,7 +18,7 @@ from userbot import (
     ALIVE_TEXT,
     bot
 )
-
+from userbot import CMD_HELP
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 from userbot import SAHIB_ID, DEFAULT_NAME
@@ -56,7 +56,7 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@register(outgoing=True, disable_errors=True, pattern=r"^\.salive(?: |$)(.*)")
+@register(outgoing=True, disable_errors=True, pattern=r"^\.əlövsət(?: |$)(.*)")
 async def salive(alive):
     user = await bot.get_me()
     islememuddeti = await get_readable_time((time.time() - StartTime))
@@ -65,8 +65,9 @@ async def salive(alive):
         f"┏━━━━━━━━━━━━━━━━━━━━━━\n"
         f"┣[ 🧭 **Botun işləmə müddəti:** `{islememuddeti}`\n"
         f"┣[ 👤 **Mənim sahibim:** `{user.first_name}`\n"
-        f"┣[ 🐍 **Python:** `3.8.6`\n"
+        f"┣[ 🐍 **Python:** `3.8.6`\n"                               
         f"┣[ ⚙️ **Telethon:** `1.23.0`\n"
+        f"┣[ 🛡 **Plugin sayı:** `{len(CMD_HELP)}`\n"
         f"┣[ 👁‍🗨 **İstifadəçi adı:** @{user.username}\n"
         f"┣[ 🗄 **Branch:** `Master`\n"
         f"┗━━━━━━━━━━━━━━━━━━━━━━\n"
