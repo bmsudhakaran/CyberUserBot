@@ -79,7 +79,8 @@ async def chatbot(event):
         if tr:
             await event.reply(tr.text)
             
-Help = CmdHelp('chatbot')
-Help.add_command('chatbot', '<on>', 'Chatbot modulunu aktiv edər.')
-Help.add_command('chatbot', '<off>', 'Chatbot modulunu deaktiv edər.')
-Help.add()
+CmdHelp('chatbot').add_command(
+'chatbot on', None, 'ChatBot modulunu aktiv edər.'
+    ).add_command(
+        'chatbot off', None, 'ChatBot modulunu deaktiv edər.'
+    ).add()
