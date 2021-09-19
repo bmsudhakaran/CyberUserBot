@@ -1,7 +1,7 @@
 {
-    "LANGUAGE": "Indian",
-    "LANGCODE": "in",
-    "AUTHOR": "@luciferxz",
+    "LANGUAGE": "English",
+    "LANGCODE": "en",
+    "AUTHOR": "@upp4r/@selaxg/@willyshakespeare",
     "STRINGS": {
         "__plugin": {
             "REPLY_FOR_PORT": "`Please give a file for Plugin-Port`",
@@ -537,7 +537,7 @@
             "NOT_GIT": "folder does not look like a git repo. \nBut you can solve this problem by forcibly updating the bot with the .update now command.",
             "INVALID_BRANCH": "**[UPDATER]: * * ` I think you've modified the C Y B Ξ R bot and you're using your own branch.\nThis confuses the Updater,\nWhere will the update be pulled?\nPlease use the C Y B Σ R bot from the official repo.`",
             "UPDATE": "\n`Your bot` **completely up to date!** `Branch:` **{}**\n",
-            "WAS_UPDATE": "New update available for ** { }!\n\nChanges: **\n ` {} `",
+            "WAS_UPDATE": "New update available for ** {}!\n\nChanges: **\n ` {} `",
             "BIG": "`The change list is too large, you should display it as a file.`",
             "DO_UPDATE": "`Use the \".update now\" command to make the update. `",
             "FORCE_UPDATE": "`The current stabil userbot code is being forcibly synchronized... `",
