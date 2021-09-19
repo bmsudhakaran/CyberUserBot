@@ -278,7 +278,7 @@
             "ERROR_MSG": "```Last.fm moduli kutilmagan xato tufayli to'xtatildi..```"
         },
         "liste": {
-            "WRONG_INPUT": "**Noma'lum buyruq!** `Masalan: .liste gmute/gban`",
+            "WRONG_INPUT": "**Noma'lum buyruq!** `Masalan: .siyahi gmute/gban`",
             "NEED_SQL_MODE": "`Ushbu xususiyat sql bo'lmagan rejimda ishlamaydi!`",
             "GBANNED_USERS": "`Global taqiqlangan foydalanuvchilar olib kelinadi...`",
             "TOO_MANY_GBANNED": "`Qoyil!  Siz ko'p odamlarga taqiq qo'ydingiz.  Fayl sifatida yuborayapman ...`",
