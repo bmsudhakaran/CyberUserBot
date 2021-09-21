@@ -1,5 +1,4 @@
-# CYBERUSERBOT - Luciferxz #
-
+# CYBERUSERBOT - FaridDadashzade #
 
 import os
 import lyricsgenius
