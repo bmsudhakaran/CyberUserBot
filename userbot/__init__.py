@@ -155,7 +155,7 @@ DB_URI = os.environ.get("DATABASE_URL", "sqlite:///cyber.db")
 OCR_SPACE_API_KEY = os.environ.get("OCR_SPACE_API_KEY", None)
 
 # remove.bg API key
-REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", None)
+REM_BG_API_KEY = os.environ.get("REM_BG_API_KEY", "HR3T1wqKfoG2QHGhFA9b9nEN")
 
 # AUTO PP
 AUTO_PP = os.environ.get("AUTO_PP", None)
@@ -232,7 +232,7 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
 BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
 
 # Genius
-GENIUS = os.environ.get("GENIUS", None)
+GENIUS = os.environ.get("GENIUS", "S2_xTvY4XdocgPC_vMSCpcjrJkA5ACbgXuUzjmWneMsWea3jCgzGem6u4mKFqG8y")
 CMD_HELP = {}
 CMD_HELP_BOT = {}
 PM_AUTO_BAN_LIMIT = int(os.environ.get("PM_AUTO_BAN_LIMIT", 4))
@@ -251,7 +251,6 @@ WHITELIST = get('https://raw.githubusercontent.com/FaridDadashzade/deploy/main/w
 SUPPORT = get('https://raw.githubusercontent.com/FaridDadashzade/deploy/main/support.json').json()
 
 BLACKLIST_CHAT = os.environ.get("BLACKLIST_CHAT", None)
-
 if not BLACKLIST_CHAT:
     BLACKLIST_CHAT = [-1001357863496]
 
