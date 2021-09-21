@@ -1,4 +1,4 @@
-# CYBERUSERBOT - Luciferxz #
+# CYBERUSERBOT - FaridDadashzade #
 
 import io
 import os
@@ -15,9 +15,9 @@ LANG = get_value("remove_bg")
 
 # ████████████████████████████████ #
 
-@register(outgoing=True, pattern="^.rbg(?: |$)(.*)")
+@register(outgoing=True, pattern="^.removebg(?: |$)(.*)")
 async def kbg(remob):
-    """ .rbg """
+    """ .removebg """
     if REM_BG_API_KEY is None:
         await remob.edit(
             LANG['NEED_API_KEY']
@@ -93,6 +93,6 @@ async def ReTrieveURL(input_url):
                       stream=True)
     return r
 
-CmdHelp('rgb').add_command(
-    'rbg', '<Foto linki/cavab>', 'remove.bg API işlədərək görüntülərin arxa planını silər.'
+CmdHelp('removebg').add_command(
+    'removebg', '<Foto linki/cavab>', 'remove.bg API işlədərək qeyd etdiyiniz medianın arxa planını silər.'
 ).add()
