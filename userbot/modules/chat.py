@@ -15,7 +15,7 @@ LANG = get_value("chat")
 
 
 from asyncio import sleep
-from userbot import CMD_HELP, BOTLOG, BOTLOG_CHATID, bot
+from userbot import CMD_HELP, BOTLOG, BOTLOG_CHATID, bot, BLACKLIST_CHAT
 from userbot.events import register
 from userbot.modules.admin import get_user_from_event
 from userbot.main import PLUGIN_MESAJLAR
@@ -23,7 +23,7 @@ from userbot.main import PLUGIN_MESAJLAR
 # ---------------------------------- #
 
 from userbot.language import get_value
-LANG = get_value("cyberlangs")
+LANG2 = get_value("cyberlangs")
 
 # ---------------------------------- #
 
@@ -89,8 +89,8 @@ async def log(log_text):
 
 @register(outgoing=True, pattern="^.kickme$")
 async def kickme(leave):
-    if event.chat_id in BLACKLIST_CHAT:
-        return await event.edit(LANG["PROHIBITED_COMMAND"])
+    if leave.chat_id in BLACKLIST_CHAT:
+        return await leave.edit(LANG2["PROHIBITED_COMMAND"])
     chat = await leave.get_chat()
     await leave.edit(f"{PLUGIN_MESAJLAR['kickme']}".format(
         id=chat.id,
