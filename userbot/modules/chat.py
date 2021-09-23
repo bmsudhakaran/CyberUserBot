@@ -20,7 +20,15 @@ from userbot.events import register
 from userbot.modules.admin import get_user_from_event
 from userbot.main import PLUGIN_MESAJLAR
 
+# ---------------------------------- #
+
+from userbot.language import get_value
+LANG = get_value("cyberlangs")
+
+# ---------------------------------- #
+
 @register(outgoing=True, pattern="^.userid$")
+@register(outgoing=True, pattern="^.id$")
 async def useridgetter(target):
     message = await target.get_reply_message()
     if message:
@@ -81,6 +89,8 @@ async def log(log_text):
 
 @register(outgoing=True, pattern="^.kickme$")
 async def kickme(leave):
+    if event.chat_id in BLACKLIST_CHAT:
+        return await event.edit(LANG["PROHIBITED_COMMAND"])
     chat = await leave.get_chat()
     await leave.edit(f"{PLUGIN_MESAJLAR['kickme']}".format(
         id=chat.id,
