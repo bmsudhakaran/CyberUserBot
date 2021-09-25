@@ -38,8 +38,7 @@ async def cavablama(message):
         data = requests.get(link)
         if data.status_code == 200:
             return (data.json())["msg"]
-        else:
-            LOGS.info("Xəta baş verdi!")
+        LOGS.info("Xəta baş verdi!")
     except Exception:
         LOGS.info("Xəta: {str(e)}")
 
