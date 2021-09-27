@@ -21,7 +21,7 @@ translator = Translator()
 LANGUAGE = DIL
 
 aktivet = []
-LANGUAGES = ["AZ", "TR", "EN", "UZ", "RU", "IN", "ML"]
+LANGUAGES = "AZ"
 
 url = "https://api-tede.herokuapp.com/api/chatbot?message={message}"
 
@@ -81,18 +81,11 @@ async def chatbot(event):
             await event.reply(tr.text)
             
 """
-@register(pattern=".deyis (chatbot|sesgonder) (.*)", outgoing=True)
-async def lang(value):
-    util = value.pattern_match.group(1).lower()
-    if util == "chatbot":
-        global LANGUAGE
-        arg = value.pattern_match.group(2).lower()
-        if arg in LANGUAGES:
-            LANGUAGE = arg
-            LANG = LANGUAGES[arg]
-            await value.edit(f"`ChatBot modulu üçün default dil {LANGUAGE} olaraq ayarkandı.`")
-    elif util == "sesgonder":
-    util = value.pattern_match.group(1).lower()
+@register(outgoing=True, pattern="^.chatbotlang (.*)")
+async def chatbotlang(event):
+    global CHAT_BOT_LANG
+    CHAT_BOT_LANG = event.pattern_match.group(1)
+    await event.edit(f"Chatbot üçün default dil {CHAT_BOT_LANG} olaraq ayarlandı.")
         """
              # tezlikle #   
             
