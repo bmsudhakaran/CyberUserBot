@@ -16,7 +16,7 @@ from traceback import format_exc
 
 from telethon import events
 
-from userbot import bot, BOTLOG_CHATID, CYBER_VERSION, LOGSPAMMER, PATTERNS, JARVIS, MYID
+from userbot import bot, BOTLOG_CHATID, CYBER_VERSION, LOGSPAMMER, PATTERNS, JARVIS, MYID, SUDO_ID
 
 
 def register(**args):
@@ -33,6 +33,7 @@ def register(**args):
     trigger_on_fwd = args.get('trigger_on_fwd', False)
     trigger_on_inline = args.get('trigger_on_inline', False)
     disable_errors = args.get('disable_errors', False)
+    sudo = args.get('sudo', False)
 
     if pattern:
         args["pattern"] = pattern.replace("^.", "^["+ PATTERNS + "]")
@@ -65,6 +66,11 @@ def register(**args):
         del args['jarvis']
         args['incoming'] = True
         args["from_users"] = JARVIS
+        
+    if 'sudo' in args:
+        del args['sudo']
+        args['incoming'] = True
+        args["from_users"] = SUDO_ID
         
 
     def decorator(func):
