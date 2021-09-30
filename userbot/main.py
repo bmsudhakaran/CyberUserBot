@@ -281,7 +281,7 @@ async def get_readable_time(seconds: int) -> str:
 async def startupcyber():
     try:
         islememuddeti = await get_readable_time((time.time() - StartTime))
-        await bot.send_message(BOTLOG_CHATID, f"Salam! {CYBER_NAME}\nMən C Y B Ξ R UserBot.\nBotumuzu qurduğunuz üçün təşəkkür edirəm!\nBotunuz aktivdir.\n\nC Y B Ξ R: **{CYBER_VERSION}**\nİşə düşmə müddəti: **{islememuddeti}**\n\nYardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)")
+        await bot.send_message(BOTLOG_CHATID, f"Salam! {CYBER_NAME}\nMən C Y B Ξ R UserBot.\nBotumuzu qurduğunuz üçün təşəkkür edirəm!\nBotunuz aktivdir.\n\nC Y B Ξ R: **{CYBER_VERSION}**\n\nYardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)")
     except BaseException:
         print("Hmm deyəsən BOTLOG qrupunuzdan çıxmısınız və ya aktiv etməmisiniz..")    
 
