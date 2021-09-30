@@ -31,7 +31,6 @@ from userbot import DEFAULT_NAME, SAHIB_ID, SON_GORULME
 from time import time
 
 CYBER_NAME = f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID})"
-QRUP = BOTLOG_CHATID
 
 def cyber_time(seconds, short=True):
     minutes, seconds = divmod(int(seconds), 60)
@@ -282,7 +281,7 @@ async def get_readable_time(seconds: int) -> str:
 async def startupcyber():
     try:
         islememuddeti = await get_readable_time((time.time() - StartTime))
-        await bot.send_message(QRUP, f"Salam! mən C Y B Ξ R UserBot\nBotumuzu qurduğunuz üçün təşəkkür edirəm!\nBotunuz aktivdir.\n\nC Y B Ξ R: **{CYBER_VERSION}**\nİşə düşmə müddəti: **{islememuddeti}**\n\nYardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)")
+        await bot.send_message(BOTLOG_CHATID, f"Salam! {CYBER_NAME}\nMən C Y B Ξ R UserBot.\nBotumuzu qurduğunuz üçün təşəkkür edirəm!\nBotunuz aktivdir.\n\nC Y B Ξ R: **{CYBER_VERSION}**\nİşə düşmə müddəti: **{islememuddeti}**\n\nYardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)")
     except BaseException:
         print("Hmm deyəsən BOTLOG qrupunuzdan çıxmısınız və ya aktiv etməmisiniz..")    
 
