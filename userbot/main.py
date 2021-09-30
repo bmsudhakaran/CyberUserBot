@@ -27,8 +27,9 @@ from json import loads, JSONDecodeError
 import re
 import userbot.cmdhelp
 
-from userbot import DEFAULT_NAME, SAHIB_ID, SON_GORULME
+from userbot import DEFAULT_NAME, SAHIB_ID, SON_GORULME, ALIVE_LOGO as LOGO
 from time import time
+
 
 CYBER_NAME = f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID})"
 QRUP = BOTLOG_CHATID
@@ -282,9 +283,8 @@ async def get_readable_time(seconds: int) -> str:
 async def startupcyber():
     try:
         islememuddeti = await get_readable_time((time.time() - StartTime))
-        await bot.send_message(QRUP, f"Salam! mən C Y B Ξ R UserBot\nBotumuzu qurduğunuz üçün təşəkkür edirəm!\nBotunuz aktivdir.\n\nC Y B Ξ R: **{CYBER_VERSION}**\nİşləmə müddəti: **{islememuddeti}**\n\nYardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)")
-    except BaseException:
-        print("Hmm deyəsən BOTLOG qrupunuzdan çıxmısınız və ya aktiv etməmisiniz..")    
+        await bot.send_file(QRUP, LOGO, caption=f"Salam! mən C Y B Ξ R UserBot\nBotumuzu qurduğunuz üçün təşəkkür edirəm!\nBotunuz aktivdir.\n\nC Y B Ξ R: **{CYBER_VERSION}**\nİşə düşmə müddəti: **{islememuddeti}**\n\nYardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)")
+        return   
 
 async def FotoDegistir (foto):
     FOTOURL = GALERI_SQL.TUM_GALERI[foto].foto
