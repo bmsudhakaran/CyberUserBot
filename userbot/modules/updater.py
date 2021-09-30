@@ -49,6 +49,7 @@ async def update_requirements():
 
 
 @register(outgoing=True, pattern=r"^\.update(?: |$)(.*)")
+@register(sudo=True, pattern="^.cupdate(?: |$)(.*)")
 async def upstream(ups):
     ".update əmri ilə botunun yeni versiyada olub olmadığını yoxlaya bilərsiz."
     await ups.edit(LANG['DETECTING'])
@@ -391,7 +392,7 @@ async def jarvis_update(ups):
         return
 
 CmdHelp('update').add_command(
-    'update', None, 'C Y B Σ R-i quraşdırdıqdan sonra hər hansı bir yenilənmə gəlib gəlmədiyini yoxlayar.'
+    'update', None, 'C Y B Ξ R-i quraşdırdıqdan sonra hər hansı bir yenilənmə gəlib gəlmədiyini yoxlayar.'
 ).add_command(
-    'update now', None, 'C Y B Σ R-i yeniləyər.'
+    'update now', None, 'C Y B Ξ R-i yeniləyər.'
 ).add()
