@@ -84,12 +84,6 @@ async def variable(var):
             await var.edit("`Silmək istədiyiniz ConfigVars'ı seçin və mənə bildirin...`")
             return False
         if variable in heroku_var:
-            if BOTLOG:
-                await var.client.send_message(
-                    BOTLOG_CHATID, "#DELCONFIGVAR\n\n"
-                    "**ConfigVar Silindi**:\n"
-                    f"`{variable}`"
-                )
             await var.edit("`Məlumatlar silindi!`")
             del heroku_var[variable]
         else:
