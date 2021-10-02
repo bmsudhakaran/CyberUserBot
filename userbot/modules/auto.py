@@ -88,14 +88,8 @@ async def reauto(resauto):
     await resauto.client(
         UpdateProfileRequest(first_name=firstname, last_name=lastname, bio=cyberbio))
     await resauto.edit("Hesabınız uğurla əvvəlki halına qaytarıldı.")
-    try: 
-        if BOTLOG:
-            try:
-                await event.client.send_message(BOTLOG_CHATID, "#RESAUTO \n"
-                                        "Hesabınız uğurla əvvəlki halına qaytarıldı.")
-            except:
-                pass
-            await bot.disconnect()     
+    await bot.disconnect()
+    os.execl(sys.executable, sys.executable, *sys.argv)
 
 Help = CmdHelp('auto')
 Help.add_command('auto', 'ad ya da bio', 'Avtomatik saata görə dəyişdirər', 'auto ad')
