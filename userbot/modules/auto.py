@@ -96,9 +96,7 @@ async def reauto(resauto):
             except:
                 pass
             await bot.disconnect()
-        except:
-            pass
-        os.execl(sys.executable, sys.executable, *sys.argv)
+            os.execl(sys.executable, sys.executable, *sys.argv)
         
 
 Help = CmdHelp('auto')
