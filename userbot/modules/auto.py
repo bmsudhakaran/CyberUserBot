@@ -83,8 +83,9 @@ async def reauto(resauto):
     if " " not in cyberad:
         firstname = cyberad
         lastname = ""
+        about = ""
     await resauto.client(
-        UpdateProfileRequest(first_name=firstname, last_name=lastname))
+        UpdateProfileRequest(first_name=firstname, last_name=lastname, about=about))
     await resauto.edit("Hesabınız uğurla əvvəlki halına qaytarıldı.")
     await bot.disconnect()
     os.execl(sys.executable, sys.executable, *sys.argv)
