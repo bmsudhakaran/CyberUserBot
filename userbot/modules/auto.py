@@ -4,12 +4,14 @@
 # All rights reserved.
 
 import asyncio
+import sys
+import os
 import time
 from telethon.tl import functions
 from telethon.tl.functions.account import (UpdateProfileRequest,
                                            UpdateUsernameRequest)
 
-from userbot import CMD_HELP, ASYNC_POOL, bot, DEFAULT_NAME
+from userbot import CMD_HELP, ASYNC_POOL, bot, DEFAULT_NAME, BOTLOG, BOTLOG_CHATID
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 
@@ -78,12 +80,25 @@ async def auto(event):
 @register(outgoing=True, pattern="^.resauto")
 async def reauto(resauto):
     cyberad = DEFAULT_NAME
+    cyberbio = "@TheCyberUserBot"
     if " " not in cyberad:
         firstname = cyberad
         lastname = ""
+        bio = cyberbio
     await resauto.client(
-        UpdateProfileRequest(first_name=firstname, last_name=lastname))
-    await resauto.edit("Hesabınız uğurla əvvəlki halına qaytarıldı.")   
+        UpdateProfileRequest(first_name=firstname, last_name=lastname bio=cyberbio))
+    await resauto.edit("Hesabınız uğurla əvvəlki halına qaytarıldı.")
+    try: 
+        if BOTLOG:
+            try:
+                await event.client.send_message(BOTLOG_CHATID, "#RESAUTO \n"
+                                        "Hesabınız uğurla əvvəlki halına qaytarıldı.")
+            except:
+                pass
+            await bot.disconnect()
+        except:
+            pass
+        os.execl(sys.executable, sys.executable, *sys.argv)
         
 
 Help = CmdHelp('auto')
