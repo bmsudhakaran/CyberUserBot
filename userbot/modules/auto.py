@@ -80,13 +80,11 @@ async def auto(event):
 @register(outgoing=True, pattern="^.resauto")
 async def reauto(resauto):
     cyberad = DEFAULT_NAME
-    cyberbio = "@TheCyberUserBot"
     if " " not in cyberad:
         firstname = cyberad
         lastname = ""
-        bio = cyberbio
     await resauto.client(
-        UpdateProfileRequest(first_name=firstname, last_name=lastname, bio=cyberbio))
+        UpdateProfileRequest(first_name=firstname, last_name=lastname))
     await resauto.edit("Hesabınız uğurla əvvəlki halına qaytarıldı.")
     await bot.disconnect()
     os.execl(sys.executable, sys.executable, *sys.argv)
