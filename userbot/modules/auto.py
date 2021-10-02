@@ -1,16 +1,15 @@
 # Copyright (C) 2021 Farid Dadashzade.
-#
-# Licensed under the  GPL-3.0 License;
-# you may not use this file except in compliance with the License.
-#
-
 # CYBERUSERBOT - FARIDDADASHZADE
+
+# All rights reserved.
 
 import asyncio
 import time
 from telethon.tl import functions
+from telethon.tl.functions.account import (UpdateProfileRequest,
+                                           UpdateUsernameRequest)
 
-from userbot import CMD_HELP, ASYNC_POOL
+from userbot import CMD_HELP, ASYNC_POOL, bot, DEFAULT_NAME
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 
@@ -75,6 +74,19 @@ async def auto(event):
         except:
             return
 
-CmdHelp('auto').add_command(
-    'auto', 'ad ya da bio', 'Avtomatik saata görə dəyişdirər', '.auto ad'
-).add()
+        
+@register(outgoing=True, pattern="^.resauto")
+async def reauto(resauto):
+    cyberad = DEFAULT_NAME
+    if " " not in cyberad:
+        firstname = cyberad
+        lastname = ""
+    await resauto.client(
+        UpdateProfileRequest(first_name=firstname, last_name=lastname))
+    await resauto.edit("Hesabınız uğurla əvvəlki halına qaytarıldı.")   
+        
+
+Help = CmdHelp('auto')
+Help.add_command('auto', 'ad ya da bio', 'Avtomatik saata görə dəyişdirər', 'auto ad')
+Help.add_command('resauto', None, 'Hesabınızı əvvəlki halına qaytarar', 'resauto')
+Help.add()
