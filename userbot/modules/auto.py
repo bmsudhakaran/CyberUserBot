@@ -95,9 +95,7 @@ async def reauto(resauto):
                                         "Hesabınız uğurla əvvəlki halına qaytarıldı.")
             except:
                 pass
-            await bot.disconnect()
-            os.execl(sys.executable, sys.executable, *sys.argv)
-        
+            await bot.disconnect()     
 
 Help = CmdHelp('auto')
 Help.add_command('auto', 'ad ya da bio', 'Avtomatik saata görə dəyişdirər', 'auto ad')
