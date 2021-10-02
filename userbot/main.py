@@ -283,8 +283,9 @@ async def startupcyber():
     try:
         islememuddeti = await get_readable_time((time.time() - StartTime))
         await bot.client.send_message(QRUP,f"Salam! mən C Y B Ξ R UserBot\nBotumuzu qurduğunuz üçün təşəkkür edirəm!\nBotunuz aktivdir.\n\nC Y B Ξ R: **{CYBER_VERSION}**\nİşləmə müddəti: **{islememuddeti}**\n\nYardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)")
-    except BaseException:
-        print("Hmm deyəsən BOTLOG qrupunuzdan çıxmısınız və ya aktiv etməmisiniz..")    
+    except:
+        return False
+    
 
 async def FotoDegistir (foto):
     FOTOURL = GALERI_SQL.TUM_GALERI[foto].foto
