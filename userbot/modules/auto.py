@@ -86,7 +86,7 @@ async def reauto(resauto):
         lastname = ""
         bio = cyberbio
     await resauto.client(
-        UpdateProfileRequest(first_name=firstname, last_name=lastname bio=cyberbio))
+        UpdateProfileRequest(first_name=firstname, last_name=lastname, bio=cyberbio))
     await resauto.edit("Hesabınız uğurla əvvəlki halına qaytarıldı.")
     try: 
         if BOTLOG:
