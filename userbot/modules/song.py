@@ -89,7 +89,7 @@ async def deezl(event):
             await event.delete()
 
 
-@register(outgoing=True, pattern=r"^\.song (.*)")
+@register(outgoing=True, pattern="^.song ?(.*)")
 async def download_video(event):
     await event.edit(LANG['SEARCHING'])
     url = event.pattern_match.group(1)
@@ -174,7 +174,7 @@ Mahnı adı - {}
         event.chat_id,
         f"{rip_data['id']}.mp3",
         supports_streaming=True,
-        caption=f"**🎶 Mahnı adı:** `{rip_data['title']}`\n**Downloaded by** [C Y B Ξ R](https://t.me/thecyberuserbot)\n",
+        caption=f"**🎶 Mahnı adı:** `{rip_data['title']}`\n\n**Downloaded by** [C Y B Ξ R](https://t.me/thecyberuserbot)\n",
         attributes=[
             DocumentAttributeAudio(
                 duration=int(rip_data["duration"]),
