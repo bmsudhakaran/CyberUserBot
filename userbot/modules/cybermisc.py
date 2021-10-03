@@ -209,6 +209,7 @@ async def _(cyber):
 @register(outgoing=True, disable_errors=True, pattern=r"^\.oxu(?: |$)(.*)")
 @register(outgoing=True, disable_errors=True, pattern=r"^\.open(?: |$)(.*)")
 async def _(event):
+    await event.delete()
     b = await event.client.download_media(await event.get_reply_message())
     a = open(b, "r")
     c = a.read()
@@ -224,6 +225,7 @@ async def _(event):
 
 @register(outgoing=True, disable_errors=True, pattern=r"^\.repack(?: |$)(.*)")
 async def _(event):
+    await event.delete()
     a = await event.get_reply_message()
     input_str = event.pattern_match.group(1)
     b = open(input_str, "w")
@@ -238,7 +240,6 @@ async def _(event):
     os.remove(input_str)
 	
 	
-
 @register(outgoing=True, pattern=r"^\.pdf(?: |$)(.*)")
 async def _(event):
     if not event.reply_to_msg_id:
