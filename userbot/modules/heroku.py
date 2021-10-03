@@ -213,6 +213,29 @@ async def dyno_usage(dyno):
                 f"🧞‍♂️ **Sahibim:** `{istifadeci.first_name}` \n"
             )
 
+
+@register(cyber=True, pattern=r"^.hlog")  # cr: @fvreed
+async def _(dyno):
+    try:
+        Heroku = heroku3.from_key(HEROKU_APIKEY)
+        app = Heroku.app(HEROKU_APPNAME)
+    except BaseException:
+        return await dyno.reply(
+            "`Xahiş edirəm biraz gözləyin..`"
+        )
+    await dyno.edit("`Log göndərilir..`")
+    with open("cyberlog.txt", "w") as log:
+        log.write(app.get_log())
+    await dyno.client.send_file(
+        dyno.chat_id,
+        "cyberlog.txt",
+        reply_to=dyno.id,
+        caption="[C Y B Ξ R](https://t.me/TheCyberUserBot) Heroku Log.",
+    )
+    await dyno.delete()
+    return os.remove("cyberlog.txt")
+
+
 CmdHelp('heroku').add_command(
 'dyno', None, 'Dyno saatı haqqında məlumat verir..'
     ).add_command(
@@ -221,4 +244,6 @@ CmdHelp('heroku').add_command(
         'get var', None, 'Mövcud VARlarınızı əldə edin, yalnız botlog qrupunuzda istifadə edin.'
     ).add_command(
         'del var', None, 'del var <Var adı> Seçdiyiniz ConfigVarı silər sildikdən sonra botunuza .restart atın.'
+    ).add_command(
+        'hlog', None, 'Herokudan log atar.'
     ).add()
