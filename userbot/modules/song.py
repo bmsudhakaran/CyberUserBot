@@ -89,7 +89,7 @@ async def deezl(event):
             await event.delete()
 
 
-@register(outgoing=True, pattern="^.song ?(.*)")
+@register(outgoing=True, pattern=r"^\.song (.*)")
 async def download_video(event):
     await event.edit(LANG['SEARCHING'])
     url = event.pattern_match.group(1)
