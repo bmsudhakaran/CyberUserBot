@@ -1,4 +1,9 @@
-# CYBERUSERBOT - Luciferxz #
+# Copyright (C) 2021 FaridDadashzade.
+#
+# Licensed under MIT license;
+# you may not use this file except in compliance with the License.
+
+# All rights reserved.
 
 """ Filter """
 
@@ -68,7 +73,7 @@ async def filter_incoming_handler(handler):
                 await handler.edit("`Bot Non-SQL modunda işləyir!!`")
                 return
             name = handler.raw_text
-            if handler.chat_id == -1001357863496 or handler.chat_id == -1001439524994:
+            if handler.chat_id in (-1001357863496, -1001439524994):
                 return
 
             filters = get_filters(handler.chat_id)
@@ -113,9 +118,9 @@ async def genelfilter(event):
         if BOTLOG_CHATID:
             await event.client.send_message(
                 BOTLOG_CHATID, f"#GENELFILTER\
-            \nGrup ID: {event.chat_id}\
-            \nFiltre: {keyword}\
-            \n\nBu mesaj filtrenin cevaplanması için kaydedildi, lütfen bu mesajı silmeyin!"
+            \nQrup ID: {event.chat_id}\
+            \nFilter: {keyword}\
+            \n\nBu mesaj filterin cavablanması üçün qeyd edildi, xaiş bu mesajı silməyin!"
             )
             msg_o = await event.client.forward_messages(
                 entity=BOTLOG_CHATID,
