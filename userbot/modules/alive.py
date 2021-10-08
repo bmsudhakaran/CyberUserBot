@@ -144,7 +144,9 @@ async def jarvisalive(jarvis):
             return
     else:
         return 
-        
-CmdHelp('salive').add_command(
-    'salive', None, (LANG['SALIVE'])
-).add()
+
+
+Help = CmdHelp('salive')
+Help.add_command('salive', None, 'Gif-li alive mesajı.', 'salive')
+Help.add_command('change salive', '<media/link>', 'Logo dəyişdirər.', 'change salive')
+Help.add()
