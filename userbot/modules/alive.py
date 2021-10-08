@@ -81,26 +81,8 @@ async def salive_lang(event):
     if cyber_config in heroku_var:
         await event.edit("`Hazırlanır..\n(Biraz gözləyin)`")
         del heroku_var[cyber_config]
-    else:
-        await event.edit("`Bir xəta baş verdi.`")
-        return True
-    if cyber_config in heroku_var:
-        if BOTLOG:
-            await event.client.send_message(
-                BOTLOG_CHATID, "#CHANGE_LOGO\n\n"
-                "**Logo Dəyişikliyi**:\n"
-                f"`{cyber_config}` = `{cyber_logo}`"
-            )
-        await event.edit("`Hazırlanır..\n(Biraz gözləyin)`")
-    else:
-        if BOTLOG:
-            await event.client.send_message(
-                BOTLOG_CHATID, "#CHANGE_LOGO\n\n"
-                "**Logo Dəyişiklikliyi**:\n"
-                f"`{cyber_config}` = `{cyber_logo}`"
-            )
-        await event.edit("`Hazırlanır..\n(Biraz gözləyin)`")
-    heroku_var[cyber_config] = cyber_logo
+        return False
+        heroku_var[cyber_config] = cyber_logo
 
 
 @register(outgoing=True, disable_errors=True, pattern=r"^\.salive(?: |$)(.*)")
