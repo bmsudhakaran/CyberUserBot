@@ -29,7 +29,7 @@ async def degistir(event):
         mesaj = []
 
     plugin = plugin.strip()
-    TURLER = ["afk", "alive", "pm", "kickme", "dızcı", "ban", "mute", "approve", "disapprove", "block", "nonafk"]
+    TURLER = ["afk", "alive", "pm", "kickme", "dızcı", "ban", "mute", "approve", "disapprove", "block", "nonafk", "salive"]
     if type(mesaj) is list:
         if plugin in TURLER:
             if event.is_reply:
@@ -50,7 +50,7 @@ async def degistir(event):
             else:
                 await event.edit(f"{LANG['ERROR_DELETED']}: `{silme}`")
         else:
-            await event.edit(LANG['NOT_FOUND'] + ":`afk/alive/pm/kickme/dızcı/ban/mute/approve/disapprove/block/nonafk`")
+            await event.edit(LANG['NOT_FOUND'] + ":`afk/alive/pm/kickme/dızcı/ban/mute/approve/disapprove/block/nonafk/salive`")
     elif len(plugin) < 1:
         await event.edit(LANG['USAGE'])
     elif type(mesaj) is str:
@@ -63,7 +63,7 @@ async def degistir(event):
                 sql.ekle_mesaj(plugin, mesaj)
                 await event.edit(LANG['SETTED'].format(plu=plugin, msj=mesaj))
         else:
-            await event.edit(LANG['NOT_FOUND'] + ":`afk/alive/pm/kickme/dızcı/ban/mute/approve/disapprove/block/nonafk`")
+            await event.edit(LANG['NOT_FOUND'] + ":`afk/alive/pm/kickme/dızcı/ban/mute/approve/disapprove/block/nonafk/salive`")
 
             
 CmdHelp('deyisdir').add_command(
