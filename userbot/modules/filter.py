@@ -9,7 +9,7 @@
 
 from asyncio import sleep
 import re
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
+from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, BLACKLIST_CHAT
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 
@@ -73,7 +73,7 @@ async def filter_incoming_handler(handler):
                 await handler.edit("`Bot Non-SQL modunda işləyir!!`")
                 return
             name = handler.raw_text
-            if handler.chat_id in (-1001357863496, -1001439524994):
+            if handler.chat_id in BLACKLIST_CHAT:
                 return
 
             filters = get_filters(handler.chat_id)
