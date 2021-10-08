@@ -4,6 +4,11 @@
 #
 
 import time
+import heroku3
+import asyncio
+import aiohttp
+import ssl
+import requests
 from asyncio import create_subprocess_exec as asyncrunapp
 from asyncio.subprocess import PIPE as asyncPIPE
 from shutil import which
