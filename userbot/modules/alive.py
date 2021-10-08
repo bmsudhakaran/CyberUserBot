@@ -26,6 +26,7 @@ from userbot import (
 from userbot import CMD_HELP
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
+from userbot.main import PLUGIN_MESAJLAR
 from userbot import SAHIB_ID, DEFAULT_NAME, HEROKU_APPNAME, HEROKU_APIKEY, BOTLOG_CHATID, BOTLOG
 
 
@@ -71,6 +72,7 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
+"""
 @register(cyber=True, pattern="^.resalive (.*)")
 async def salive_lang(event):
     cyber_logo = event.pattern_match.group(1)
@@ -83,7 +85,7 @@ async def salive_lang(event):
         del heroku_var[cyber_config]
         return False
         heroku_var[cyber_config] = cyber_logo
-
+"""
 
 @register(outgoing=True, disable_errors=True, pattern=r"^\.salive(?: |$)(.*)")
 async def salive(alive):
@@ -104,7 +106,7 @@ async def salive(alive):
     )
     if ALIVE_LOGO:
         try:
-            logo = ALIVE_LOGO
+            logo = PLUGIN_MESAJLAR['salive']
             await alive.delete()
             msg = await bot.send_file(alive.chat_id, logo, caption=kecid)
             await asyncio.sleep(100)
