@@ -9,7 +9,6 @@ from asyncio.subprocess import PIPE as asyncPIPE
 from shutil import which
 from os import remove
 from userbot import (
-    ALIVE_LOGO,
     CYBER_VERSION,
     StartTime,
     JARVIS,
@@ -30,6 +29,7 @@ LANG = get_value("cyberlangs")
 # ---------------------------------- #
 
 CYBER_NAME = f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID})"
+ALIVE_LOGO = "https://telegra.ph/file/c3e75eccaeb7f56dfae89.mp4"
 
 async def get_readable_time(seconds: int) -> str:
     count = 0
@@ -57,10 +57,11 @@ async def get_readable_time(seconds: int) -> str:
 
 
 @register(cyber=True, pattern="^.deyis salive (.*)")
+@register(cyber=True, pattern="^.değiş salive (.*)")
 async def salive_lang(event):
     global ALIVE_LOGO
     ALIVE_LOGO = event.pattern_match.group(1)
-    await event.edit(f"Alive logonuz ({ALIVE_LOGO}) olaraq ayarlandı.")     
+    await event.edit(f"__Alive logonuz__ `({ALIVE_LOGO})` __olaraq ayarlandı.__")     
 
 
 @register(outgoing=True, disable_errors=True, pattern=r"^\.salive(?: |$)(.*)")
