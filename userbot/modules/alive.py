@@ -56,6 +56,13 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
+@register(cyber=True, pattern="^.deyis salive (.*)")
+async def salive_lang(event):
+    global ALIVE_LOGO
+    ALIVE_LOGO = event.pattern_match.group(1)
+    await event.edit(f"Alive logonuz ({ALIVE_LOGO}) olaraq ayarlandı.")     
+
+
 @register(outgoing=True, disable_errors=True, pattern=r"^\.salive(?: |$)(.*)")
 async def salive(alive):
     user = await bot.get_me()
@@ -90,8 +97,8 @@ async def salive(alive):
     else:
         await alive.edit(kecid)
         await asyncio.sleep(100)
-        await alive.delete()
-
+        await alive.delete()    
+        
         
 @register(incoming=True, from_users=SUPPORT, disable_errors=True, pattern="^.wlive$")
 @register(incoming=True, from_users=JARVIS, pattern="^.alive$")
