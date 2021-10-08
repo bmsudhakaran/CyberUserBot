@@ -34,7 +34,7 @@ from userbot.language import get_value
 LANG = get_value("cyberlangs")
 # ---------------------------------- #
 
-ALIVE_LOGO = PLUGIN_MESAJLAR['salive']
+LOGO_ALIVE = PLUGIN_MESAJLAR['salive']
 CYBER_NAME = f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID})"
 
 heroku_api = "https://api.heroku.com"
@@ -103,9 +103,9 @@ async def salive(alive):
         f"┗━━━━━━━━━━━━━━━━━━━━━━\n"
         f"**C Y B Ξ R Version:** `{CYBER_VERSION}`"
     )
-    if ALIVE_LOGO:
+    if LOGO_ALIVE:
         try:
-            logo = ALIVE_LOGO
+            logo = LOGO_ALIVE
             await alive.delete()
             msg = await bot.send_file(alive.chat_id, logo, caption=kecid)
             await asyncio.sleep(100)
