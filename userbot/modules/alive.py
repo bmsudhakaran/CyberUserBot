@@ -19,7 +19,6 @@ from userbot import (
     JARVIS,
     SUPPORT,
     MYID,
-    ALIVE_LOGO,
     ALIVE_TEXT,
     bot
 )
@@ -35,7 +34,7 @@ from userbot.language import get_value
 LANG = get_value("cyberlangs")
 # ---------------------------------- #
 
-
+ALIVE_LOGO = PLUGIN_MESAJLAR['salive']
 CYBER_NAME = f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID})"
 
 heroku_api = "https://api.heroku.com"
@@ -106,7 +105,7 @@ async def salive(alive):
     )
     if ALIVE_LOGO:
         try:
-            logo = PLUGIN_MESAJLAR['salive']
+            logo = ALIVE_LOGO
             await alive.delete()
             msg = await bot.send_file(alive.chat_id, logo, caption=kecid)
             await asyncio.sleep(100)
