@@ -14,13 +14,14 @@ from userbot import (
     JARVIS,
     SUPPORT,
     MYID,
+    ALIVE_LOGO,
     ALIVE_TEXT,
     bot
 )
 from userbot import CMD_HELP
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
-from userbot import SAHIB_ID, DEFAULT_NAME
+from userbot import SAHIB_ID, DEFAULT_NAME, HEROKU_APPNAME, HEROKU_APIKEY, BOTLOG_CHATID, BOTLOG
 
 
 # ---------------------------------- #
@@ -28,8 +29,17 @@ from userbot.language import get_value
 LANG = get_value("cyberlangs")
 # ---------------------------------- #
 
+
 CYBER_NAME = f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID})"
-ALIVE_LOGO = "https://telegra.ph/file/c3e75eccaeb7f56dfae89.mp4"
+
+heroku_api = "https://api.heroku.com"
+if HEROKU_APPNAME is not None and HEROKU_APIKEY is not None:
+    Heroku = heroku3.from_key(HEROKU_APIKEY)
+    app = Heroku.app(HEROKU_APPNAME)
+    heroku_var = app.config()
+else:
+    app = None
+
 
 async def get_readable_time(seconds: int) -> str:
     count = 0
@@ -56,12 +66,36 @@ async def get_readable_time(seconds: int) -> str:
     return up_time
 
 
-@register(cyber=True, pattern="^.deyis salive (.*)")
-@register(cyber=True, pattern="^.değiş salive (.*)")
+@register(cyber=True, pattern="^.resalive (.*)")
 async def salive_lang(event):
-    global ALIVE_LOGO
-    ALIVE_LOGO = event.pattern_match.group(1)
-    await event.edit(f"__Alive logonuz__ `({ALIVE_LOGO})` __olaraq ayarlandı.__")     
+    cyber_logo = event.pattern_match.group(1)
+    cyber_config = ALIVE_LOGO
+    if cyber_logo == '':
+        await event.edit("`Xahiş edirəm bir logo linki qeyd edin!`")
+        return False
+    if cyber_config in heroku_var:
+        await event.edit("`Hazırlanır..\n(Biraz gözləyin)`")
+        del heroku_var[cyber_config]
+    else:
+        await event.edit("`Bir xəta baş verdi.`")
+        return True
+    if cyber_config in heroku_var:
+        if BOTLOG:
+            await event.client.send_message(
+                BOTLOG_CHATID, "#CHANGE_LOGO\n\n"
+                "**Logo Dəyişikliyi**:\n"
+                f"`{cyber_config}` = `{cyber_logo}`"
+            )
+        await event.edit("`Hazırlanır..\n(Biraz gözləyin)`")
+    else:
+        if BOTLOG:
+            await event.client.send_message(
+                BOTLOG_CHATID, "#CHANGE_LOGO\n\n"
+                "**Logo Dəyişiklikliyi**:\n"
+                f"`{cyber_config}` = `{cyber_logo}`"
+            )
+        await event.edit("`Hazırlanır..\n(Biraz gözləyin)`")
+    heroku_var[cyber_config] = cyber_logo
 
 
 @register(outgoing=True, disable_errors=True, pattern=r"^\.salive(?: |$)(.*)")
