@@ -103,6 +103,8 @@ LOGSPAMMER = sb(os.environ.get("LOGSPAMMER", "True"))
 CSESSION = os.environ.get("CSESSION", None)
 ADMINLER = os.environ.get("ADMINLER", None)
 PREFIKS = os.environ.get("PREFIKS", None)
+ALIVE_LOGO = os.environ.get(
+    "ALIVE_LOGO") or "https://telegra.ph/file/c3e75eccaeb7f56dfae89.mp4"
 
 # Hey! Bu botdur. qormxa ;)
 PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
