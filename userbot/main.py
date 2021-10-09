@@ -9,6 +9,7 @@ import time
 import os
 import sys
 import requests
+import asyncio
 
 from telethon.tl.types import InputMessagesFilterDocument
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
@@ -310,9 +311,13 @@ async def FotoDegistir (foto):
 
 for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
+    
+loop = asyncio.get_event_loop()
 
 LOGS.info("Botunuz işləyir! Hər-hansısa bir söhbətə .alive yazaraq test edin."
           " Köməyə ehtiyacınız olarsa, dəstək qrupumuza gəlin t.me/TheCyberSupport")
-LOGS.info(f"Version: C Y B Ξ R {CYBER_VERSION}")
+LOGS.info(f"C Y B Ξ R {CYBER_VERSION}")
+
 bot.loop.run_until_complete(startupcyber())
+
 bot.run_until_disconnected()
