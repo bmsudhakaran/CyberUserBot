@@ -124,7 +124,7 @@ async def salive(alive):
         
         
 @register(incoming=True, from_users=SUPPORT, disable_errors=True, pattern="^.wlive$")
-@register(incoming=True, from_users=JARVIS, pattern="^.alive$")
+@register(incoming=True, from_users=JARVIS, disable_errors=True, pattern="^.alive$")
 async def jarvisalive(jarvis):
     if jarvis.fwd_from:
         return
