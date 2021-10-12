@@ -26,6 +26,7 @@ from random import choice
 import chromedriver_autoinstaller
 from json import loads, JSONDecodeError
 import re
+from asyncio import get_event_loop
 import userbot.cmdhelp
 
 from userbot import DEFAULT_NAME, SAHIB_ID, SON_GORULME
