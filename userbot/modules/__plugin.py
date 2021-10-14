@@ -1,6 +1,6 @@
-# Copyright (C) 2021 CYBERUSERBOT
+# Copyright (C) 2021 FaridDadashzade
 #
-# CYBERUSERBOT - FARIDXZ
+# CYBERUSERBOT - FaridDadashzade.
 
 import os
 import sys
@@ -148,7 +148,7 @@ async def _(event):
     uzanti = plugin_adi.split(".")[1].lower()
     plugin_exe = plugin_adi.split(".")[0]
     if not plugin_adi.document:
-        await event.edit("`Xahiş edirəm bir pluginə cavab verin!`)
+        await event.edit("`Xahiş edirəm bir pluginə cavab verin!`")
         return
     if uzanti != "py":
         await event.edit("`Xahiş edirəm bir Python faylına cavab verin!`")
