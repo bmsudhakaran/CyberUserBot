@@ -314,11 +314,8 @@ for module_name in ALL_MODULES:
     imported_module = import_module("userbot.modules." + module_name)
     
 loop = asyncio.get_event_loop()
-
 LOGS.info("Botunuz işləyir! Hər-hansısa bir söhbətə .alive yazaraq test edin."
           " Köməyə ehtiyacınız olarsa, dəstək qrupumuza gəlin t.me/TheCyberSupport")
 LOGS.info(f"C Y B Ξ R {CYBER_VERSION}")
-
-bot.loop.run_until_complete(startupcyber())
-
+bot.loop.create_task(startupcyber())
 bot.run_until_disconnected()
