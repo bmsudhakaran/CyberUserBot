@@ -151,7 +151,7 @@ async def _(event):
         await event.edit("`Xahiş edirəm bir Python faylına cavab verin!`")
         return
     if os.path.isfile(cyber_path):
-        await event.edit("`Bu plugin onsuzda yüklənib!\nOnu təkrak yükləməyəcəyəm.`")
+        await event.edit("`Bu plugin onsuzda yüklənib!\nOnu təkrar yükləməyəcəyəm.`")
         return
     b = await event.client.download_media(await event.get_reply_message()) 
     a = open(b, "r") 
