@@ -115,11 +115,6 @@ async def on_delete_blacklist(rmbl):
     for trigger in to_unblacklist:
         if sql.rm_from_blacklist(rmbl.chat_id, trigger.lower()):
             successful += 1
-    if text == "all":
-        from userbot.modules.sql_helper.blacklist_sql import del_blacklist_all
-        
-        del_blacklist_all()
-        return await event.edit(LANG['REMOVED'])
     await rmbl.edit(LANG['REMOVED'])
     
     
