@@ -138,16 +138,15 @@ async def plist(event):
 
 @register(cyber=True, pattern="^.pinstall")
 async def _(event):
-    plugin_adi = replied_msg.document.file_name
-    cyber_path = f"userbot/modules/{plugin_adi}"
-    uzanti = plugin_adi.split(".")[1].lower()
-    plugin_exe = plugin_adi.split(".")[0]
     if event.is_reply:
         reply_message = await event.get_reply_message()
-        skanet = await yoxla(reply_message)
     else:
         await event.edit(LANG["REPLY_TO_FILE"])
         return
+    plugin_adi = reply_message.file.name
+    cyber_path = f"userbot/modules/{plugin_adi}"
+    uzanti = plugin_adi.split(".")[1].lower()
+    plugin_exe = plugin_adi.split(".")[0]
     if plugin_extension != "py":
         await event.edit("`Xahiş edirəm bir Python faylına cavab verin!`")
         return
