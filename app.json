@@ -1,7 +1,7 @@
 {
   "name": "C Y B Ξ R",
   "description": "C Y B Ξ R UserBot is the most advantageous and fast UserBot with changeable language and permanent plugin system.",
-  "logo": "https://telegra.ph/file/07cb955da8c154a685ef4.jpg",
+  "logo": "https://telegra.ph/file/2b7c70f6a262e6bbd41ad.jpg",
   "keywords": [
     "telegram",
     "userbot",
@@ -11,7 +11,7 @@
     "productivity"
   ],
   "repository": "https://github.com/FaridDadashzade/CyberUserBot",
-  "website":   "https://t.me/faridxz",
+  "website":   "https://cyberuserbot.ml",
   "success_url": "https://t.me/TheCyberSupport",
   "stack": "container",
   "env": {
@@ -82,10 +82,6 @@
       "value": "/usr/bin/chromium-browser",
       "required": false
     },
-    "OPEN_WEATHER_MAP_APPID": {
-      "description": "Get your APPID (API key) at https://api.openweathermap.org/data/2.5/weather.",
-      "required": false
-    },
     "BOTLOG": {
       "description": "# Don`t edit this. #",
       "value": "False"
@@ -125,14 +121,6 @@
     },
     "YOUTUBE_API_KEY": {
       "description": "YouTube Data API key for .yt command. Get it at https://console.cloud.google.com.",
-      "required": false
-    },
-    "OCR_SPACE_API_KEY": {
-      "description": "OCR API Key for .ocr command. Get it at https://ocr.space/ocrapi.",
-      "required": false
-    },
-    "REM_BG_API_KEY": {
-      "description": "API Key for .rbg command. Get it from https://www.remove.bg/api.",
       "required": false
     },
     "ANTI_SPAMBOT": {
