@@ -95,6 +95,10 @@ def __load_chat_blacklists():
 
     finally:
         SESSION.close()
+        
+def del_blacklist_all():
+    SESSION.execute("""T""")
+    SESSION.commit()
 
 
 __load_chat_blacklists()
