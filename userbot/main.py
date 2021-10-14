@@ -14,7 +14,7 @@ import asyncio
 from telethon.tl.types import InputMessagesFilterDocument
 from telethon.errors.rpcerrorlist import PhoneNumberInvalidError
 from telethon.tl.functions.channels import GetMessagesRequest
-from . import BRAIN_CHECKER, LOGS, bot, PLUGIN_CHANNEL_ID, CMD_HELP, LANGUAGE, CYBER_VERSION, PATTERNS, BOTLOG_CHATID, BOTLOG, StartTime
+from . import BRAIN_CHECKER, LOGS, bot, PLUGIN_CHANNEL_ID, CMD_HELP, LANGUAGE, CYBER_VERSION, PATTERNS, BOTLOG_CHATID, BOTLOG, StartTime, CYBER_BOT
 from .modules import ALL_MODULES
 import userbot.modules.sql_helper.mesaj_sql as MSJ_SQL
 import userbot.modules.sql_helper.galeri_sql as GALERI_SQL
@@ -31,6 +31,7 @@ import userbot.cmdhelp
 
 from userbot import DEFAULT_NAME, SAHIB_ID, SON_GORULME
 from time import time
+import userbot.events
 
 CYBER_NAME = f"[{DEFAULT_NAME}](tg://user?id={SAHIB_ID})"
 QRUP = "me"
@@ -295,6 +296,17 @@ async def startupcyber():
     except:
         return False
     
+    
+async def cyberasistan():
+    if CYBER_BOT is "ON":
+        path = "userbot/cyber/*.py"
+        files = glob.glob(path)
+        for name in files:
+            with open(name) as f:
+                path1 = Path(f.name)
+                shortname = path1.stem
+                startcyberbot(shortname.replace(".py", ""))
+    
 
 async def FotoDegistir (foto):
     FOTOURL = GALERI_SQL.TUM_GALERI[foto].foto
@@ -318,5 +330,6 @@ loop = asyncio.get_event_loop()
 LOGS.info("Botunuz işləyir! Hər-hansısa bir söhbətə .alive yazaraq test edin."
           " Köməyə ehtiyacınız olarsa, dəstək qrupumuza gəlin t.me/TheCyberSupport")
 LOGS.info(f"C Y B Ξ R {CYBER_VERSION}")
+#bot.loop.run_until_complete(cyberasistan())
 bot.loop.create_task(startupcyber())
 bot.run_until_disconnected()
