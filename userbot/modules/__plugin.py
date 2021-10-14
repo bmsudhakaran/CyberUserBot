@@ -147,6 +147,9 @@ async def _(event):
     cyber_path = f"userbot/modules/{plugin_adi}"
     uzanti = plugin_adi.split(".")[1].lower()
     plugin_exe = plugin_adi.split(".")[0]
+    if not plugin_adi.document:
+        await event.edit("`Xahiş edirəm bir pluginə cavab verin!`)
+        return
     if uzanti != "py":
         await event.edit("`Xahiş edirəm bir Python faylına cavab verin!`")
         return
@@ -164,18 +167,9 @@ async def _(event):
         return os.remove(b)
     else:
      await event.edit(LANG["DOWNLOADING"])
-    already2 = f"./userbot/modules/{reply_message.file.name}"
-    
-      #if os.path.exists(already2):
-         #await event.edit("`Bu plugini artıq bir dəfə yükləmisiniz!\nOnu təkrar yükləməyəcəyəm!`")
-         #return
+ 
         
     dosyaAdi = reply_message.file.name
-  #  plugins = await event.client.get_messages('@TheCyberPlugin', limit=None, search=dosyaAdi, filter=InputMessagesFilterDocument)
-
-  #  if len(plugins) == 0:
-   #     await event.edit('')
- #       return
 
     dosya = await event.client.download_media(reply_message, "./userbot/modules/")
 
@@ -222,6 +216,8 @@ async def _(event):
                 await reply_message.forward_to(PLUGIN_CHANNEL_ID)
                 return await event.edit(f'**Plugin uğurla yükləndi!**\n__Pluginin istifadəsini öyrənmək üçün__ `.cyber {dosyaAdi}` __yazın.__')
             
+                         
+                         
 @register(cyber=True, pattern="^.premove ?(.*)")
 async def premove(event):
     modul = event.pattern_match.group(1).lower()
