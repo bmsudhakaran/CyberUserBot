@@ -147,7 +147,7 @@ async def _(event):
     cyber_path = f"userbot/modules/{plugin_adi}"
     uzanti = plugin_adi.split(".")[1].lower()
     plugin_exe = plugin_adi.split(".")[0]
-    if plugin_extension != "py":
+    if uzanti != "py":
         await event.edit("`Xahiş edirəm bir Python faylına cavab verin!`")
         return
     if os.path.isfile(cyber_path):
