@@ -1,10 +1,6 @@
-# Copyright (C) 2019 The Raphielscape Company LLC.
-#
-# Licensed under the Raphielscape Public License, Version 1.c (the "License");
-# you may not use this file except in compliance with the License.
-#
+# Copyright (C) 2021 FaridDadashzade.
 
-# CYBERUSERBOT - FARIDDADASHZADE
+# CYBERUSERBOT - FaridDadashzade.
 
 import io
 import re
@@ -84,6 +80,8 @@ async def on_add_black_list(addbl):
         sql.add_to_blacklist(addbl.chat_id, trigger)
     await addbl.edit("{} **{}**".format(len(to_blacklist), LANG['ADDED']))
 
+    
+    
 @register(outgoing=True, pattern="^.listblacklist(?: |$)(.*)")
 async def on_view_blacklist(listbl):
     all_blacklisted = sql.get_chat_blacklist(listbl.chat_id)
@@ -108,6 +106,7 @@ async def on_view_blacklist(listbl):
     else:
         await listbl.edit(OUT_STR)
 
+        
 @register(outgoing=True, pattern="^.rmblacklist(?: |$)(.*)")
 async def on_delete_blacklist(rmbl):
     text = rmbl.pattern_match.group(1)
@@ -116,6 +115,11 @@ async def on_delete_blacklist(rmbl):
     for trigger in to_unblacklist:
         if sql.rm_from_blacklist(rmbl.chat_id, trigger.lower()):
             successful += 1
+    if text == "all":
+        from userbot.modules.sql_helper.blacklist_sql import del_blacklist_all
+        
+        del_blacklist_all()
+        return await event.edit(LANG['REMOVED'])
     await rmbl.edit(LANG['REMOVED'])
     
     
