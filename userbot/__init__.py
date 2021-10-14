@@ -67,6 +67,11 @@ CYBER_VERSION = "v2.1"
 # SUDO VERSION
 SUDO_VERSION = "v1.1"
 
+# Asistan özəlliyi
+BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
+BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
+CYBER_BOT = os.environ.get("CYBER_BOT", None)
+
 # API KEY və API HASH
 API_KEY = os.environ.get("API_KEY", None)
 API_HASH = os.environ.get("API_HASH", None)
@@ -109,17 +114,14 @@ PM_AUTO_BAN = sb(os.environ.get("PM_AUTO_BAN", "False"))
 
 # Credits: https://github.com/TamilBots/TamilUserBot/blob/9ce736688d37fa42f9716f2d2b2700c1eb1d4bcd/userbot/__init__.py#L140
 
-
 async def get_call(event):
     mm = await event.client(getchat(event.chat_id))
     xx = await event.client(getvc(mm.full_chat.call))
     return xx.call
 
-
 # .cyber əmri üçün
 CYBER_EMOJI = os.environ.get(
     "CYBER_EMOJI") or "✦ "
-
 
 # for .salive command
 ALIVE_TEXT = os.environ.get(
@@ -222,10 +224,6 @@ G_DRIVE_AUTH_TOKEN_DATA = os.environ.get("G_DRIVE_AUTH_TOKEN_DATA", None)
 GDRIVE_FOLDER_ID = os.environ.get("GDRIVE_FOLDER_ID", None)
 TEMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY",
                                          "./downloads")
-
-# Botun işləməsi üçün
-BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
-BOT_USERNAME = os.environ.get("BOT_USERNAME", None)
 
 # Genius
 GENIUS = os.environ.get("GENIUS", "S2_xTvY4XdocgPC_vMSCpcjrJkA5ACbgXuUzjmWneMsWea3jCgzGem6u4mKFqG8y")
@@ -354,7 +352,8 @@ with bot:
     cyber_m = me.id
     SAHIB_ID = me.id
     cyber_mention = f"[{CYBER_USERNAME}](tg://user?id={cyber_m})"
-
+    
+    
     try:
         @tgbot.on(NewMessage(pattern='/start'))
         async def start_bot_handler(event):
