@@ -290,15 +290,15 @@ async def get_readable_time(seconds: int) -> str:
 
 async def startupcyber():
     try:
-        file = "https://telegra.ph/file/c3e75eccaeb7f56dfae89.mp4"
+        logo = "https://telegra.ph/file/c3e75eccaeb7f56dfae89.mp4"
         islememuddeti = await get_readable_time((time.time() - StartTime))
-        await bot.client.send_file(BOTLOG_CHATID, file,caption=f"Salam! mən C Y B Ξ R UserBot\nBotumuzu qurduğunuz üçün təşəkkür edirəm!\nBotunuz aktivdir.\n\nC Y B Ξ R: **{CYBER_VERSION}**\nİşləmə müddəti: **{islememuddeti}**\n\nYardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)", force_document=False)
+        await client.send_file(BOTLOG_CHATID, file=logo, caption=f"Salam! mən C Y B Ξ R UserBot\nBotumuzu qurduğunuz üçün təşəkkür edirəm!\nBotunuz aktivdir.\n\nC Y B Ξ R: **{CYBER_VERSION}**\nİşləmə müddəti: **{islememuddeti}**\n\nYardıma ehtiyyacınız olarsa @TheCyberSupport qrupuna yazın :)", force_document=False)
     except:
         return False
     
     
 async def cyberasistan():
-    if CYBER_BOT is "ON":
+    if CYBER_BOT == "ON":
         path = "userbot/cyber/*.py"
         files = glob.glob(path)
         for name in files:
