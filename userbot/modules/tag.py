@@ -1,13 +1,21 @@
-"""
-CYBERUSERBOT 
-FARIDXZ
-"""
+# Copyright (C) 2021 FaridDadashzade.
+#
+# Licensed under MIT license;
+# you may not use this file except in compliance with the License.
+
+# All rights reserved.
+
 
 from telethon.tl.types import ChannelParticipantsAdmins as cp
-from userbot import CMD_HELP, bot
+from userbot import CMD_HELP, bot, BLACKLIST_CHAT
 from userbot.events import register
 from userbot.cmdhelp import CmdHelp
 from time import sleep
+
+# ------------------------------------ #
+from userbot.language import get_value
+LANG = get_value("cyberlangs")
+# ------------------------------------ #
 
 dayandir = False
 msjcgr = None
@@ -17,6 +25,8 @@ taglimit = 60
 async def _(q):
 	global dayandir
 	global msjcgr
+	if q.chat_id in BLACKLIST_CHAT:
+                return await q.edit(LANG["PROHIBITED_COMMAND"])
 	if q.fwd_from:
 		return
 	if q.pattern_match.group(1):
@@ -49,7 +59,8 @@ async def _(q):
 async def _(q):
 	global dayandir
 	global msjcgr
-
+	if q.chat_id in BLACKLIST_CHAT:
+                return await q.edit(LANG["PROHIBITED_COMMAND"])
 	if q.fwd_from:
 		return
 	if q.pattern_match.group(1):
