@@ -20,6 +20,8 @@ from telethon.sync import TelegramClient, custom
 from telethon.sessions import StringSession
 from telethon.events import callbackquery, InlineQuery, NewMessage
 from math import ceil
+from datetime import datetime
+
 
 load_dotenv("config.env")
 
@@ -357,10 +359,20 @@ with bot:
     try:
         @tgbot.on(NewMessage(pattern='/start'))
         async def start_bot_handler(event):
+            START_MESAJI = "Salam mən @TheCyberUserBot!\nMən sahibimə kömək etmək üçün varam, yəni sənə kömək edə bilmərəm.\nAmma sən də özünə C Y B Ξ R qura bilərsən."
+            yazi = START_MESAJI
             if not event.message.from_id == uid:
-                await event.reply(f'Salam mən @TheCyberUserBot!\nMən sahibimə {DEFAULT_NAME}-ə kömək etmək üçün varam, yəni sənə kömək edə bilmərəm.\nAmma sən də özünə C Y B Ξ R qura bilərsən.')
-            else:
-                await event.reply(f'`Salam {DEFAULT_NAME}!\nC Y B Ξ R asistanı aktivdir.')
+                await event.client.get_entity(event.chat_id)
+                await event.edit(
+                    yazi,
+                    file=LOGO,
+                    link_preview=True,
+                    buttons=[
+                        [
+                            Button.url("C Y B Ξ R",
+                                       "https://t.me/TheCyberUserBot")],
+                    ]
+                )
           
         @tgbot.on(NewMessage(pattern='/help'))
         async def helpmesaji(event):
@@ -368,6 +380,18 @@ with bot:
                 await event.reply(f'Salam mən @TheCyberUserBot!\nMən sahibimə {DEFAULT_NAME}-ə kömək etmək üçün varam, yəni sənə kömək edə bilmərəm.\nAmma sən də özünə C Y B Ξ R qura bilərsən.')
             else:
                 await event.reply(f'TEZLIKLƏ')
+                
+                
+        @tgbot.on(NewMessage(pattern='/ping'))
+        async def ping(event)
+            if event.message.from_id != uid:
+                basla = datetime.now()
+                son = datetime.now()
+                pin = (son - basla).microseconds / 1000
+                await tgbot.send_message(
+                    event.chat_id,
+                    f"**Ping:** `{pin}ms`",
+                )
                                   
         @tgbot.on(InlineQuery)  
         async def inline_handler(event):
