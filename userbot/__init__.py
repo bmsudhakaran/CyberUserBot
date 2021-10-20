@@ -359,20 +359,10 @@ with bot:
     try:
         @tgbot.on(NewMessage(pattern='/start'))
         async def start_bot_handler(event):
-            START_MESAJI = "Salam mən @TheCyberUserBot!\nMən sahibimə kömək etmək üçün varam, yəni sənə kömək edə bilmərəm.\nAmma sən də özünə C Y B Ξ R qura bilərsən."
-            yazi = START_MESAJI
             if not event.message.from_id == uid:
-                await event.client.get_entity(event.chat_id)
-                await event.edit(
-                    yazi,
-                    file=LOGO,
-                    link_preview=True,
-                    buttons=[
-                        [
-                            Button.url("C Y B Ξ R",
-                                       "https://t.me/TheCyberUserBot")],
-                    ]
-                )
+                 await event.reply(f'Salam mən @TheCyberUserBot!\nMən sahibimə {DEFAULT_NAME}-ə kömək etmək üçün varam, yəni sənə kömək edə bilmərəm.\nAmma sən də özünə C Y B Ξ R qura bilərsən.')
+            else:
+                await event.reply(f'`Salam {DEFAULT_NAME}!\nC Y B Ξ R asistanı aktivdir.')
           
         @tgbot.on(NewMessage(pattern='/help'))
         async def helpmesaji(event):
