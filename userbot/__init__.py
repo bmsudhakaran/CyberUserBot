@@ -340,7 +340,6 @@ with bot:
         try:
             bot(JoinChannelRequest("@TheCyberUserBot"))
             bot(JoinChannelRequest("@TheCyberSupport"))
-            bot(JoinChannelRequest("@CyberSpaceAZ"))
         except:
             pass
 
@@ -364,6 +363,7 @@ with bot:
             else:
                 await event.reply(f'`Salam {DEFAULT_NAME}!\nC Y B Ξ R asistanı aktivdir.')
           
+        
         @tgbot.on(NewMessage(pattern='/help'))
         async def helpmesaji(event):
             if not event.message.from_id == SAHIB_ID:
@@ -372,6 +372,8 @@ with bot:
                 await event.reply(f'TEZLIKLƏ')
                 
                 
+        """
+        
         @tgbot.on(NewMessage(pattern='/ping'))
         async def ping(event)
             if event.message.from_id != uid:
@@ -379,6 +381,7 @@ with bot:
                 son = datetime.now()
                 pin = (son - basla).microseconds / 1000
                 await tgbot.send_message(event.chat_id, f"**Ping:** `{pin}ms`")
+        """
                                   
         @tgbot.on(InlineQuery)  
         async def inline_handler(event):
