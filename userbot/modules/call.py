@@ -1,11 +1,15 @@
-# CYBERUSERBOT - FARIDDADASHZADE
+# Copyright (C) 2021 FaridDadashzade.
 #
-# THANKS: https://github.com/TamilBots/TamilUserBot/blob/master/userbot/plugins/GroupCall.py
+# Licensed under MIT license;
+# you may not use this file except in compliance with the License.
+
+# All rights reserved.
 
 from telethon.tl.functions.channels import GetFullChannelRequest as getchat
 from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
 from telethon.tl.functions.phone import DiscardGroupCallRequest as stopvc
 from telethon.tl.functions.phone import GetGroupCallRequest as getvc
+from telethon.tl.functions.phone import EditGroupCallTitleRequest as settitle
 from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
 from userbot.events import register
 from userbot import bot, get_call
@@ -16,7 +20,7 @@ def user_list(l, n):
         yield l[i : i + n]
 
         
-@register(outgoing=True, groups_only=True, pattern="^.vcbaslat$")
+@register(cyber=True, disable_errors=True, pattern="^.vcbaslat$")
 async def start_voice(c):
     chat = await c.get_chat()
     admin = chat.admin_rights
@@ -32,8 +36,27 @@ async def start_voice(c):
     except Exception as ex:
         await c.edit(f"Bir xəta baş verdi\nXəta: `{ex}`")
 
+        
+        
+@register(cyber=True, disable_errors=True, pattern="^.vctitle$")
+async def change_vc_title(e):
+    title = e.pattern_match.group(1).lower()
+    chat = await e.get_chat()
+    admin = chat.admin_rights
+    creator = chat.creator
+    if not title:
+        return await e.edit("**Zəhmət olmasa qrup səsli söhbətinin adını daxil edin.**")
+    if not admin and not creator:
+        await e.edit(f"`Bunu etmək üçün admin olmalıyam!`")
+        return
+    try:
+        await e.client(settitle(call=await get_call(e), title=title.strip()))
+        await e.edit(f"**Səsli söhbət başlığı** `{title}` **olaraq ayarlandı.**")
+    except Exception as ex:
+        await e.edit(f"**Bir xəta baş verdi\nXəta:** `{ex}`")    
+        
 
-@register(outgoing=True, groups_only=True, pattern="^.vcbagla$")
+@register(cyber=True, disable_errors=True, pattern="^.vcbagla$")
 async def stop_voice(c):
     chat = await c.get_chat()
     admin = chat.admin_rights
@@ -51,7 +74,7 @@ async def stop_voice(c):
 
 
 
-@register(outgoing=True, groups_only=True, pattern="^.tagvc")
+@register(cyber=True, disable_errors=True, pattern="^.tagvc")
 async def _(c):
     await c.edit("`İstifadəçilər səsli söhbətə çağrılır...`")
     users = []
@@ -72,6 +95,7 @@ async def _(c):
 Help = CmdHelp('voicechat')
 Help.add_command('vcbaslat', None, 'Bir qrupda səsli söhbət başladar.')
 Help.add_command('vcbagla', None, 'Səsli söhbəti sonlandırar.')
+Help.add_command('vctitle', None, 'Səsli söhbətin başlığını dəyişdirmək üçün.')
 Help.add_command('tagvc', None, 'Qrupdaki istifadəçiləri səsli söhbətə dəvət edər.')
 Help.add_info('@TheCyberUserBot')
 Help.add()    
