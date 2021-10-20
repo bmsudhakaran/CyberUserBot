@@ -378,10 +378,7 @@ with bot:
                 basla = datetime.now()
                 son = datetime.now()
                 pin = (son - basla).microseconds / 1000
-                await tgbot.send_message(
-                    event.chat_id,
-                    f"**Ping:** `{pin}ms`",
-                )
+                await tgbot.send_message(event.chat_id, f"**Ping:** `{pin}ms`")
                                   
         @tgbot.on(InlineQuery)  
         async def inline_handler(event):
