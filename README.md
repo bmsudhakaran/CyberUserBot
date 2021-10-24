@@ -83,9 +83,16 @@ Help.add()
 ### Credits:
 
 [FaridDadashzade](https://github.com/FaridDadashzade)
+
 [WhoMiri](https://github.com/whomiri)
 
-#### Thanks to [Asena](https://github.com/yusufusta/AsenaUserBot) ❤️
+## Credit
+Thanks for;
+
+[Seden UserBot](https://github.com/TeamDerUntergang/Telegram-UserBot)
+[Userge](https://github.com/UsergeTeam/Userge)
+[Spechide](https://github.com/Spechide)
+[Asena](https://github.com/yusufusta/asenauserbot)
 
 ----
 ##### If you want to add your own language to the repo, you can help us by clicking the link: [Click here.](https://crowdin.com/project/cyberuserbot)
