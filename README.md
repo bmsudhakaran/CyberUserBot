@@ -80,7 +80,7 @@ Help.add()
 ```
 
 
-### Credits:
+## Devs:
 
 [FaridDadashzade](https://github.com/FaridDadashzade)
 
