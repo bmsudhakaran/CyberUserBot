@@ -91,7 +91,7 @@ async def _(q):
 @register(outgoing=True, pattern="^.stop$")
 async def _(q):
 	global dayandir
-	if msjcgr == None:
+	if msjcgr is None:
 		await q.edit("`Siz tag prosesini başlatmamısınız.`")
 		return
 
